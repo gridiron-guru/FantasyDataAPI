@@ -1,5 +1,9 @@
-INSTALL.txt
-LICENSE.txt
-README.txt
-demos/
-extras/documentation
+.buildpath
+.project
+/.settings
+/.idea
+/vendor
+/data/cache
+/data/vhost
+/config/autoload/*.php
+/config/autoload/*.json
