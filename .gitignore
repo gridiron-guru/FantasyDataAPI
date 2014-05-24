@@ -7,3 +7,4 @@
 /data/vhost
 /config/autoload/*.php
 /config/autoload/*.json
+dev.php
