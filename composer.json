@@ -18,7 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "FantasyDataAPI\\": "module/FantasyDataAPI/"
+            "FantasyDataAPI\\": "module/FantasyDataAPI/",
+            "FantasyDataAPI\\Test\\": "test/phpunit"
         }
     }
 }

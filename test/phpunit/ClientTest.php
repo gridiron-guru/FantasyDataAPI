@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Tests;
+namespace FantasyDataAPI\Test;
 
 use FantasyDataAPI;
 use PHPUnit_Framework_TestCase;
@@ -17,7 +17,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given a valid API key
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithApiKey()
@@ -29,7 +29,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given an empty API key
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then an InvalidArgumentException is thrown
      *
      * @expectedException InvalidArgumentException
@@ -41,7 +41,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper default key value
      */
     public function testClientApiKeySetProperly()
@@ -53,7 +53,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given an invalid Subscription value
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then an InvalidArgumentException is thrown
      *
      * @expectedException InvalidArgumentException
@@ -65,7 +65,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Free Trial
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithSubscriptionFreeTrial()
@@ -77,7 +77,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Developer
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithSubscriptionDeveloper()
@@ -89,7 +89,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Standard
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithSubscriptionStandard()
@@ -101,7 +101,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Premium
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithSubscriptionPremium()
@@ -113,7 +113,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Enterprise
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithSubscriptionEnterprise()
@@ -125,7 +125,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Enterprise
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper default Subscription value
      */
     public function testClientSubscriptionSetProperly()
@@ -137,7 +137,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given an invalid Format value
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then an InvalidArgumentException is thrown
      *
      * @expectedException InvalidArgumentException
@@ -149,7 +149,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription, and a Valid Format of JSON
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithFormatJSON()
@@ -161,7 +161,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription, and a Valid Format of XML
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned
      */
     public function testClientCreatedWithFormatXML()
@@ -173,7 +173,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key and Valid Subscription of Enterprise
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper default key value
      */
     public function testClientFormatSetProperly()
@@ -185,7 +185,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper default Subscription of Developer
      */
     public function testClientDefaultSubscription()
@@ -197,7 +197,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper default Format of JSON
      */
     public function testClientDefaultFormat()
@@ -209,7 +209,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given a valid API key
-     * When a new FantasyDataAPI Client is created
+     * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper Service Description and Base URL Host
      */
     public function testClientServiceDescriptionBaseUrlValue()

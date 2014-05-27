@@ -6,11 +6,11 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Tests\Integration;
+namespace FantasyDataAPI\Test\Integration;
 
 use PHPUnit_Framework_TestCase;
 
-class AreAnyGamesInProgressTest extends PHPUnit_Framework_TestCase
+class TeamSeasonStatsTest extends PHPUnit_Framework_TestCase
 {
     public function testCanBeNegated()
     {

@@ -12,15 +12,12 @@ use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Command\Guzzle\Description;
 use InvalidArgumentException;
 use FantasyDataAPI\Enum;
-use GuzzleHttp\Subscriber\History;
 
 /**
  * Web service client for FantasyDataAPI
  */
 class Client extends GuzzleClient
 {
-    public $mHistory;
-
     /**
      * @param string $pApiKey
      * @param \GuzzleHttp\Command\Guzzle\Description|string $pSubscription
@@ -48,13 +45,7 @@ class Client extends GuzzleClient
         $service_config = require 'Resources/fantasy_data_api.php';
         $description = new Description($service_config);
 
-        $client = new HttpClient();
-
-        /**
-         * Only uncomment the subscriber history for building Mocks.
-         */
-        // $this->mHistory = new History();
-        // $client->getEmitter()->attach($this->mHistory);
+        $client = $this->CreateHttpClient();
 
         parent::__construct($client, $description);
 
@@ -63,4 +54,13 @@ class Client extends GuzzleClient
         $this->setConfig('defaults/key', $pApiKey);
     }
 
+    /**
+     * @param array $pOptions
+     *
+     * @return HttpClient
+     */
+    protected function CreateHttpClient($pOptions=[])
+    {
+        return new HttpClient($pOptions);
+    }
 }

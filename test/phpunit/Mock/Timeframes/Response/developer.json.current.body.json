@@ -1,0 +1,20 @@
+[
+    {
+        "EndDate": "\/Date(1403409599000-0400)\/",
+        "FirstGameEnd": "\/Date(1403409599000-0400)\/",
+        "FirstGameStart": "\/Date(1397448000000-0400)\/",
+        "HasEnded": false,
+        "HasFirstGameEnded": false,
+        "HasFirstGameStarted": true,
+        "HasGames": false,
+        "HasLastGameEnded": false,
+        "HasStarted": true,
+        "LastGameEnd": "\/Date(1403409599000-0400)\/",
+        "Name": "2013 NFL Draft",
+        "Season": 2014,
+        "SeasonType": 4,
+        "ShortName": "NFL Draft",
+        "StartDate": "\/Date(1397448000000-0400)\/",
+        "Week": null
+    }
+]
