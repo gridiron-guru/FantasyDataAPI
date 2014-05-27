@@ -7,7 +7,7 @@
  */
 namespace FantasyDataAPI\Test\Mock;
 
-use FantasyDataAPI\SubscriberHistoryClient;
+use FantasyDataAPI\Test\DebugClient;
 use GuzzleHttp\Adapter\MockAdapter;
 use GuzzleHttp\Adapter\TransactionInterface;
 use GuzzleHttp\Message\Response;
@@ -21,10 +21,10 @@ use GuzzleHttp\Stream;
  * a call is made to retrieve Timeframes.php it will respond from the Mock instead
  * of the live service.
  */
-abstract class Client extends SubscriberHistoryClient
+abstract class Client extends DebugClient
 {
     const KEY_HEADER_PATH = 'header_path';
-    const KEY_BODY_PATH = 'header_path';
+    const KEY_BODY_PATH = 'body_path';
 
     /**
      * @param array $pOptions

@@ -44,4 +44,4 @@ class MockClient extends Mock\Client
 
         return $result;
     }
-} 
+}

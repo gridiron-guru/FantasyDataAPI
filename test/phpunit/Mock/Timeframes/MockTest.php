@@ -55,13 +55,13 @@ class MockTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('200', $response->getStatusCode());
 
+//        print_r($result);
+
         /** we only expect a single response from 'current' */
         $this->assertCount( 1, $result );
 
         /** test the contents of the response to make sure it has what we expect */
         $current = $result->toArray()[0];
-
-        print_r($result);
 
         /** we expect 16 keys */
         $this->assertCount( 16, $current );
