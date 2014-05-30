@@ -12,9 +12,14 @@ use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Command\Guzzle\Description;
 use InvalidArgumentException;
 use FantasyDataAPI\Enum;
+use GuzzleHttp\Command;
 
 /**
  * Web service client for FantasyDataAPI
+ *
+ * @method Command\Model AreAnyGamesInProgress() AreAnyGamesInProgress( array $pOptions )
+ * @method Command\Model TeamSeasonStats() TeamSeasonStats( array $pOptions )
+ * @method Command\Model Timeframes() Timeframes( array $pOptions )
  */
 class Client extends GuzzleClient
 {

@@ -8,4 +8,4 @@
 /config/autoload/*.php
 /config/autoload/*.json
 test/phpunit/config.php
-dev.php
+

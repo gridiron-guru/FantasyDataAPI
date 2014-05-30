@@ -24,7 +24,7 @@ class Type
         $valid[] = static::KEY_UPCOMING;
         $valid[] = static::KEY_COMPLETED;
         $valid[] = static::KEY_RECENT;
-        $valid[] = static::KEY_ENTERPRISE;
+        $valid[] = static::KEY_ALL;
 
         $is_valid = in_array($pType, $valid) ? true : false;
 
