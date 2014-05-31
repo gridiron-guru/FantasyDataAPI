@@ -1,4 +1,4 @@
-# FantasyDataAPI, PHP Client wrapper for the Fantasy Football API powered by FantasyData
+# FantasyDataAPI PHP Client wrapper
 [![Build Status](https://api.travis-ci.org/gridiron-guru/FantasyDataAPI.png)](http://travis-ci.org/gridiron-guru/FantasyDataAPI)
 
 PHP Client Wrapper for FantasyData, a Real time fantasy football data API providing feeds for your website or mobile app.
@@ -35,7 +35,7 @@ To do so, add lines similar to the following to your project's composer.json fil
 ```
 
 ## Travis CI
-This project uses Travis CI for build and CI.
+This project uses [Travis CI](https://travis-ci.org/gridiron-guru/FantasyDataAPI) for build and CI.
 
 The same environment variables above are already encrypted in the travis.yml file for the project. The values in source
 control are for accessing the project owner's FantasyDataAPI api key. This allows the Travis CI system to run
