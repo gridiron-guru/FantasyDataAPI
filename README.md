@@ -1,7 +1,17 @@
 # FantasyDataAPI PHP Client wrapper
 [![Build Status](https://api.travis-ci.org/gridiron-guru/FantasyDataAPI.png)](http://travis-ci.org/gridiron-guru/FantasyDataAPI)
 
-PHP Client Wrapper for FantasyData, a Real time fantasy football data API providing feeds for your website or mobile app.
+PHP Client Wrapper for FantasyData, a Real time fantasy football data API providing feeds for your website
+or mobile app. Since our organization needed to build a client wrapper for the service so that we could use
+it for ourselves, we decided to work with the folks at FantasyData to create an Open Source version of our
+client library so that anyone using their service can benefit from it. If you're a customer of FantasyData
+and are interested in contributing back to this project, feel free to read the
+[Contributing Documentation]((doc/CONTRIBUTING.md), we'd love to have you.
+
+In the future, we'll also be adding related libraries as well. As we do, they'll be referenced here.
+
+If you're interested in seeing what we do with the service, or you're just interested in Fantasy Football
+in general, please check out our site, [Gridiron Guru](http://www.gridiron-guru.com).
 
 ## Requirements
 This module requires the use of Composer, you will find additional software requirements in the packaged composer.json file.
@@ -41,6 +51,12 @@ The same environment variables above are already encrypted in the travis.yml fil
 control are for accessing the project owner's FantasyDataAPI api key. This allows the Travis CI system to run
 integration tests. If you wish to fork this repo and run your own TravisCI builds, then you will need to regenerate
 the encrypted values.
+
+## Open Source
+This project is built on top of a number of open source projects, but I wanted to specifically call out
+and thank the [Guzzle](https://github.com/guzzle/guzzle) project. Guzzle is a PHP HTTP client and
+webservice framework for building RESTful web service clients. I first discovered Guzzle at
+[php[tek]](http://tek.phparch.com), a PHP conference run by the folks at [php[architect]](http://www.phparch.com).
 
 ## Documentation
 All documentation can be found in the [doc](doc) folder.
