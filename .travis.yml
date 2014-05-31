@@ -1,0 +1,15 @@
+language: php
+php:
+- 5.5
+- 5.4
+install:
+- composer install
+env:
+  global:
+  - secure: SP+1WeLthjpSApsIrIDwTdpRS16jp62LN26EXubCAt/dW4mpDbJuJlOtNmEAcDXb3fF4TFWbtuhDdEDjRUcdAT9p9WFL8kgsWikbIhq3QUSfcSWRYzuXHEs/2L3kI51NgY9JgUunw1iIdoYgR1aouvO9PW+NPdJlQTbPzn8rElo=
+  - secure: OPWWmdW2JZPdmcQe/IZo/MFElh/1UrfLeRwqHP/nVTIAWjHIDAJLOQZUGLMd+OJi8n41m5PYg7aSavhxDjVdyplsTYWDmiuZfBR3P7ce1rGyuXmi86LfqVld8z+H/IqLAmFeNotdBChMTfod7CzcJyL4SPp9o9rZqbIPyY7h2Jg=
+script:
+- phpunit --bootstrap test/phpunit/bootstrap.php test/phpunit/
+notifications:
+  hipchat:
+    secure: CNy5IJiW02B+GGVN+RRSUUjkJi85zVMDoqcnf4iGkq0r/EruC+CHjs1BrB73WkdhKEawYdop4iTyyHkEnNqSL3RTL8v+t+mv7MbG1bR+3A4qGeRVEMgVtX17uua4Ecow2sqoSrJJB+kkl+oBF4juQgYgh8lkBN0Rlzj8LUwKa0M=

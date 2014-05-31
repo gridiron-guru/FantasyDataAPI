@@ -1,0 +1,20 @@
+[
+    {
+        "EndDate": "\/Date(1397447999000-0400)\/",
+        "FirstGameEnd": "\/Date(1397447999000-0400)\/",
+        "FirstGameStart": "\/Date(1394568000000-0400)\/",
+        "HasEnded": true,
+        "HasFirstGameEnded": true,
+        "HasFirstGameStarted": true,
+        "HasGames": false,
+        "HasLastGameEnded": true,
+        "HasStarted": true,
+        "LastGameEnd": "\/Date(1397447999000-0400)\/",
+        "Name": "Free Agency",
+        "Season": 2014,
+        "SeasonType": 4,
+        "ShortName": "Free Agency",
+        "StartDate": "\/Date(1394568000000-0400)\/",
+        "Week": null
+    }
+]
