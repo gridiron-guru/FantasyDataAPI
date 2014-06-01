@@ -59,7 +59,7 @@ $resources['operations']['TeamSeasonStats'] = [
     'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
-        'Format' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
         'key' => [ 'type' => 'string', 'location' => 'query' ],
         'Season' => [
             'required' => true,
@@ -104,7 +104,7 @@ $resources['operations']['Timeframes'] = [
     'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
-        'Format' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
         'key' => [ 'type' => 'string', 'location' => 'query' ],
         'Type' => [
             'required' => true,
