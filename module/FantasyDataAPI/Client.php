@@ -26,11 +26,10 @@ class Client extends GuzzleClient
     /**
      * @param string $pApiKey
      * @param \GuzzleHttp\Command\Guzzle\Description|string $pSubscription
-     * @param array|string $pFormat
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($pApiKey, $pSubscription = Enum\Subscription::KEY_DEVELOPER, $pFormat = Enum\Format::KEY_JSON)
+    public function __construct($pApiKey, $pSubscription = Enum\Subscription::KEY_DEVELOPER)
     {
         if ( empty( $pApiKey ) )
         {
@@ -42,11 +41,6 @@ class Client extends GuzzleClient
             throw new InvalidArgumentException("Subscription provided '$pSubscription' is invalid.");
         }
 
-        if (false === Enum\Format::IsValid($pFormat))
-        {
-            throw new InvalidArgumentException("Format provided '$pFormat' is invalid.");
-        }
-
         $service_config = require 'Resources/fantasy_data_api.php';
         $description = new Description($service_config);
 
@@ -54,7 +48,6 @@ class Client extends GuzzleClient
 
         parent::__construct($client, $description);
 
-        $this->setConfig('defaults/Format', $pFormat);
         $this->setConfig('defaults/Subscription', $pSubscription);
         $this->setConfig('defaults/key', $pApiKey);
     }

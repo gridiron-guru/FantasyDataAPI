@@ -136,54 +136,6 @@ class ClientTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Given an invalid Format value
-     * When a new FantasyDataAPI Service is created
-     * Then an InvalidArgumentException is thrown
-     *
-     * @expectedException InvalidArgumentException
-     */
-    public function testClientCreatedWithInvalidFormat()
-    {
-        new FantasyDataAPI\Client('000aaaa0-a00a-0000-0a0a-aa0a00000000', Enum\Subscription::KEY_FREE_TRIAL, 'bob');
-    }
-
-    /**
-     * Given a valid API key and Valid Subscription, and a Valid Format of JSON
-     * When a new FantasyDataAPI Service is created
-     * Then a FantasyDataAPI client is returned
-     */
-    public function testClientCreatedWithFormatJSON()
-    {
-        $client = new FantasyDataAPI\Client('000aaaa0-a00a-0000-0a0a-aa0a00000000', Enum\Subscription::KEY_ENTERPRISE, Enum\Format::KEY_JSON);
-
-        $this->assertInstanceOf( 'FantasyDataAPI\Client', $client );
-    }
-
-    /**
-     * Given a valid API key and Valid Subscription, and a Valid Format of XML
-     * When a new FantasyDataAPI Service is created
-     * Then a FantasyDataAPI client is returned
-     */
-    public function testClientCreatedWithFormatXML()
-    {
-        $client = new FantasyDataAPI\Client('000aaaa0-a00a-0000-0a0a-aa0a00000000', Enum\Subscription::KEY_ENTERPRISE, Enum\Format::KEY_XML);
-
-        $this->assertInstanceOf( 'FantasyDataAPI\Client', $client );
-    }
-
-    /**
-     * Given a valid API key and Valid Subscription of Enterprise
-     * When a new FantasyDataAPI Service is created
-     * Then a FantasyDataAPI client is returned with the proper default key value
-     */
-    public function testClientFormatSetProperly()
-    {
-        $client = new FantasyDataAPI\Client('000aaaa0-a00a-0000-0a0a-aa0a00000000', Enum\Subscription::KEY_ENTERPRISE, Enum\Format::KEY_XML);
-
-        $this->assertEquals( Enum\Format::KEY_XML, $client->getConfig('defaults/Format') );
-    }
-
-    /**
      * Given a valid API key
      * When a new FantasyDataAPI Service is created
      * Then a FantasyDataAPI client is returned with the proper default Subscription of Developer
@@ -193,18 +145,6 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $client = new FantasyDataAPI\Client('000aaaa0-a00a-0000-0a0a-aa0a00000000');
 
         $this->assertEquals( Enum\Subscription::KEY_DEVELOPER, $client->getConfig('defaults/Subscription') );
-    }
-
-    /**
-     * Given a valid API key
-     * When a new FantasyDataAPI Service is created
-     * Then a FantasyDataAPI client is returned with the proper default Format of JSON
-     */
-    public function testClientDefaultFormat()
-    {
-        $client = new FantasyDataAPI\Client('000aaaa0-a00a-0000-0a0a-aa0a00000000');
-
-        $this->assertEquals( Enum\Format::KEY_JSON, $client->getConfig('defaults/Format') );
     }
 
     /**
