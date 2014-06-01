@@ -10,9 +10,7 @@ namespace FantasyDataAPI\Test\Mock;
 use FantasyDataAPI\Test\DebugClient;
 use GuzzleHttp\Adapter\MockAdapter;
 use GuzzleHttp\Adapter\TransactionInterface;
-use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Stream;
 
 /**
  * @package FantasyDataAPI\Mock
@@ -21,7 +19,7 @@ use GuzzleHttp\Stream;
  * a call is made to retrieve Timeframes.php it will respond from the Mock instead
  * of the live service.
  */
-abstract class Client extends DebugClient
+class Client extends DebugClient
 {
     const KEY_HEADER_PATH = 'header_path';
     const KEY_BODY_PATH = 'body_path';
@@ -38,33 +36,9 @@ abstract class Client extends DebugClient
          * better way, please issue a pull request or drop me a message. @oakensoul
          */
         $mockAdapter = new MockAdapter(function (TransactionInterface $trans) {
-            // You have access to the request
-            $request = $trans->getRequest();
-
-            $path = $this->GetFilePaths($request);
-
-            $headers = include($path[static::KEY_HEADER_PATH]);
-            $response_code = explode(' ', $headers[0])[1];;
-
-            $mocked_response = file_get_contents($path[static::KEY_BODY_PATH]);
-            $stream = Stream\Stream::factory($mocked_response);
-
-            return new Response($response_code, $headers, $stream);
+            return ResponseFactory::GetResponse( $trans );
         });
 
         return parent::CreateHttpClient(['adapter' => $mockAdapter]);
     }
-
-    /**
-     * This method is responsible for parsing out Resource specific details
-     * from the GuzzleHttp\Command\Request object so that we can determine
-     * which Mock files to load up inside the MockAdapter's anon function
-     *
-     * This method is called from the MockClient CreateHttpClient method
-     *
-     * @param RequestInterface $pRequest
-     *
-     * @return array
-     */
-    abstract protected function GetFilePaths( RequestInterface $pRequest );
-} 
+}
