@@ -73,6 +73,28 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for AreAnyGamesInProgress
+     * Then: Expect that the xml format is placed in the URI
+     */
+    public function testFormatInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->AreAnyGamesInProgress([]);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 4 should be the "format" based on URL structure */
+        $this->assertArrayHasKey(4, $pieces);
+        $this->assertEquals( $pieces[4], 'xml');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for AreAnyGamesInProgress
      * Then: Expect that the AreAnyGamesInProgress resource is placed in the URI
      */
     public function testResourceInURI()
@@ -80,7 +102,7 @@ class MockTest extends PHPUnit_Framework_TestCase
         $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        $result = $client->AreAnyGamesInProgress([]);
+        $client->AreAnyGamesInProgress([]);
 
         $response = $client->mHistory->getLastResponse();
         $effective_url = $response->getEffectiveUrl();
