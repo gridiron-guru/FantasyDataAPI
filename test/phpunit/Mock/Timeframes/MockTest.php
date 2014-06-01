@@ -12,6 +12,8 @@ use FantasyDataAPI\Enum\Format;
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
+use FantasyDataAPI\Test\Mock\Client;
+
 use FantasyDataAPI\Enum\Timeframes\Type;
 use FantasyDataAPI\Enum\Timeframes\Property;
 
@@ -27,7 +29,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testAPIKeyParameter()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 //         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
 
         /** \GuzzleHttp\Command\Model */
@@ -57,7 +59,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testSubscriptionInURI()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         $client->Timeframes(['Type' => Type::KEY_CURRENT]);
@@ -79,7 +81,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatInURI()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_JSON);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_JSON);
 
         /** \GuzzleHttp\Command\Model */
         $client->Timeframes(['Type' => Type::KEY_CURRENT]);
@@ -101,7 +103,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_JSON);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_JSON);
 
         /** \GuzzleHttp\Command\Model */
         $client->Timeframes(['Type' => Type::KEY_CURRENT]);
@@ -123,7 +125,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testCurrentTimeframeSuccessfulResponse()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Type::KEY_CURRENT]);
@@ -167,7 +169,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testCompletedTimeframeSuccessfulResponse()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Type::KEY_COMPLETED]);
@@ -211,7 +213,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testUpcomingTimeframeSuccessfulResponse()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Type::KEY_UPCOMING]);
@@ -255,7 +257,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testRecentTimeframeSuccessfulResponse()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Type::KEY_RECENT]);
@@ -300,7 +302,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testAllTimeframeSuccessfulResponse()
     {
-        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Type::KEY_ALL]);
