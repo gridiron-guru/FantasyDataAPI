@@ -10,17 +10,51 @@ namespace FantasyDataAPI\Test\Integration;
 
 use PHPUnit_Framework_TestCase;
 
+use FantasyDataAPI\Enum\Timeframes;
+use FantasyDataAPI\Test\DebugClient;
+use FantasyDataAPI\Enum\Subscription;
+use FantasyDataAPI\Enum\Format;
+
 class AreAnyGamesInProgressTest extends PHPUnit_Framework_TestCase
 {
-    public function testCanBeNegated()
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for AreAnyGamesInProgress
+     * Then: Expect a 200 response with an array of 1 entry, that entry containing 16 keys
+     */
+    public function testAreAnyGamesInProgressSuccessfulResponse()
     {
-        // Arrange
-//        $a = new Money(1);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
 
-        // Act
-//        $b = $a->negate();
+        /** @var \GuzzleHttp\Command\Model $result */
+        $result = $client->AreAnyGamesInProgress([]);
 
-        // Assert
-        $this->assertEquals(1, true);
+        $response = $client->mHistory->getLastResponse();
+
+        $this->assertEquals('200', $response->getStatusCode());
+
+        /** we only expect a single response from 'current' */
+        $this->assertCount( 1, $result );
+
+        /** test the contents of the response to make sure it has what we expect */
+        $answer = $result->toArray()[0];
+
+        $this->assertContains($answer, ["true", "false"]);
+    }
+
+    /**
+     * Given: An invalid developer API key
+     * When: API is queried for AreAnyGamesInProgress
+     * Then: Expect a 401 response in the form of a Guzzle CommandClientException
+     *
+     * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
+     */
+    public function testAreAnyGamesInProgressInvalidAPIKey()
+    {
+        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+
+        /** @var \GuzzleHttp\Command\Model $result */
+        $client->Timeframes(['Type' => 'current']);
     }
 }

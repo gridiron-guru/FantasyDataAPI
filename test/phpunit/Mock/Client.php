@@ -21,8 +21,6 @@ use GuzzleHttp\Message\RequestInterface;
  */
 class Client extends DebugClient
 {
-    const KEY_HEADER_PATH = 'header_path';
-    const KEY_BODY_PATH = 'body_path';
 
     /**
      * @param array $pOptions

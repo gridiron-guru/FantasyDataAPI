@@ -25,7 +25,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/Timeframes/current?key=093adab5-d62b-4342-9b0b-cd0b08948110
+     *   http://api.nfldata.apiphany.com/developer/json/Timeframes/current?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public function testAPIKeyParameter()
     {

@@ -18,10 +18,10 @@ $resources['baseUrl'] = 'http://api.nfldata.apiphany.com/{Subscription}/{Format}
 $resources['operations']['AreAnyGamesInProgress'] = [
     'httpMethod' => 'GET',
     'uri' => 'AreAnyGamesInProgress',
-    'responseModel' => 'Resource',
+    'responseModel' => 'XML_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
-        'Format' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
         'key' => [ 'type' => 'string', 'location' => 'query' ]
     ]
 ];
@@ -114,7 +114,6 @@ $resources['operations']['Timeframes'] = [
     ]
 ];
 
-
 //Get Final Box Scores
 //Get Active Box Scores
 //Get Box Scores for Season for Week
@@ -124,12 +123,24 @@ $resources['operations']['Timeframes'] = [
 //Get Projected Players Game Stats by Season, Week and Team
 
 
-
+/**
+ * These models are used by Guzzle to determine how to return the result
+ * from any given call.
+ *
+ * The additionalProperties['location'] tells the guzzle response model
+ * where to look for the response data and how to parse it.
+ */
 $resources['models'] = [
     'Resource' => [
         'type' => 'object',
         'additionalProperties' => [
             'location' => 'json'
+        ]
+    ],
+    'XML_Resource' => [
+        'type' => 'object',
+        'additionalProperties' => [
+            'location' => 'xml'
         ]
     ]
 ];
