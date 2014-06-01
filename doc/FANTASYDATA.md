@@ -42,7 +42,7 @@ If you wish to look through all of the documentation for the service, visit the
 * [Timeframes](CLIENTS.md#timeframes)
 * ... more to come as implemented!
 
-## <a name="enums">Enums
+## <a name="enums"></a>Enums
 This library contains a collection of ENUM classes that definte PHP Class constants for
 accessing the results returned from the various service resources.
 
@@ -64,7 +64,7 @@ on the FantasyData site in their [Data Dictionary](http://fantasydata.com/resour
 The dictionary not only contains the keys to the various data elements, but also a
 description of what those elements are, which can be quite handy.
 
-## <a name="support">Support & FAQ
+## <a name="support"></a>Support & FAQ
 
 https://developer.fantasydata.com/issues
 http://fantasydata.com/resources/faq.aspx
