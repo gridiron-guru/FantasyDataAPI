@@ -6,7 +6,7 @@ or mobile app. Since our organization needed to build a client wrapper for the s
 it for ourselves, we decided to work with the folks at FantasyData to create an Open Source version of our
 client library so that anyone using their service can benefit from it. If you're a customer of FantasyData
 and are interested in contributing back to this project, feel free to read the
-[Contributing Documentation]((doc/CONTRIBUTING.md), we'd love to have you.
+[Contributing Documentation](doc/CONTRIBUTING.md), we'd love to have you.
 
 In the future, we'll also be adding related libraries as well. As we do, they'll be referenced here.
 
