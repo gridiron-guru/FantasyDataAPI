@@ -94,7 +94,7 @@ $resources['operations']['TeamSeasonStats'] = [
 
 /**
  * Action: Get Timeframes
- * Resource: TeamSeasonStats
+ * Resource: Timeframes
  *
  * http://api.nfldata.apiphany.com/{subscription}/{format}/Timeframes.php/{Type}?key=<Your_developer_key>
  */
