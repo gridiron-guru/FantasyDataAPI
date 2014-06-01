@@ -91,6 +91,47 @@ For more information, see the [Developer Documentation](https://developer.fantas
   <boolean xmlns="http://schemas.microsoft.com/2003/10/Serialization/">false</boolean>
 ```
 
+### Get Teams for Season
+**Description:** List of teams playing in a specified season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1119).
+
+#### Action
+> Get Teams for Season
+
+#### Resource Name
+> Teams
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Teams(['Season' => '2014REG']);
+```
+
+###### Example JSON response
+```json
+[
+  {
+    "City":"Arizona",
+    "Conference":"NFC",
+    "Division":"West",
+    "FullName":"Arizona Cardinals",
+    "Key":"ARI",
+    "Name":"Cardinals",
+    "StadiumDetails":{
+      "Capacity":63400,
+      "City":"Glendale",
+      "Country":"USA",
+      "Name":"University of Phoenix Stadium",
+      "PlayingSurface":"Dome",
+      "StadiumID":29,
+      "State":"AZ"
+    },
+    "StadiumID":29
+  }
+]
+```
+
 ### <a name="timeframes"></a>Get Timeframes
 **Description:** Retrieve detailed information about past, present, and future
 timeframes. A timeframe is a representation of the state of the NFL for the
