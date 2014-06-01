@@ -56,7 +56,7 @@ $resources['operations']['AreAnyGamesInProgress'] = [
 $resources['operations']['TeamSeasonStats'] = [
     'httpMethod' => 'GET',
     'uri' => 'TeamSeasonStats/{Season}',
-    'responseModel' => 'Resource',
+    'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
         'Format' => [ 'type' => 'string', 'location' => 'uri' ],
@@ -101,7 +101,7 @@ $resources['operations']['TeamSeasonStats'] = [
 $resources['operations']['Timeframes'] = [
     'httpMethod' => 'GET',
     'uri' => 'Timeframes/{Type}',
-    'responseModel' => 'Resource',
+    'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
         'Format' => [ 'type' => 'string', 'location' => 'uri' ],
@@ -131,7 +131,7 @@ $resources['operations']['Timeframes'] = [
  * where to look for the response data and how to parse it.
  */
 $resources['models'] = [
-    'Resource' => [
+    'JSON_Resource' => [
         'type' => 'object',
         'additionalProperties' => [
             'location' => 'json'
