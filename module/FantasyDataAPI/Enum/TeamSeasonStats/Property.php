@@ -8,12 +8,8 @@
 
 namespace FantasyDataAPI\Enum\TeamSeasonStats;
 
-
 class Property
 {
-    const KEY_TEAM = 'Team';
-    const KEY_SEASON = 'Season';
-    const KEY_TEAM_NAME = 'TeamName';
     const KEY_ASSISTED_TACKLES = 'AssistedTackles';
     const KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS = 'BlockedKickReturnTouchdowns';
     const KEY_BLOCKED_KICK_RETURN_YARDS = 'BlockedKickReturnYards';
@@ -44,6 +40,7 @@ class Property
     const KEY_FUMBLES_FORCED = 'FumblesForced';
     const KEY_FUMBLES_LOST = 'FumblesLost';
     const KEY_FUMBLES_RECOVERED = 'FumblesRecovered';
+    const KEY_GAMES = 'Games';
     const KEY_GIVEAWAYS = 'Giveaways';
     const KEY_GOAL_TO_GO_ATTEMPTS = 'GoalToGoAttempts';
     const KEY_GOAL_TO_GO_CONVERSIONS = 'GoalToGoConversions';
@@ -211,11 +208,16 @@ class Property
     const KEY_SCORE_QUARTER_2 = 'ScoreQuarter2';
     const KEY_SCORE_QUARTER_3 = 'ScoreQuarter3';
     const KEY_SCORE_QUARTER_4 = 'ScoreQuarter4';
+    const KEY_SEASON = 'Season';
+    const KEY_SEASON_TYPE = 'SeasonType';
     const KEY_SOLO_TACKLES = 'SoloTackles';
     const KEY_TACKLES_FOR_LOSS = 'TacklesForLoss';
     const KEY_TACKELS_FOR_LOSS_DIFFERENTIAL = 'TacklesForLossDifferential';
     const KEY_TACKLES_FOR_LOSS_PERCENTAGE = 'TacklesForLossPercentage';
     const KEY_TAKEAWAYS = 'Takeaways';
+    const KEY_TEAM = 'Team';
+    const KEY_TEAM_NAME = 'TeamName';
+    const KEY_TEAM_SEASON_ID = 'TeamSeasonID';
     const KEY_TEMPERATURE = 'Temperature';
     const KEY_THIRD_DOWN_ATTEMPTS = 'ThirdDownAttempts';
     const KEY_THIRD_DOWN_CONVERSIONS = 'ThirdDownConversions';
@@ -228,5 +230,4 @@ class Property
     const KEY_TOUCHDOWNS = 'Touchdowns';
     const KEY_TURNOVER_DIFFERENTIAL = 'TurnoverDifferential';
     const KEY_WIND_SPEED = 'WindSpeed';
-    const KEY_GAMES = 'Games';
 }
