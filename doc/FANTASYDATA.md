@@ -41,6 +41,7 @@ If you wish to look through all of the documentation for the service, visit the
 
 * [AreAnyGamesInProgress](CLIENTS.md#check-if-games-in-progress)
 * [Teams](CLIENTS.md#get-teams-for-season)
+* [Schedules](CLIENTS.md#get-schedules-for-season)
 * [TeamSeasonStats](CLIENTS.md#get-team-stats-for-season)
 * [Timeframes](CLIENTS.md#timeframes)
 * ... more to come as implemented!
@@ -51,6 +52,8 @@ accessing the results returned from the various service resources.
 
 Below is a list of the Service Enums that have been added to the library.
 
+* Schedule Resource
+    * [Schedule Property List](/module/FantasyDataAPI/Enum/Schedule/Property.php)
 * Stadium Resource
     * [Stadium Property List](/module/FantasyDataAPI/Enum/Stadium/Property.php)
 * Team Resource

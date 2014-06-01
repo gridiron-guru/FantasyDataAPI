@@ -49,6 +49,30 @@ $resources['operations']['Teams'] = [
 ];
 
 /**
+ * Action: Get Schedules for Season
+ * Resource: Schedules
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Schedules/{season}?key=<Your_developer_key>
+ */
+$resources['operations']['Schedules'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Schedules/{Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+
+
+/**
  * Action:
  * Resource:
  *
