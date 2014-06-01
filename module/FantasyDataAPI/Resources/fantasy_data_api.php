@@ -26,6 +26,27 @@ $resources['operations']['AreAnyGamesInProgress'] = [
     ]
 ];
 
+/**
+ * Action: Get Teams for Season
+ * Resource: Teams
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Teams/{season}?key=<Your_developer_key>
+ */
+$resources['operations']['Teams'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Teams/{Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
 
 /**
  * Action:
@@ -34,13 +55,13 @@ $resources['operations']['AreAnyGamesInProgress'] = [
  * http://api.nfldata.apiphany.com/{subscription}/{format}/ ???? ?key=<Your_developer_key>
  */
 
-//Get Last Completed Season
-//Get Current Season
-//Get Upcoming Season
-//Get Last Completed Week
-//Get Current Week
-//Get Upcoming Week
-//Get Teams for Season
+// deprecated -- Get Last Completed Season
+// deprecated -- Get Current Season
+// deprecated -- Get Upcoming Season
+// deprecated -- Get Last Completed Week
+// deprecated -- Get Current Week
+// deprecated -- Get Upcoming Week
+
 //Get Schedules for Season
 //Get Bye Week for Season
 //Get Game Scores for Season
