@@ -34,12 +34,16 @@ class ResponseFactory
 
         switch ( $resource )
         {
-            case 'Timeframes':
-                $response = new Timeframes\MockResponse( $request );
-                break;
-
             case 'AreAnyGamesInProgress':
                 $response = new AreAnyGamesInProgress\MockResponse( $request );
+                break;
+
+            case 'Teams':
+                $response = new Teams\MockResponse( $request );
+                break;
+
+            case 'Timeframes':
+                $response = new Timeframes\MockResponse( $request );
                 break;
 
             default:
