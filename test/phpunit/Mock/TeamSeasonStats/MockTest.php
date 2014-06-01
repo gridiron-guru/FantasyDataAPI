@@ -6,27 +6,127 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\Mock\TeamSeasonStats;
 
+use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
-use FantasyDataAPI\Test\DebugClient;
-use FantasyDataAPI\Enum\Subscription;
+use FantasyDataAPI\Test\Mock\Client;
+
 use FantasyDataAPI\Enum\TeamSeasonStats;
 
-class TeamSeasonStatsTest extends PHPUnit_Framework_TestCase
+class MockTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given: A developer API key
-     * When: API is queried for 2013 TeamSeasonStats
-     * Then: Expect a 200 response with an array of entries that each contain TeamSeasonStats
+     * When: API is queried for current Timeframe
+     * Then: Expect that the api key is placed in the URL as expected by the service
+     *
+     * Expect a service URL something like this:
+     *   http://api.nfldata.apiphany.com/developer/json/Teams/current?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
-    public function test2013TeamSeasonStatsSuccessfulResponse()
+    public function testAPIKeyParameter()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+//         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
+
+        /** \GuzzleHttp\Command\Model */
+        $client->TeamSeasonStats(['Season' => '2013REG']);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $matches = [];
+
+        /**
+         * not the most elegant way to test for the query parameter, but it's not real easy
+         * to get at them with the method i'm using. Not sure if there's a better method or
+         * not. If you happen to look at this and know a better way to get query params etc.
+         * from Guzzle, let me know.
+         */
+        $pattern = '/key=' . $_SERVER['FANTASY_DATA_API_KEY'] . '/';
+        preg_match($pattern, $effective_url, $matches);
+
+        $this->assertNotEmpty($matches);
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for current Timeframe
+     * Then: Expect that the proper subscription type is placed in the URI
+     */
+    public function testSubscriptionInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->TeamSeasonStats(['Season' => '2013REG']);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 3 should be the "subscription type" based on URL structure */
+        $this->assertArrayHasKey(3, $pieces);
+        $this->assertEquals( $pieces[3], Subscription::KEY_DEVELOPER);
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for current Timeframe
+     * Then: Expect that the json format is placed in the URI
+     */
+    public function testFormatInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->TeamSeasonStats(['Season' => '2013REG']);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 4 should be the "format" based on URL structure */
+        $this->assertArrayHasKey(4, $pieces);
+        $this->assertEquals( $pieces[4], 'json');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for current Timeframe
+     * Then: Expect that the Timeframe resource is placed in the URI
+     */
+    public function testResourceInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->TeamSeasonStats(['Season' => '2013REG']);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 5 should be the "resource" based on URL structure */
+        $this->assertArrayHasKey(5, $pieces);
+        $this->assertEquals( $pieces[5], 'TeamSeasonStats');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for 2014 Teams
+     * Then: Expect a 200 response with an array of teams, each containing a stadium
+     */
+    public function test2013REGTeamSeasonStatsSuccessfulResponse()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->TeamSeasonStats(['Season' => '2013']);
+        $result = $client->TeamSeasonStats(['Season' => '2013REG']);
 
         $response = $client->mHistory->getLastResponse();
 
@@ -279,18 +379,4 @@ class TeamSeasonStatsTest extends PHPUnit_Framework_TestCase
         array_walk( $stats, $check_team_season_stats_keys );
     }
 
-    /**
-     * Given: An invalid developer API key
-     * When: API is queried for 2013 TeamSeasonStats
-     * Then: Expect a 401 response in the form of a Guzzle CommandClientException
-     *
-     * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
-     */
-    public function test2014TeamsInvalidAPIKey()
-    {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
-
-        /** @var \GuzzleHttp\Command\Model $result */
-        $client->TeamSeasonStats(['Season' => '2013']);
-    }
 }

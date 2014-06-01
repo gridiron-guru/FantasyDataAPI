@@ -86,11 +86,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->AreAnyGamesInProgress([]);
 ```
 
-###### Example XML response
-```xml
-  <boolean xmlns="http://schemas.microsoft.com/2003/10/Serialization/">false</boolean>
-```
-
 ### Get Teams for Season
 **Description:** List of teams playing in a specified season.
 
@@ -108,28 +103,21 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->Teams(['Season' => '2014REG']);
 ```
 
-###### Example JSON response
-```json
-[
-  {
-    "City":"Arizona",
-    "Conference":"NFC",
-    "Division":"West",
-    "FullName":"Arizona Cardinals",
-    "Key":"ARI",
-    "Name":"Cardinals",
-    "StadiumDetails":{
-      "Capacity":63400,
-      "City":"Glendale",
-      "Country":"USA",
-      "Name":"University of Phoenix Stadium",
-      "PlayingSurface":"Dome",
-      "StadiumID":29,
-      "State":"AZ"
-    },
-    "StadiumID":29
-  }
-]
+### Get Team Stats for Season
+**Description:** Retrieves Season stats for all NFL teams for the requested Season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1126).
+
+#### Action
+> Get Team Stats for Season
+
+#### Resource Name
+> TeamSeasonStats
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->TeamSeasonStats(['Season' => '2013REG']);
 ```
 
 ### <a name="timeframes"></a>Get Timeframes
@@ -151,26 +139,3 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->Timeframes(['Type' => Timeframes\Type::KEY_CURRENT]);
 ```
 
-###### Example JSON response
-```json
-[
-    {
-        "EndDate": "\/Date(1403409599000-0400)\/",
-        "FirstGameEnd": "\/Date(1403409599000-0400)\/",
-        "FirstGameStart": "\/Date(1397448000000-0400)\/",
-        "HasEnded": false,
-        "HasFirstGameEnded": false,
-        "HasFirstGameStarted": true,
-        "HasGames": false,
-        "HasLastGameEnded": false,
-        "HasStarted": true,
-        "LastGameEnd": "\/Date(1403409599000-0400)\/",
-        "Name": "2013 NFL Draft",
-        "Season": 2014,
-        "SeasonType": 4,
-        "ShortName": "NFL Draft",
-        "StartDate": "\/Date(1397448000000-0400)\/",
-        "Week": null
-    }
-]
-```
