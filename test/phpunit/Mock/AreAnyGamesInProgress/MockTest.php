@@ -8,7 +8,6 @@
 
 namespace FantasyDataAPI\Test\Mock\AreAnyGamesInProgress;
 
-use FantasyDataAPI\Enum\Format;
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
@@ -26,7 +25,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testAPIKeyParameter()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 //         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
 
         /** \GuzzleHttp\Command\Model */
@@ -56,7 +55,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testSubscriptionInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         $client->AreAnyGamesInProgress([]);
@@ -74,33 +73,11 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for AreAnyGamesInProgress
-     * Then: Expect that the proper format is placed in the URI
-     */
-    public function testFormatInURI()
-    {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->AreAnyGamesInProgress([]);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
-        /** key 4 should be the "format" based on URL structure */
-        $this->assertArrayHasKey(4, $pieces);
-        $this->assertEquals( $pieces[4], Format::KEY_XML);
-    }
-
-    /**
-     * Given: A developer API key
-     * When: API is queried for AreAnyGamesInProgress
      * Then: Expect that the AreAnyGamesInProgress resource is placed in the URI
      */
     public function testResourceInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         $result = $client->AreAnyGamesInProgress([]);
@@ -126,7 +103,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testAreAnyGamesInProgressSuccessfulResponse()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->AreAnyGamesInProgress([]);
