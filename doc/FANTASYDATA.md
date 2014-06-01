@@ -39,6 +39,7 @@ from the service in the [Client Documentation](CLIENTS.md#resources).
 If you wish to look through all of the documentation for the service, visit the
 [API Documentation](http://developer.fantasydata.com/api-documentation).
 
+* [AreAnyGamesInProgress](CLIENTS.md#check-if-games-in-progress)
 * [Timeframes](CLIENTS.md#timeframes)
 * ... more to come as implemented!
 

@@ -68,6 +68,29 @@ holds the service description for the Timeframes resource.
 To save you the effort of having to read through that file to discover every
 resource we've implemented, a complete list is contained below.
 
+### Check if Games In Progress
+**Description:** Returns true if there is at least one game being played at
+the time of the request or false if there are none.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1112).
+
+#### Action
+> Check if Games In Progress
+
+#### Resource Name
+> AreAnyGamesInProgress
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->AreAnyGamesInProgress([]);
+```
+
+###### Example XML response
+```xml
+  <boolean xmlns="http://schemas.microsoft.com/2003/10/Serialization/">false</boolean>
+```
+
 ### <a name="timeframes"></a>Get Timeframes
 **Description:** Retrieve detailed information about past, present, and future
 timeframes. A timeframe is a representation of the state of the NFL for the

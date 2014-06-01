@@ -38,6 +38,10 @@ class ResponseFactory
                 $response = new Timeframes\MockResponse( $request );
                 break;
 
+            case 'AreAnyGamesInProgress':
+                $response = new AreAnyGamesInProgress\MockResponse( $request );
+                break;
+
             default:
                 throw new \Exception( "Unrecognized resource requested, $resource" );
                 break;
