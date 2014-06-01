@@ -53,10 +53,9 @@ Below is a list of the Service Enums that have been added to the library.
     * [Type Parameter](/module/FantasyDataAPI/Enum/Timeframes/Type.php)
     * [Property List](/module/FantasyDataAPI/Enum/Timeframes/Property.php)
 
-The only Enums not related to resources are the Format and Subscription Enums and these
-are used by the Client constructor.
+The only Enum not related to resources is the Subscription Enums which is used by
+the Client constructor.
 
-* [Format Enums](/module/FantasyDataAPI/Enum/Format.php)
 * [Subscription Enums](/module/FantasyDataAPI/Enum/Subscription.php)
 
 The enums themselves are derived from the service, and the original values are documented

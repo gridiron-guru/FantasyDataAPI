@@ -13,7 +13,6 @@ use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Enum\Timeframes;
 use FantasyDataAPI\Test\DebugClient;
 use FantasyDataAPI\Enum\Subscription;
-use FantasyDataAPI\Enum\Format;
 
 class AreAnyGamesInProgressTest extends PHPUnit_Framework_TestCase
 {
@@ -25,7 +24,7 @@ class AreAnyGamesInProgressTest extends PHPUnit_Framework_TestCase
      */
     public function testAreAnyGamesInProgressSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_XML);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->AreAnyGamesInProgress([]);

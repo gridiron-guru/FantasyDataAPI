@@ -8,7 +8,6 @@
 
 namespace FantasyDataAPI\Test\Mock\Timeframes;
 
-use FantasyDataAPI\Enum\Format;
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
@@ -77,11 +76,11 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for current Timeframe
-     * Then: Expect that the proper format is placed in the URI
+     * Then: Expect that the json format is placed in the URI
      */
     public function testFormatInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_JSON);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         $client->Timeframes(['Type' => Type::KEY_CURRENT]);
@@ -93,7 +92,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
         /** key 4 should be the "format" based on URL structure */
         $this->assertArrayHasKey(4, $pieces);
-        $this->assertEquals( $pieces[4], Format::KEY_JSON);
+        $this->assertEquals( $pieces[4], 'json');
     }
 
     /**
@@ -103,7 +102,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER, Format::KEY_JSON);
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         $client->Timeframes(['Type' => Type::KEY_CURRENT]);
