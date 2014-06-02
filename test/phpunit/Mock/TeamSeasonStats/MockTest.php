@@ -97,7 +97,7 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for 2013REG TeamSasonStats
-     * Then: Expect that the Timeframe resource is placed in the URI
+     * Then: Expect that the TeamSeasonStats resource is placed in the URI
      */
     public function testResourceInURI()
     {
@@ -114,6 +114,30 @@ class MockTest extends PHPUnit_Framework_TestCase
         /** key 5 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(5, $pieces);
         $this->assertEquals( $pieces[5], 'TeamSeasonStats');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for 2013REG TeamSeasonStats
+     * Then: Expect that the Season is placed in the URI
+     */
+    public function testSeasonInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->TeamSeasonStats(['Season' => '2013REG']);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 6 should be the Season based on URL structure */
+        $this->assertArrayHasKey(6, $pieces);
+
+        list($season) = explode('?', $pieces[6]);
+        $this->assertEquals( $season, '2013REG');
     }
 
     /**
