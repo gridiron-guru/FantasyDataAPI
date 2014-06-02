@@ -37,7 +37,7 @@ class ScoresTest extends PHPUnit_Framework_TestCase
         /** we expect more than zero :-P Scores for 2013 */
         $this->assertNotCount( 0, $result );
 
-        $check_team_keys = function ( $pScore )
+        $check_score_keys = function ( $pScore )
         {
             /** we expect 12 keys */
             $this->assertCount( 43, $pScore );
@@ -103,7 +103,7 @@ class ScoresTest extends PHPUnit_Framework_TestCase
 
         $schedules = $result->toArray();
 
-        array_walk( $schedules, $check_team_keys );
+        array_walk( $schedules, $check_score_keys );
     }
 
     /**
