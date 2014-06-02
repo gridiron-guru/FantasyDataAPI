@@ -142,7 +142,7 @@ $resources['operations']['ScoresByWeek'] = [
         ],
         'Week' => [
             'required' => true,
-            'type' => 'int',
+            'type' => 'string',
             'location' => 'uri'
         ]
     ]
