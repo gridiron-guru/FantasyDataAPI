@@ -20,11 +20,11 @@ class MockTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given: A developer API key
-     * When: API is queried for current Timeframe
+     * When: API is queried for 2014 Teams
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/Teams/current?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/Teams/2014?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public function testAPIKeyParameter()
     {
@@ -53,7 +53,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for current Timeframe
+     * When: API is queried for 2014 Teams
      * Then: Expect that the proper subscription type is placed in the URI
      */
     public function testSubscriptionInURI()
@@ -75,7 +75,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for current Timeframe
+     * When: API is queried for 2014 Teams
      * Then: Expect that the json format is placed in the URI
      */
     public function testFormatInURI()
@@ -97,7 +97,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for current Timeframe
+     * When: API is queried for 2014 Teams
      * Then: Expect that the Timeframe resource is placed in the URI
      */
     public function testResourceInURI()

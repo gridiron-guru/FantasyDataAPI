@@ -42,6 +42,10 @@ class ResponseFactory
                 $response = new Teams\MockResponse( $request );
                 break;
 
+            case 'Schedules':
+                $response = new Schedules\MockResponse( $request );
+                break;
+
             case 'TeamSeasonStats':
                 $response = new TeamSeasonStats\MockResponse( $request );
                 break;

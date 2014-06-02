@@ -103,6 +103,23 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->Teams(['Season' => '2014REG']);
 ```
 
+### Get Schedules for Season
+**Description:** Game schedule for a specified season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1120).
+
+#### Action
+> Get Schedules for Season
+
+#### Resource Name
+> Teams
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Schedules(['Season' => '2014REG']);
+```
+
 ### Get Team Stats for Season
 **Description:** Retrieves Season stats for all NFL teams for the requested Season.
 
