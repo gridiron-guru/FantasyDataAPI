@@ -70,7 +70,27 @@ $resources['operations']['Schedules'] = [
     ]
 ];
 
-
+/**
+ * Action: Get Bye Week for Season
+ * Resource: Byes
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Byes/{season}?key=<Your_developer_key>
+ */
+$resources['operations']['Byes'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Byes/{Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
 
 /**
  * Action:
@@ -86,7 +106,6 @@ $resources['operations']['Schedules'] = [
 // deprecated -- Get Current Week
 // deprecated -- Get Upcoming Week
 
-//Get Schedules for Season
 //Get Bye Week for Season
 //Get Game Scores for Season
 //Get Scores for Season and Week
