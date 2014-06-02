@@ -136,6 +136,39 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
   $result = $client->Byes(['Season' => '2014REG']);
 ```
+### Get Game Scores for Season
+**Description:** Get game scores for a specified season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1123).
+
+#### Action
+> Get Game Scores for Season
+
+#### Resource Name
+> Scores
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Scores(['Season' => '2014REG']);
+```
+
+### Get Scores for Season and Week
+**Description:** Get game scores for a specified week of a season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1124).
+
+#### Action
+> Get Scores for Season and Week
+
+#### Resource Name
+> ScoresByWeek
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->ScoresByWeek(['Season' => '2014REG', 'Week' => '10']);
+```
 
 ### Get Team Stats for Season
 **Description:** Retrieves Season stats for all NFL teams for the requested Season.

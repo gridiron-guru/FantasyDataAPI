@@ -120,6 +120,30 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for current Timeframe
+     * Then: Expect that the Type is placed in the URI
+     */
+    public function testTypeInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->Timeframes(['Type' => Type::KEY_CURRENT]);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 6 should be the Season based on URL structure */
+        $this->assertArrayHasKey(6, $pieces);
+
+        list($type) = explode('?', $pieces[6]);
+        $this->assertEquals( $type, Type::KEY_CURRENT);
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for current Timeframe
      * Then: Expect a 200 response with an array of 1 entry, that entry containing 16 keys
      */
     public function testCurrentTimeframeSuccessfulResponse()
