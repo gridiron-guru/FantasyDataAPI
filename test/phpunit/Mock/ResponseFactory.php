@@ -46,6 +46,10 @@ class ResponseFactory
                 $response = new Schedules\MockResponse( $request );
                 break;
 
+            case 'Byes':
+                $response = new Byes\MockResponse( $request );
+                break;
+
             case 'TeamSeasonStats':
                 $response = new TeamSeasonStats\MockResponse( $request );
                 break;

@@ -120,6 +120,23 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->Schedules(['Season' => '2014REG']);
 ```
 
+### Get Bye Week for Season
+**Description:** Get bye weeks for the teams during a specified NFL season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1121).
+
+#### Action
+> Get Bye Week for Season
+
+#### Resource Name
+> Byes
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Byes(['Season' => '2014REG']);
+```
+
 ### Get Team Stats for Season
 **Description:** Retrieves Season stats for all NFL teams for the requested Season.
 
