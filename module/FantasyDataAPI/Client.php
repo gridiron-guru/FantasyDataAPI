@@ -21,6 +21,8 @@ use GuzzleHttp\Command;
  * @method Command\Model Teams() Teams( array $pOptions )
  * @method Command\Model Schedules() Schedules( array $pOptions )
  * @method Command\Model Byes() Byes( array $pOptions )
+ * @method Command\Model Scores() Scores( array $pOptions )
+ * @method Command\Model ScoresByWeek() ScoresByWeek( array $pOptions )
  * @method Command\Model TeamSeasonStats() TeamSeasonStats( array $pOptions )
  * @method Command\Model Timeframes() Timeframes( array $pOptions )
  */

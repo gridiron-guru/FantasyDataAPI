@@ -92,13 +92,6 @@ $resources['operations']['Byes'] = [
     ]
 ];
 
-/**
- * Action:
- * Resource:
- *
- * http://api.nfldata.apiphany.com/{subscription}/{format}/ ???? ?key=<Your_developer_key>
- */
-
 // deprecated -- Get Last Completed Season
 // deprecated -- Get Current Season
 // deprecated -- Get Upcoming Season
@@ -106,9 +99,55 @@ $resources['operations']['Byes'] = [
 // deprecated -- Get Current Week
 // deprecated -- Get Upcoming Week
 
-//Get Bye Week for Season
-//Get Game Scores for Season
-//Get Scores for Season and Week
+/**
+ * Action: Get Game Scores for Season
+ * Resource: Scores
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Scores/{season}?key=<Your_developer_key>
+ */
+$resources['operations']['Scores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Scores/{Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Scores for Season and Week
+ * Resource: ScoresByWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/ScoresByWeek/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['ScoresByWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'ScoresByWeek/{Season}/{Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'int',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 //Get Team Stats per Game for Season for Week
 
 /**
