@@ -197,7 +197,29 @@ $resources['operations']['TeamSeasonStats'] = [
     ]
 ];
 
-//Get Team Standings for Season
+/**
+ * Action: Get Team Standings for Season
+ * Resource: Standings
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Standings/{Season}?key=<Your_developer_key>
+ */
+$resources['operations']['Standings'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Standings/{Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+
 //Get Team Roster and Depth Charts
 //Get Player Stats and News
 //Get Free Agents
