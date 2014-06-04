@@ -66,6 +66,10 @@ class ResponseFactory
                 $response = new TeamSeasonStats\MockResponse( $request );
                 break;
 
+            case 'Standings':
+                $response = new Standings\MockResponse( $request );
+                break;
+
             case 'Timeframes':
                 $response = new Timeframes\MockResponse( $request );
                 break;

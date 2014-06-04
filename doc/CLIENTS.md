@@ -204,6 +204,23 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->TeamSeasonStats(['Season' => '2013REG']);
 ```
 
+### Get Team Standings for Season
+**Description:** Retrieves overall team standings for the requested Season.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1127).
+
+#### Action
+> Get Team Standings for Season
+
+#### Resource Name
+> Standings
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Standings(['Season' => '2013REG']);
+```
+
 ### <a name="timeframes"></a>Get Timeframes
 **Description:** Retrieve detailed information about past, present, and future
 timeframes. A timeframe is a representation of the state of the NFL for the

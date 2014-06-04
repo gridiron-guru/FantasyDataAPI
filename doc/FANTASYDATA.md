@@ -47,6 +47,7 @@ If you wish to look through all of the documentation for the service, visit the
 * [ScoresByWeek](CLIENTS.md#get-game-scores-for-season)
 * [TeamGameStats](CLIENTS.md#get-team-stats-per-game-for-season-for-week)
 * [TeamSeasonStats](CLIENTS.md#get-scores-for-season-and-week)
+* [Standings](CLIENTS.md#get-team-standings-for-season)
 * [Timeframes](CLIENTS.md#timeframes)
 * ... more to come as implemented!
 
@@ -64,6 +65,8 @@ Below is a list of the Service Enums that have been added to the library.
     * [Score Property List](/module/FantasyDataAPI/Enum/Score/Property.php)
 * Stadium Resource
     * [Stadium Property List](/module/FantasyDataAPI/Enum/Stadium/Property.php)
+* Standings Resource
+    * [Standings Property List](/module/FantasyDataAPI/Enum/Standings/Property.php)
 * Team Resource
     * [Stadium Property List](/module/FantasyDataAPI/Enum/Stadium/Property.php)
     * [Teams Property List](/module/FantasyDataAPI/Enum/Teams/Property.php)
