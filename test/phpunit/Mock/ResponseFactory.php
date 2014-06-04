@@ -58,6 +58,10 @@ class ResponseFactory
                 $response = new ScoresByWeek\MockResponse( $request );
                 break;
 
+            case 'TeamGameStats':
+                $response = new TeamGameStats\MockResponse( $request );
+                break;
+
             case 'TeamSeasonStats':
                 $response = new TeamSeasonStats\MockResponse( $request );
                 break;
