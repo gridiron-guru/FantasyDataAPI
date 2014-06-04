@@ -170,6 +170,23 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->ScoresByWeek(['Season' => '2014REG', 'Week' => '10']);
 ```
 
+### Get Team Stats per Game for Season for Week
+**Description:** Retrieves Game stats for each team for a given Season and Week.
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1125).
+
+#### Action
+> Get Team Stats per Game for Season for Week
+
+#### Resource Name
+> TeamGameStats
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->TeamGameStats(['Season' => '2013REG', 'Week' => '10']);
+```
+
 ### Get Team Stats for Season
 **Description:** Retrieves Season stats for all NFL teams for the requested Season.
 
