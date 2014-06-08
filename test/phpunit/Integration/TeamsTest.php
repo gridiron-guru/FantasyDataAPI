@@ -39,35 +39,74 @@ class TeamsTest extends PHPUnit_Framework_TestCase
 
         $check_team_keys = function ( $pTeam )
         {
-            /** we expect 8 keys */
-            $this->assertCount( 8, $pTeam );
+            /** we expect 19 stats (woah!) */
+            $this->assertCount( 19, $pTeam );
+
+            $cloned_array = $pTeam;
+
+            /** this function helps us assure that we're not missing any keys in the Enum list */
+            $process_key = function ( $pKey ) use ( $pTeam, &$cloned_array )
+            {
+                $this->assertArrayHasKey( $pKey, $pTeam );
+                unset( $cloned_array[$pKey] );
+
+                if ( Teams\Property::KEY_STADIUM_DETAILS == $pKey )
+                {
+                    $pStadium = $pTeam[$pKey];
+
+                    /** we expect 7 keys */
+                    $this->assertCount( 7, $pStadium );
+
+                    $cloned_stadium = $pStadium;
+
+                    $process_stadium = function ( $pStadiumKey ) use ( $pStadium, &$cloned_stadium )
+                    {
+                        $this->assertArrayHasKey( $pStadiumKey, $pStadium );
+                        unset( $cloned_stadium[$pStadiumKey] );
+                    };
+
+                    /** test all the stadium keys */
+                    $process_stadium( Stadium\Property::KEY_CAPACITY );
+                    $process_stadium( Stadium\Property::KEY_CITY );
+                    $process_stadium( Stadium\Property::KEY_COUNTRY );
+                    $process_stadium( Stadium\Property::KEY_NAME );
+                    $process_stadium( Stadium\Property::KEY_PLAYING_SURFACE );
+                    $process_stadium( Stadium\Property::KEY_STADIUM_ID );
+                    $process_stadium( Stadium\Property::KEY_STATE );
+                }
+            };
 
             /** test all the keys */
-            $this->assertArrayHasKey( Teams\Property::KEY_CITY, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_CONFERENCE, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_DIVISION, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_FULL_NAME, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_KEY, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_NAME, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_STADIUM_DETAILS, $pTeam );
-            $this->assertArrayHasKey( Teams\Property::KEY_STADIUM_ID, $pTeam );
+            $process_key( Teams\Property::KEY_CITY );
+            $process_key( Teams\Property::KEY_CONFERENCE );
+            $process_key( Teams\Property::KEY_DIVISION );
+            $process_key( Teams\Property::KEY_FULL_NAME );
+            $process_key( Teams\Property::KEY_KEY );
+            $process_key( Teams\Property::KEY_NAME );
+            $process_key( Teams\Property::KEY_STADIUM_DETAILS );
+            $process_key( Teams\Property::KEY_STADIUM_ID );
 
-            /** we expect 7 keys */
-            $this->assertCount( 7, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
+            /** 06/07/2014 Update */
+            $process_key( Teams\Property::KEY_AVERAGE_DRAFT_POSITION );
+            $process_key( Teams\Property::KEY_AVERAGE_DRAFT_POSITION_PPR );
+            $process_key( Teams\Property::KEY_BYE_WEEK );
+            $process_key( Teams\Property::KEY_DEFENSIVE_COORDINATOR );
+            $process_key( Teams\Property::KEY_DEFENSIVE_SCHEME );
+            $process_key( Teams\Property::KEY_HEAD_COACH );
+            $process_key( Teams\Property::KEY_OFFENSIVE_COORDINATOR );
+            $process_key( Teams\Property::KEY_OFFENSIVE_SCHEME );
+            $process_key( Teams\Property::KEY_SPECIAL_TEAMS_COACH );
+            $process_key( Teams\Property::KEY_TEAM_ID );
 
-            /** test all the properties */
-            $this->assertArrayHasKey( Stadium\Property::KEY_CAPACITY, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
-            $this->assertArrayHasKey( Stadium\Property::KEY_CITY, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
-            $this->assertArrayHasKey( Stadium\Property::KEY_COUNTRY, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
-            $this->assertArrayHasKey( Stadium\Property::KEY_NAME, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
-            $this->assertArrayHasKey( Stadium\Property::KEY_PLAYING_SURFACE, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
-            $this->assertArrayHasKey( Stadium\Property::KEY_STADIUM_ID, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
-            $this->assertArrayHasKey( Stadium\Property::KEY_STATE, $pTeam[Teams\Property::KEY_STADIUM_DETAILS] );
+            /** ?? */
+            $process_key( Teams\Property::KEY_PLAYER_ID );
+
+            $this->assertEmpty( $cloned_array );
         };
 
-        $teams = $result->toArray();
+        $stats = $result->toArray();
 
-        array_walk( $teams, $check_team_keys );
+        array_walk( $stats, $check_team_keys );
     }
 
     /**
