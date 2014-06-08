@@ -219,8 +219,28 @@ $resources['operations']['Standings'] = [
     ]
 ];
 
+/**
+ * Action: Get Team Roster and Depth Charts
+ * Resource: Players
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Players/{Team}?key=<Your_developer_key>
+ */
+$resources['operations']['Players'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Players/{Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Team' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
 
-//Get Team Roster and Depth Charts
 //Get Player Stats and News
 //Get Free Agents
 //Get Players Game Stats by Team for Season for Week
