@@ -241,7 +241,29 @@ $resources['operations']['Players'] = [
     ]
 ];
 
-//Get Player Stats and News
+/**
+ * Action: Get Player Stats and News
+ * Resource: Player
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Player/{PlayerID}?key=<Your_developer_key>
+ */
+$resources['operations']['Player'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Player/{PlayerID}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'PlayerID' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+//
 //Get Free Agents
 //Get Players Game Stats by Team for Season for Week
 //Get Players Season Stats by Team
