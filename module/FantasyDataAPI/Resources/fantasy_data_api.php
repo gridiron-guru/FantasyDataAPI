@@ -263,8 +263,24 @@ $resources['operations']['Player'] = [
     ]
 ];
 
+/**
+ * Action: Get Free Agents
+ * Resource: FreeAgents
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/FreeAgents?key=<Your_developer_key>
+ */
+$resources['operations']['FreeAgents'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FreeAgents',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
 //
-//Get Free Agents
 //Get Players Game Stats by Team for Season for Week
 //Get Players Season Stats by Team
 //Get Player Game Stats for Season for Week
