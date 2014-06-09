@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\Players;
+namespace FantasyDataAPI\Test\Mock\Player;
 
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
@@ -17,11 +17,11 @@ class MockTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given: A developer API key
-     * When: API is queried for NE Players
+     * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/Players/NE?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/Player/10974?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public function testAPIKeyParameter()
     {
@@ -29,7 +29,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 //         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
 
         /** \GuzzleHttp\Command\Model */
-        $client->Players(['Team' => 'NE']);
+        $client->Player(['PlayerID' => '10974']);
 
         $response = $client->mHistory->getLastResponse();
         $effective_url = $response->getEffectiveUrl();
@@ -50,7 +50,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for NE Players
+     * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect that the proper subscription type is placed in the URI
      */
     public function testSubscriptionInURI()
@@ -72,7 +72,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for NE Players
+     * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect that the json format is placed in the URI
      */
     public function testFormatInURI()
@@ -80,7 +80,7 @@ class MockTest extends PHPUnit_Framework_TestCase
         $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        $client->Players(['Team' => 'NE']);
+        $client->Player(['PlayerID' => '10974']);
 
         $response = $client->mHistory->getLastResponse();
         $effective_url = $response->getEffectiveUrl();
@@ -94,7 +94,7 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for NE Players
+     * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect that the Standings resource is placed in the URI
      */
     public function testResourceInURI()
@@ -102,7 +102,7 @@ class MockTest extends PHPUnit_Framework_TestCase
         $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        $client->Players(['Team' => 'NE']);
+        $client->Player(['PlayerID' => '10974']);
 
         $response = $client->mHistory->getLastResponse();
         $effective_url = $response->getEffectiveUrl();
@@ -111,20 +111,20 @@ class MockTest extends PHPUnit_Framework_TestCase
 
         /** key 5 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(5, $pieces);
-        $this->assertEquals( $pieces[5], 'Players');
+        $this->assertEquals( $pieces[5], 'Player');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for NE Players
-     * Then: Expect that the Team is placed in the URI
+     * When: API is queried for Rob Gronkowski (PlayerID: 10974)
+     * Then: Expect that the PlayerID is placed in the URI
      */
-    public function testTeamInURI()
+    public function testPlayerIDInURI()
     {
         $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        $client->Players(['Team' => 'NE']);
+        $client->Player(['PlayerID' => '10974']);
 
         $response = $client->mHistory->getLastResponse();
         $effective_url = $response->getEffectiveUrl();
@@ -134,21 +134,21 @@ class MockTest extends PHPUnit_Framework_TestCase
         /** key 6 should be the Team based on URL structure */
         $this->assertArrayHasKey(6, $pieces);
 
-        list($team) = explode('?', $pieces[6]);
-        $this->assertEquals( $team, 'NE');
+        list($player_id) = explode('?', $pieces[6]);
+        $this->assertEquals( $player_id, '10974');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for NE Players
+     * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect a 200 response with an array of players
      */
-    public function testNEPlayersSuccessfulResponse()
+    public function testPlayer10974SuccessfulResponse()
     {
         $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $client->Players(['Team' => 'NE']);
+        $client->Player(['PlayerID' => '10974']);
 
         $response = $client->mHistory->getLastResponse();
 
