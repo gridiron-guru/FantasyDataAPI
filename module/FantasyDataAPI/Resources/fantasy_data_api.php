@@ -280,8 +280,38 @@ $resources['operations']['FreeAgents'] = [
     ]
 ];
 
-//
-//Get Players Game Stats by Team for Season for Week
+/**
+ * Action: Get Players Game Stats by Team for Season for Week
+ * Resource: PlayerGameStatsByTeam
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/PlayerGameStatsByTeam/{season}/{week}/{team}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerGameStatsByTeam'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsByTeam/{Season}/{Week}/{Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Team' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 //Get Players Season Stats by Team
 //Get Player Game Stats for Season for Week
 //Get Player Season Stats

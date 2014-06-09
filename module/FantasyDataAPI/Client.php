@@ -28,6 +28,8 @@ use GuzzleHttp\Command;
  * @method Command\Model Players() Players( array $pOptions )
  * @method Command\Model Player() Player( array $pOptions )
  * @method Command\Model FreeAgents() FreeAgents( array $pOptions )
+ * @method Command\Model PlayerGameStatsByTeam() PlayerGameStatsByTeam( array $pOptions )
+ *
  * @method Command\Model Standings() Standings( array $pOptions )
  * @method Command\Model Timeframes() Timeframes( array $pOptions )
  */
