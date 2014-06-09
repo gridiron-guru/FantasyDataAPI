@@ -78,6 +78,10 @@ class ResponseFactory
                 $response = new Player\MockResponse( $request );
                 break;
 
+            case 'FreeAgents':
+                $response = new FreeAgents\MockResponse( $request );
+                break;
+
             case 'Timeframes':
                 $response = new Timeframes\MockResponse( $request );
                 break;
