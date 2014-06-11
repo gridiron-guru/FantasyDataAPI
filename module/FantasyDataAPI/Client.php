@@ -31,6 +31,7 @@ use GuzzleHttp\Command;
  * @method Command\Model PlayerGameStatsByTeam() PlayerGameStatsByTeam( array $pOptions )
  * @method Command\Model PlayerSeasonStatsByTeam() PlayerSeasonStatsByTeam( array $pOptions )
  * @method Command\Model PlayerGameStatsByPlayerID() PlayerGameStatsByPlayerID( array $pOptions )
+ * @method Command\Model PlayerSeasonStatsByPlayerID() PlayerSeasonStatsByPlayerID( array $pOptions )
  *
  * @method Command\Model Standings() Standings( array $pOptions )
  * @method Command\Model Timeframes() Timeframes( array $pOptions )

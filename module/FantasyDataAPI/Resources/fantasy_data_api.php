@@ -341,7 +341,7 @@ $resources['operations']['PlayerSeasonStatsByTeam'] = [
 
 /**
  * Action: Get Players Game Stats by Player for Season for Week
- * Resource: PlayerGameStatsByTeam
+ * Resource: PlayerGameStatsByPlayerID
  *
  * http://api.nfldata.apiphany.com/{subscription}/{format}/PlayerGameStatsByPlayerID/{season}/{week}/{playerid}?key=<Your_developer_key>
  */
@@ -359,6 +359,33 @@ $resources['operations']['PlayerGameStatsByPlayerID'] = [
             'location' => 'uri'
         ],
         'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'PlayerID' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+/**
+ * Action: Get Players Season Stats by Player for Season
+ * Resource: PlayerSeasonStatsByPlayerID
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/PlayerSeasonStatsByPlayerID/{season}/{playerid}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerSeasonStatsByPlayerID'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerSeasonStatsByPlayerID/{Season}/{PlayerID}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
             'required' => true,
             'type' => 'string',
             'location' => 'uri'
