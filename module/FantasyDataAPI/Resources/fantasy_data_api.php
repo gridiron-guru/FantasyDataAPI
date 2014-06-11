@@ -438,7 +438,7 @@ $resources['operations']['SeasonLeagueLeaders'] = [
  */
 $resources['operations']['GameLeagueLeaders'] = [
     'httpMethod' => 'GET',
-    'uri' => 'PlayerGameStatsByPlayerID/{Season}/{Week}/{Position}/{Column}',
+    'uri' => 'GameLeagueLeaders/{Season}/{Week}/{Position}/{Column}',
     'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],

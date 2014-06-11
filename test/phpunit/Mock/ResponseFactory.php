@@ -102,6 +102,10 @@ class ResponseFactory
                 $response = new SeasonLeagueLeaders\MockResponse( $request );
                 break;
 
+            case 'GameLeagueLeaders':
+                $response = new GameLeagueLeaders\MockResponse( $request );
+                break;
+
             case 'Timeframes':
                 $response = new Timeframes\MockResponse( $request );
                 break;
