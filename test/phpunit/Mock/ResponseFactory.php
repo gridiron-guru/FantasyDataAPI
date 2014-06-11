@@ -98,6 +98,10 @@ class ResponseFactory
                 $response = new PlayerSeasonStatsByPlayerID\MockResponse( $request );
                 break;
 
+            case 'SeasonLeagueLeaders':
+                $response = new SeasonLeagueLeaders\MockResponse( $request );
+                break;
+
             case 'Timeframes':
                 $response = new Timeframes\MockResponse( $request );
                 break;
