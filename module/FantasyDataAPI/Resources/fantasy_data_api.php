@@ -430,7 +430,44 @@ $resources['operations']['SeasonLeagueLeaders'] = [
     ]
 ];
 
-//Get Game League Leaders
+/**
+ * Action: Get Game League Leaders
+ * Resource: GameLeagueLeaders
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/GameLeagueLeaders/{season}/{week}/{playerid}?key=<Your_developer_key>
+ */
+$resources['operations']['GameLeagueLeaders'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsByPlayerID/{Season}/{Week}/{Position}/{Column}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Position' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Column' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+//
 //Get Fantasy Defense By Game
 //Get Fantasy Defense for Season
 //Get Injuries for Season for Week
