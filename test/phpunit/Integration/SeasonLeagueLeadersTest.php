@@ -15,7 +15,7 @@ use FantasyDataAPI\Enum\Subscription;
 use FantasyDataAPI\Enum\PlayerSeason;
 use FantasyDataAPI\Enum\ScoringDetails;
 
-class PlayerSeasonStatsByTeamTest extends PHPUnit_Framework_TestCase
+class SeasonLeagueLeadersTest extends PHPUnit_Framework_TestCase
 {
 
     /**
