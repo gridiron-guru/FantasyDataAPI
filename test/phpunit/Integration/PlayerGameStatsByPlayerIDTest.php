@@ -20,7 +20,7 @@ class PlayerGameStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerIDTest, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect a 200 response with an array entries that each contain PlayerGame and ScoringDetails info
      */
     public function testSuccessfulResponse()
@@ -213,7 +213,7 @@ class PlayerGameStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: An invalid developer API key
-     * When: API is queried for PlayerGameStatsByPlayerIDTest, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
