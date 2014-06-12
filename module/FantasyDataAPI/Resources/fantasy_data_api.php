@@ -467,8 +467,33 @@ $resources['operations']['GameLeagueLeaders'] = [
     ]
 ];
 
-//
-//Get Fantasy Defense By Game
+/**
+ * Action: Get Fantasy Defense By Game
+ * Resource: FantasyDefenseByGame
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/FantasyDefenseByGame/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['FantasyDefenseByGame'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FantasyDefenseByGame/{Season}/{Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 //Get Fantasy Defense for Season
 //Get Injuries for Season for Week
 //Get Injuries for Season for Week for Team
