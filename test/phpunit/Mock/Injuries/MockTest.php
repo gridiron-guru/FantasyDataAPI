@@ -165,6 +165,30 @@ class MockTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
+     * When: API is queried for 2013REG Injuries, Week 17, NE (optional team parameter)
+     * Then: Expect that the Team is placed in the URI
+     */
+    public function testTeamInURI()
+    {
+        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->Injuries(['Season' => '2013REG', 'Week' => '17', 'Team' => 'NE']);
+
+        $response = $client->mHistory->getLastResponse();
+        $effective_url = $response->getEffectiveUrl();
+
+        $pieces = explode('/', $effective_url);
+
+        /** key 8 should be the Week based on URL structure */
+        $this->assertArrayHasKey(8, $pieces);
+
+        list($team) = explode('?', $pieces[8]);
+        $this->assertEquals( $team, 'NE');
+    }
+
+    /**
+     * Given: A developer API key
      * When: API is queried for 2013REG Injuries
      * Then: Expect a 200 response with an array of Injuries, each containing a stadium
      */
