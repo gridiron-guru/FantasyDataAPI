@@ -34,17 +34,17 @@ class FantasyDefenseByGameTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('200', $response->getStatusCode());
 
-        $check_player_game = function ( $pPlayerGame )
+        $check_player_game = function ( $pFantasyDefense )
         {
             /** we expect 52 stats */
-            $this->assertCount( 52, $pPlayerGame );
+            $this->assertCount( 52, $pFantasyDefense );
 
-            $cloned_array = $pPlayerGame;
+            $cloned_array = $pFantasyDefense;
 
             /** this function helps us assure that we're not missing any keys in the Enum list */
-            $process_key = function ( $pKey ) use ( $pPlayerGame, &$cloned_array )
+            $process_key = function ( $pKey ) use ( $pFantasyDefense, &$cloned_array )
             {
-                $this->assertArrayHasKey( $pKey, $pPlayerGame );
+                $this->assertArrayHasKey( $pKey, $pFantasyDefense );
                 unset( $cloned_array[$pKey] );
             };
 
@@ -102,9 +102,9 @@ class FantasyDefenseByGameTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseGame\Property::KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED );
             $process_key( FantasyDefenseGame\Property::KEY_WINDSPEED );
 
-            if ( false == empty( $pPlayerGame[FantasyDefenseGame\Property::KEY_SCORING_DETAILS]) )
+            if ( false == empty( $pFantasyDefense[FantasyDefenseGame\Property::KEY_SCORING_DETAILS]) )
             {
-                foreach ( $pPlayerGame[FantasyDefenseGame\Property::KEY_SCORING_DETAILS] as $scoring )
+                foreach ( $pFantasyDefense[FantasyDefenseGame\Property::KEY_SCORING_DETAILS] as $scoring )
                 {
                     $cloned_scoring = $scoring;
 
