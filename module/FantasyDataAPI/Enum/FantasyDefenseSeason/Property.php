@@ -50,13 +50,11 @@ class Property
     const KEY_SEASON_TYPE = 'SeasonType';
     const KEY_SOLO_TACKLES = 'SoloTackles';
     const KEY_SPECIAL_TEAMS_TOUCHDOWNS = 'SpecialTeamsTouchdowns';
-    const KEY_STADIUM = 'Stadium';
     const KEY_TACKLES_FOR_LOSS = 'TacklesForLoss';
     const KEY_TEAM = 'Team';
     const KEY_TEMPERATURE = 'Temperature';
     const KEY_TIGHT_END_FANTASY_POINTS_ALLOWED = 'TightEndFantasyPointsAllowed';
     const KEY_TOUCHDOWNS_SCORED = 'TouchdownsScored';
-    const KEY_WEEK = 'Week';
     const KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED = 'WideReceiverFantasyPointsAllowed';
     const KEY_WINDSPEED = 'WindSpeed';
 }
