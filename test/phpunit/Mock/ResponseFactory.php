@@ -114,6 +114,10 @@ class ResponseFactory
                 $response = new FantasyDefenseBySeason\MockResponse( $request );
                 break;
 
+            case 'Injuries':
+                $response = new Injuries\MockResponse( $request );
+                break;
+
             case 'Timeframes':
                 $response = new Timeframes\MockResponse( $request );
                 break;

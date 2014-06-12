@@ -516,7 +516,34 @@ $resources['operations']['FantasyDefenseBySeason'] = [
     ]
 ];
 
-//Get Injuries for Season for Week
+/**
+ * Action: Get Injuries for Season for Week
+ * Resource: Injuries
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Injuries/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['Injuries'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Injuries/{Season}/{Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+//
 //Get Injuries for Season for Week for Team
 //Get News</a>
 //Get News For Player</a>
