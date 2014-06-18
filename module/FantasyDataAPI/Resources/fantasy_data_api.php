@@ -616,9 +616,9 @@ $resources['operations']['NewsByTeam'] = [
  *
  * http://api.nfldata.apiphany.com/{subscription}/{format}/BoxScore/{season}/{week}/{team}?key=<Your_developer_key>
  */
-$resources['operations']['NewsByTeam'] = [
+$resources['operations']['BoxScore'] = [
     'httpMethod' => 'GET',
-    'uri' => 'NewsByTeam{/Team}',
+    'uri' => 'BoxScore{/Season}{/Week}{/Team}',
     'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
