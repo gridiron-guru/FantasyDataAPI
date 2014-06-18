@@ -6,19 +6,22 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\FreeAgents;
+namespace FantasyDataAPI\Test\FreeAgents;
 
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
 use FantasyDataAPI\Test\Mock\Client;
 
-class MockTest extends PHPUnit_Framework_TestCase
+class UnitTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given: A developer API key
      * When: API is queried for Free Agents
      * Then: Expect that the api key is placed in the URL as expected by the service
+     *
+     * @group Unit
+     * @small
      *
      * Expect a service URL something like this:
      *   http://api.nfldata.apiphany.com/developer/json/FreeAgents?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
@@ -52,6 +55,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for Free Agents
      * Then: Expect that the proper subscription type is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSubscriptionInURI()
     {
@@ -74,6 +80,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for Free Agents
      * Then: Expect that the json format is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testFormatInURI()
     {
@@ -95,7 +104,10 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for Free Agents
-     * Then: Expect that the Standings resource is placed in the URI
+     * Then: Expect that the FreeAgents resource is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testResourceInURI()
     {
@@ -120,6 +132,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for Free Agents
      * Then: Expect a 200 response with an array of players
+     *
+     * @group Unit
+     * @small
      */
     public function testNEPlayersSuccessfulResponse()
     {

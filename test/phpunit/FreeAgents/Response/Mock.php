@@ -6,13 +6,13 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\FreeAgents;
+namespace FantasyDataAPI\Test\FreeAgents\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Stream;
 
-class MockResponse extends Response
+class Mock extends Response
 {
 
     public function __construct (RequestInterface $pRequest)
@@ -20,10 +20,10 @@ class MockResponse extends Response
         /** url parsing "formula" for Players */
         list(, $subscription, $format) = explode( '/', $pRequest->getPath() );
 
-        $file_partial = __DIR__ . '/Response/' . implode('.', [$subscription, $format]);
+        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);
 
         $headers = include($file_partial . '.header.php');
-        $response_code = explode(' ', $headers[0])[1];;
+        $response_code = explode(' ', $headers[0])[1];
 
         $mocked_response = file_get_contents($file_partial . '.body.' . $format);
         $stream = Stream\Stream::factory($mocked_response);

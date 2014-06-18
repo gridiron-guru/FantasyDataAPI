@@ -106,7 +106,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for FantasyDefenseByGame, Season 2013REG, Week 13
-     * Then: Expect that the TeamSeasonStats resource is placed in the URI
+     * Then: Expect that the FantasyDefenseByGame resource is placed in the URI
      *
      * @group Unit
      * @small

@@ -80,7 +80,7 @@ class ResponseFactory
                 break;
 
             case 'FreeAgents':
-                $response = new FreeAgents\MockResponse( $request );
+                $response = new Test\FreeAgents\Response\Mock( $request );
                 break;
 
             case 'PlayerGameStatsByTeam':
