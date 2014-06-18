@@ -36,7 +36,7 @@ class ResponseFactory
         switch ( $resource )
         {
             case 'AreAnyGamesInProgress':
-                $response = new AreAnyGamesInProgress\MockResponse( $request );
+                $response = new Test\AreAnyGamesInProgress\Response\Mock( $request );
                 break;
 
             case 'Teams':
