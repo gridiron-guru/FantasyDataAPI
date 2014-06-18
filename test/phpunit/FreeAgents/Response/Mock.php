@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\News\Response;
+namespace FantasyDataAPI\Test\FreeAgents\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
@@ -17,7 +17,7 @@ class Mock extends Response
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" for resource */
+        /** url parsing "formula" for Players */
         list(, $subscription, $format) = explode( '/', $pRequest->getPath() );
 
         $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);

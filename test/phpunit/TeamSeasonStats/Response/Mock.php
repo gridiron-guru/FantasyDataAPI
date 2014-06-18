@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\News\Response;
+namespace FantasyDataAPI\Test\TeamSeasonStats\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
@@ -17,13 +17,13 @@ class Mock extends Response
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" for resource */
-        list(, $subscription, $format) = explode( '/', $pRequest->getPath() );
+        /** url parsing "formula" for Teams */
+        list(, $subscription, $format, , $season) = explode( '/', $pRequest->getPath() );
 
-        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);
+        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season]);
 
         $headers = include($file_partial . '.header.php');
-        $response_code = explode(' ', $headers[0])[1];
+        $response_code = explode(' ', $headers[0])[1];;
 
         $mocked_response = file_get_contents($file_partial . '.body.' . $format);
         $stream = Stream\Stream::factory($mocked_response);

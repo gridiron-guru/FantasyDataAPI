@@ -6,14 +6,12 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\News;
+namespace FantasyDataAPI\Test\SeasonLeagueLeaders;
 
-use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Enum\Subscription;
-use FantasyDataAPI\Test\Mock\Client;
+use PHPUnit_Framework_TestCase;
 
-/** our resource enums for this test */
-use FantasyDataAPI\Enum\PlayerNews;
+use FantasyDataAPI\Test\Mock\Client;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
@@ -30,14 +28,14 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/News?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/SeasonLeagueLeaders/2013REG/NE?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public static function setUpBeforeClass()
     {
         static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->News([]);
+        static::$sClient->SeasonLeagueLeaders(['Season' => '2013REG', 'Position' => 'WR', 'Column' => 'FantasyPoints']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -54,7 +52,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * @group Unit
@@ -78,7 +76,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
      * Then: Expect that the proper subscription type is placed in the URI
      *
      * @group Unit
@@ -93,7 +91,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
      * Then: Expect that the json format is placed in the URI
      *
      * @group Unit
@@ -108,8 +106,8 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
-     * Then: Expect that the News resource is placed in the URI
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
+     * Then: Expect that the SeasonLeagueLeaders resource is placed in the URI
      *
      * @group Unit
      * @small
@@ -118,15 +116,60 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         /** key 5 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(5, static::$sUrlFragments);
-
-        list($resource) = explode('?', static::$sUrlFragments[5]);
-        $this->assertEquals( $resource, 'News');
+        $this->assertEquals( static::$sUrlFragments[5], 'SeasonLeagueLeaders');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
-     * Then: Expect a 200 response
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
+     * Then: Expect that the Season is placed in the URI
+     *
+     * @group Unit
+     * @small
+     */
+    public function testSeasonInURI()
+    {
+        /** key 6 should be the Season based on URL structure */
+        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[6], '2013REG');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
+     * Then: Expect that the Position is placed in the URI
+     *
+     * @group Unit
+     * @small
+     */
+    public function testPositionInURI()
+    {
+        /** key 7 should be the Team based on URL structure */
+        $this->assertArrayHasKey(7, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[7], 'WR');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
+     * Then: Expect that the Column is placed in the URI
+     *
+     * @group Unit
+     * @small
+     */
+    public function testColumnInURI()
+    {
+        /** key 8 should be the Team based on URL structure */
+        $this->assertArrayHasKey(8, static::$sUrlFragments);
+
+        list($column) = explode('?', static::$sUrlFragments[8]);
+        $this->assertEquals( $column, 'FantasyPoints');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for SeasonLeagueLeaders 2013REG, Position WR, Column FantasyPoints
+     * Then: Expect a 200 response with an array of player game stats
      *
      * @group Unit
      * @small
@@ -135,4 +178,5 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
+
 }

@@ -36,95 +36,95 @@ class ResponseFactory
         switch ( $resource )
         {
             case 'AreAnyGamesInProgress':
-                $response = new AreAnyGamesInProgress\MockResponse( $request );
-                break;
-
-            case 'Teams':
-                $response = new Teams\MockResponse( $request );
-                break;
-
-            case 'Schedules':
-                $response = new Schedules\MockResponse( $request );
+                $response = new Test\AreAnyGamesInProgress\Response\Mock( $request );
                 break;
 
             case 'Byes':
-                $response = new Byes\MockResponse( $request );
-                break;
-
-            case 'Scores':
-                $response = new Scores\MockResponse( $request );
-                break;
-
-            case 'ScoresByWeek':
-                $response = new ScoresByWeek\MockResponse( $request );
-                break;
-
-            case 'TeamGameStats':
-                $response = new TeamGameStats\MockResponse( $request );
-                break;
-
-            case 'TeamSeasonStats':
-                $response = new TeamSeasonStats\MockResponse( $request );
-                break;
-
-            case 'Standings':
-                $response = new Standings\MockResponse( $request );
-                break;
-
-            case 'Players':
-                $response = new Players\MockResponse( $request );
-                break;
-
-            case 'Player':
-                $response = new Player\MockResponse( $request );
-                break;
-
-            case 'FreeAgents':
-                $response = new FreeAgents\MockResponse( $request );
-                break;
-
-            case 'PlayerGameStatsByTeam':
-                $response = new PlayerGameStatsByTeam\MockResponse( $request );
-                break;
-
-            case 'PlayerSeasonStatsByTeam':
-                $response = new PlayerSeasonStatsByTeam\MockResponse( $request );
-                break;
-
-            case 'PlayerGameStatsByPlayerID':
-                $response = new PlayerGameStatsByPlayerID\MockResponse( $request );
-                break;
-
-            case 'PlayerSeasonStatsByPlayerID':
-                $response = new PlayerSeasonStatsByPlayerID\MockResponse( $request );
-                break;
-
-            case 'SeasonLeagueLeaders':
-                $response = new SeasonLeagueLeaders\MockResponse( $request );
-                break;
-
-            case 'GameLeagueLeaders':
-                $response = new GameLeagueLeaders\MockResponse( $request );
+                $response = new Test\Byes\Response\Mock( $request );
                 break;
 
             case 'FantasyDefenseByGame':
-                $response = new FantasyDefenseByGame\MockResponse( $request );
+                $response = new Test\FantasyDefenseByGame\Response\Mock( $request );
                 break;
 
             case 'FantasyDefenseBySeason':
-                $response = new FantasyDefenseBySeason\MockResponse( $request );
+                $response = new Test\FantasyDefenseBySeason\Response\Mock( $request );
+                break;
+
+            case 'FreeAgents':
+                $response = new Test\FreeAgents\Response\Mock( $request );
+                break;
+
+            case 'GameLeagueLeaders':
+                $response = new Test\GameLeagueLeaders\Response\Mock( $request );
                 break;
 
             case 'Injuries':
-                $response = new Injuries\MockResponse( $request );
+                $response = new Test\Injuries\Response\Mock( $request );
                 break;
 
             case 'News':
                 $response = new Test\News\Response\Mock( $request );
                 break;
 
+            case 'Player':
+                $response = new Test\Player\Response\Mock( $request );
+                break;
+
+            case 'PlayerGameStatsByPlayerID':
+                $response = new Test\PlayerGameStatsByPlayerID\Response\Mock( $request );
+                break;
+
+            case 'PlayerGameStatsByTeam':
+                $response = new Test\PlayerGameStatsByTeam\Response\Mock( $request );
+                break;
+
+            case 'Players':
+                $response = new Test\Players\Response\Mock( $request );
+                break;
+
+            case 'PlayerSeasonStatsByPlayerID':
+                $response = new Test\PlayerSeasonStatsByPlayerID\Response\Mock( $request );
+                break;
+
+            case 'PlayerSeasonStatsByTeam':
+                $response = new Test\PlayerSeasonStatsByTeam\Response\Mock( $request );
+                break;
+
+            case 'Schedules':
+                $response = new Test\Schedules\Response\Mock( $request );
+                break;
+
+            case 'Scores':
+                $response = new Test\Scores\Response\Mock( $request );
+                break;
+
+            case 'ScoresByWeek':
+                $response = new Test\ScoresByWeek\Response\Mock( $request );
+                break;
+
+            case 'SeasonLeagueLeaders':
+                $response = new Test\SeasonLeagueLeaders\Response\Mock( $request );
+                break;
+
+            case 'Standings':
+                $response = new Test\Standings\Response\Mock( $request );
+                break;
+
+            case 'TeamGameStats':
+                $response = new Test\TeamGameStats\Response\Mock( $request );
+                break;
+
+            case 'Teams':
+                $response = new Test\Teams\Response\Mock( $request );
+                break;
+
+            case 'TeamSeasonStats':
+                $response = new Test\TeamSeasonStats\Response\Mock( $request );
+                break;
+
             case 'Timeframes':
-                $response = new Timeframes\MockResponse( $request );
+                $response = new Test\Timeframes\Response\Mock( $request );
                 break;
 
             default:

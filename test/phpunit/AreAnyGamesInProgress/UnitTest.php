@@ -6,14 +6,13 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\News;
+namespace FantasyDataAPI\Test\AreAnyGamesInProgress;
 
-use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Enum\Subscription;
-use FantasyDataAPI\Test\Mock\Client;
+use PHPUnit_Framework_TestCase;
 
 /** our resource enums for this test */
-use FantasyDataAPI\Enum\PlayerNews;
+use FantasyDataAPI\Test\Mock\Client;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
@@ -30,14 +29,14 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/News?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/xml/AreAnyGamesInProgress/?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public static function setUpBeforeClass()
     {
         static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->News([]);
+        static::$sClient->AreAnyGamesInProgress([]);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -54,7 +53,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for AreAnyGamesInProgress
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * @group Unit
@@ -78,7 +77,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for AreAnyGamesInProgress
      * Then: Expect that the proper subscription type is placed in the URI
      *
      * @group Unit
@@ -93,8 +92,8 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
-     * Then: Expect that the json format is placed in the URI
+     * When: API is queried for AreAnyGamesInProgress
+     * Then: Expect that the xml format is placed in the URI
      *
      * @group Unit
      * @small
@@ -103,13 +102,13 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         /** key 4 should be the "format" based on URL structure */
         $this->assertArrayHasKey(4, static::$sUrlFragments);
-        $this->assertEquals( static::$sUrlFragments[4], 'json');
+        $this->assertEquals( static::$sUrlFragments[4], 'xml');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
-     * Then: Expect that the News resource is placed in the URI
+     * When: API is queried for AreAnyGamesInProgress
+     * Then: Expect that the AreAnyGamesInProgress resource is placed in the URI
      *
      * @group Unit
      * @small
@@ -119,19 +118,21 @@ class UnitTest extends PHPUnit_Framework_TestCase
         /** key 5 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(5, static::$sUrlFragments);
 
-        list($resource) = explode('?', static::$sUrlFragments[5]);
-        $this->assertEquals( $resource, 'News');
+        /** the last piece in the array should be AreAnyGamesInProgress?key=<key> so we need to snip that part off */
+        list( $resource ) = explode( '?', static::$sUrlFragments[5] );
+
+        $this->assertEquals($resource, 'AreAnyGamesInProgress');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
-     * Then: Expect a 200 response
+     * When: API is queried for AreAnyGamesInProgress
+     * Then: Expect a 200 response with an array of 1 entry, that entry containing the string true or false
      *
      * @group Unit
      * @small
      */
-    public function testSuccessfulResponse()
+    public function testAreAnyGamesInProgressSuccessfulResponse()
     {
         $this->assertEquals('200', static::$sResponse->getStatusCode());
     }

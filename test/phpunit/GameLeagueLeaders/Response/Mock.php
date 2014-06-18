@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\News\Response;
+namespace FantasyDataAPI\Test\GameLeagueLeaders\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
@@ -17,10 +17,10 @@ class Mock extends Response
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" for resource */
-        list(, $subscription, $format) = explode( '/', $pRequest->getPath() );
+        /** url parsing "formula" for GameLeagueLeaders */
+        list(, $subscription, $format, , $season, $week, $position, $column) = explode( '/', $pRequest->getPath() );
 
-        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);
+        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season, $week, $position, $column]);
 
         $headers = include($file_partial . '.header.php');
         $response_code = explode(' ', $headers[0])[1];
@@ -30,4 +30,4 @@ class Mock extends Response
 
         parent::__construct($response_code, $headers, $stream);
     }
-} 
+}

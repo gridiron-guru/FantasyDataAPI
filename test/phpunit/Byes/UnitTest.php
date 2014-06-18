@@ -6,14 +6,14 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\News;
+namespace FantasyDataAPI\Test\Byes;
 
-use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Enum\Subscription;
+use PHPUnit_Framework_TestCase;
+
 use FantasyDataAPI\Test\Mock\Client;
 
-/** our resource enums for this test */
-use FantasyDataAPI\Enum\PlayerNews;
+use FantasyDataAPI\Enum\Byes;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
@@ -30,14 +30,14 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/News?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/Byes/2014REG?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public static function setUpBeforeClass()
     {
         static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->News([]);
+        static::$sClient->Byes(['Season' => '2014REG']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -54,7 +54,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for 2014REG Byes
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * @group Unit
@@ -78,7 +78,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for 2014REG Byes
      * Then: Expect that the proper subscription type is placed in the URI
      *
      * @group Unit
@@ -93,7 +93,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for 2014REG Byes
      * Then: Expect that the json format is placed in the URI
      *
      * @group Unit
@@ -108,8 +108,8 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
-     * Then: Expect that the News resource is placed in the URI
+     * When: API is queried for 2014REG Byes
+     * Then: Expect that the Byes resource is placed in the URI
      *
      * @group Unit
      * @small
@@ -118,14 +118,27 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         /** key 5 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(5, static::$sUrlFragments);
-
-        list($resource) = explode('?', static::$sUrlFragments[5]);
-        $this->assertEquals( $resource, 'News');
+        $this->assertEquals( static::$sUrlFragments[5], 'Byes');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for News
+     * When: API is queried for 2014REG Byes
+     * Then: Expect that the Season is placed in the URI
+     *
+     * @group Unit
+     * @small
+     */
+    public function testSeasonInURI()
+    {
+        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        list($season) = explode('?', static::$sUrlFragments[6]);
+        $this->assertEquals( $season, '2014REG');
+    }
+
+    /**
+     * Given: A developer API key
+     * When: API is queried for 2014REG Schedules
      * Then: Expect a 200 response
      *
      * @group Unit
