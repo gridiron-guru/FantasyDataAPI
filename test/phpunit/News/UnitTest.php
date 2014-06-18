@@ -37,7 +37,7 @@ class MockTest extends PHPUnit_Framework_TestCase
         static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->Byes(['Season' => '2014REG']);
+        static::$sClient->News([]);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();

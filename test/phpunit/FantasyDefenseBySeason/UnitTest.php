@@ -151,7 +151,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSuccessfulResponse()
     {
-        $this->assertEquals('200', static::$sClient->getStatusCode());
+        $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
 
 }
