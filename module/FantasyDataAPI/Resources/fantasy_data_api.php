@@ -555,7 +555,7 @@ $resources['operations']['Injuries'] = [
  *
  * http://api.nfldata.apiphany.com/{subscription}/{format}/News?key=<Your_developer_key>
  */
-$resources['operations']['Injuries'] = [
+$resources['operations']['News'] = [
     'httpMethod' => 'GET',
     'uri' => 'News',
     'responseModel' => 'JSON_Resource',
