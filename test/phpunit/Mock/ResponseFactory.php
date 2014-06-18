@@ -100,7 +100,7 @@ class ResponseFactory
                 break;
 
             case 'ScoresByWeek':
-                $response = new ScoresByWeek\MockResponse( $request );
+                $response = new Test\ScoresByWeek\Response\Mock( $request );
                 break;
 
             case 'SeasonLeagueLeaders':
