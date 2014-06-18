@@ -120,7 +120,7 @@ class ResponseFactory
                 break;
 
             case 'TeamSeasonStats':
-                $response = new TeamSeasonStats\MockResponse( $request );
+                $response = new Test\TeamSeasonStats\Response\Mock( $request );
                 break;
 
             case 'Timeframes':
