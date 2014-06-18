@@ -104,7 +104,7 @@ class ResponseFactory
                 break;
 
             case 'SeasonLeagueLeaders':
-                $response = new SeasonLeagueLeaders\MockResponse( $request );
+                $response = new Test\SeasonLeagueLeaders\Response\Mock( $request );
                 break;
 
             case 'Standings':
