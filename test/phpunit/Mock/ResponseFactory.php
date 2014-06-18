@@ -124,7 +124,7 @@ class ResponseFactory
                 break;
 
             case 'Timeframes':
-                $response = new Timeframes\MockResponse( $request );
+                $response = new Test\Timeframes\Response\Mock( $request );
                 break;
 
             default:
