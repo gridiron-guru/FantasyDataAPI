@@ -30,7 +30,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/Byes/2014REG?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/News?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public static function setUpBeforeClass()
     {
@@ -58,9 +58,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * @group Unit
-     *
-     * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/News?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     * @small
      */
     public function testAPIKeyParameter()
     {
@@ -84,6 +82,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the proper subscription type is placed in the URI
      *
      * @group Unit
+     * @small
      */
     public function testSubscriptionInURI()
     {
@@ -98,6 +97,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the json format is placed in the URI
      *
      * @group Unit
+     * @small
      */
     public function testFormatInURI()
     {
@@ -112,6 +112,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Then: Expect that the News resource is placed in the URI
      *
      * @group Unit
+     * @small
      */
     public function testResourceInURI()
     {
@@ -128,6 +129,7 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response
      *
      * @group Unit
+     * @small
      */
     public function testSuccessfulResponse()
     {
