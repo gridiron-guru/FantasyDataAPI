@@ -9,6 +9,7 @@
 namespace FantasyDataAPI\Test\Mock;
 
 use GuzzleHttp\Adapter\TransactionInterface;
+use FantasyDataAPI\Test;
 
 class ResponseFactory
 {
@@ -116,6 +117,10 @@ class ResponseFactory
 
             case 'Injuries':
                 $response = new Injuries\MockResponse( $request );
+                break;
+
+            case 'News':
+                $response = new Test\News\Response\Mock( $request );
                 break;
 
             case 'Timeframes':
