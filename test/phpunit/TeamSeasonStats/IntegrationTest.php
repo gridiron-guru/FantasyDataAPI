@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\TeamSeasonStats;
 
 use PHPUnit_Framework_TestCase;
 
@@ -14,14 +14,17 @@ use FantasyDataAPI\Test\DebugClient;
 use FantasyDataAPI\Enum\Subscription;
 use FantasyDataAPI\Enum\TeamSeasonStats;
 
-class TeamSeasonStatsTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given: A developer API key
      * When: API is queried for 2013 TeamSeasonStats
      * Then: Expect a 200 response with an array of entries that each contain TeamSeasonStats
+     *
+     * @group Integration
+     * @medium
      */
-    public function test2013TeamSeasonStatsSuccessfulResponse()
+    public function testSuccessfulResponse()
     {
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
@@ -284,9 +287,11 @@ class TeamSeasonStatsTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013 TeamSeasonStats
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
+     * @group Integration
+     * @medium
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
-    public function test2014TeamsInvalidAPIKey()
+    public function testInvalidAPIKey()
     {
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 

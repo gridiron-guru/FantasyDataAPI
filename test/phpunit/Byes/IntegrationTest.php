@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\Byes;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
@@ -14,13 +14,16 @@ use FantasyDataAPI\Enum\Subscription;
 
 use FantasyDataAPI\Enum\Byes;
 
-class ByesTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Given: A developer API key
      * When: API is queried for 2014REG Byes
      * Then: Expect a 200 response with an array entries that each contain Schedule and Stadium info
+     *
+     * @group Integration
+     * @medium
      */
     public function test2014REGByesSuccessfulResponse()
     {
@@ -57,6 +60,8 @@ class ByesTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2014REG Byes
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
+     * @group Integration
+     * @medium
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
     public function test2014REGByesInvalidAPIKey()

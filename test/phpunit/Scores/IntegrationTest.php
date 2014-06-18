@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\Scores;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
@@ -15,26 +15,29 @@ use FantasyDataAPI\Enum\Subscription;
 use FantasyDataAPI\Enum\Score;
 use FantasyDataAPI\Enum\Stadium;
 
-class ScoresByWeekTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Given: A developer API key
-     * When: API is queried for 2013, Week 17 ScoresByWeek
+     * When: API is queried for 2014REG Scores
      * Then: Expect a 200 response with an array entries that each contain Scores and Stadium info
+     *
+     * @group Integration
+     * @medium
      */
-    public function test2013REGWeek17ScoresByWeekSuccessfulResponse()
+    public function testSuccessfulResponse()
     {
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->ScoresByWeek(['Season' => '2013REG', 'Week' => '17']);
+        $result = $client->Scores(['Season' => '2013REG']);
 
         $response = $client->mHistory->getLastResponse();
 
         $this->assertEquals('200', $response->getStatusCode());
 
-        /** we expect more than zero :-P ScoresByWeek for 2013, Week 17 */
+        /** we expect more than zero :-P Scores for 2013 */
         $this->assertNotCount( 0, $result );
 
         $check_score_keys = function ( $pScore )
@@ -108,16 +111,18 @@ class ScoresByWeekTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: An invalid developer API key
-     * When: API is queried for 2013, Week 17 ScoresByWeek
+     * When: API is queried for 2013 Scores
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
+     * @group Integration
+     * @medium
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
-    public function test2013REGWeek17ScoresByWeekInvalidAPIKey()
+    public function testInvalidAPIKey()
     {
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $client->ScoresByWeek(['Season' => '2013REG', 'Week' => '17']);
+        $client->Scores(['Season' => '2013REG']);
     }
 }

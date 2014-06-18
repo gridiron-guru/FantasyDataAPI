@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\PlayerSeasonStatsByPlayerID;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
@@ -15,20 +15,23 @@ use FantasyDataAPI\Enum\Subscription;
 use FantasyDataAPI\Enum\PlayerSeason;
 use FantasyDataAPI\Enum\ScoringDetails;
 
-class PlayerSeasonStatsByTeamTest extends PHPUnit_Framework_TestCase
+class PlayerSeasonStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerSeasonStatsByTeam, Season 2013REG, Team NE
+     * When: API is queried for PlayerSeasonStatsByPlayerID, Season 2013REG, PlayerID 10974
      * Then: Expect a 200 response with an array entries that each contain PlayerSeason and ScoringDetails
+     *
+     * @group Integration
+     * @medium
      */
     public function testSuccessfulResponse()
     {
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
+        $result = $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
 
         $response = $client->mHistory->getLastResponse();
 
@@ -203,15 +206,16 @@ class PlayerSeasonStatsByTeamTest extends PHPUnit_Framework_TestCase
         };
 
         $stats = $result->toArray();
-
         array_walk( $stats, $check_player_season );
     }
 
     /**
      * Given: An invalid developer API key
-     * When: API is queried for PlayerSeasonStatsByTeam, Season 2013REG, Team NE
+     * When: API is queried for PlayerSeasonStatsByPlayerID, Season 2013REG, Team NE
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
+     * @group Integration
+     * @medium
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
     public function testInvalidAPIKey()
@@ -219,6 +223,6 @@ class PlayerSeasonStatsByTeamTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
+        $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
     }
 }

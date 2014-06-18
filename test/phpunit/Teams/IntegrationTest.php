@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\Teams;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
@@ -15,7 +15,7 @@ use FantasyDataAPI\Enum\Subscription;
 use FantasyDataAPI\Enum\Teams;
 use FantasyDataAPI\Enum\Stadium;
 
-class TeamsTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**

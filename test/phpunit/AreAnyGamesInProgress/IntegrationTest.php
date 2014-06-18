@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\AreAnyGamesInProgress;
 
 use PHPUnit_Framework_TestCase;
 
@@ -14,15 +14,18 @@ use FantasyDataAPI\Enum\Timeframes;
 use FantasyDataAPI\Test\DebugClient;
 use FantasyDataAPI\Enum\Subscription;
 
-class AreAnyGamesInProgressTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Given: A developer API key
      * When: API is queried for AreAnyGamesInProgress
      * Then: Expect a 200 response with an array of 1 entry, that entry containing 16 keys
+     *
+     * @group Integration
+     * @medium
      */
-    public function testAreAnyGamesInProgressSuccessfulResponse()
+    public function testSuccessfulResponse()
     {
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
@@ -47,9 +50,11 @@ class AreAnyGamesInProgressTest extends PHPUnit_Framework_TestCase
      * When: API is queried for AreAnyGamesInProgress
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
+     * @group Integration
+     * @medium
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
-    public function testAreAnyGamesInProgressInvalidAPIKey()
+    public function testInvalidAPIKey()
     {
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 

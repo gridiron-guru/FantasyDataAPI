@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Integration;
+namespace FantasyDataAPI\Test\Timeframes;
 
 use PHPUnit_Framework_TestCase;
 
@@ -14,13 +14,16 @@ use FantasyDataAPI\Enum\Timeframes;
 use FantasyDataAPI\Test\DebugClient;
 use FantasyDataAPI\Enum\Subscription;
 
-class TimeframesTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Given: A developer API key
      * When: API is queried for current Timeframe
      * Then: Expect a 200 response with an array of 1 entry, that entry containing 16 keys
+     *
+     * @group Integration
+     * @medium
      */
     public function testCurrentTimeframeSuccessfulResponse()
     {
@@ -65,6 +68,9 @@ class TimeframesTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for current Timeframe
      * Then: Expect a 200 response with an array of 1 entry, that entry containing 16 keys
+     *
+     * @group Integration
+     * @medium
      */
     public function testCompletedTimeframeSuccessfulResponse()
     {
@@ -111,8 +117,11 @@ class TimeframesTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
+     *
+     * @group Integration
+     * @medium
      */
-    public function testCurrentTimeframeInvalidAPIKey()
+    public function testInvalidAPIKey()
     {
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 

@@ -15,12 +15,12 @@ use FantasyDataAPI\Enum\Subscription;
 use FantasyDataAPI\Enum\PlayerSeason;
 use FantasyDataAPI\Enum\ScoringDetails;
 
-class SeasonLeagueLeadersTest extends PHPUnit_Framework_TestCase
+class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Given: A developer API key
-     * When: API is queried for SeasonLeagueLeaders, Season 2013REG, Position WR, Column FantasyPoints
+     * When: API is queried for PlayerSeasonStatsByTeam, Season 2013REG, Team NE
      * Then: Expect a 200 response with an array entries that each contain PlayerSeason and ScoringDetails
      */
     public function testSuccessfulResponse()
@@ -28,7 +28,7 @@ class SeasonLeagueLeadersTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->SeasonLeagueLeaders(['Season' => '2013REG', 'Position' => 'WR', 'Column' => 'FantasyPoints']);
+        $result = $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
 
         $response = $client->mHistory->getLastResponse();
 
@@ -209,7 +209,7 @@ class SeasonLeagueLeadersTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: An invalid developer API key
-     * When: API is queried for SeasonLeagueLeaders, Season 2013REG, Position WR, Column FantasyPoints
+     * When: API is queried for PlayerSeasonStatsByTeam, Season 2013REG, Team NE
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
@@ -219,6 +219,6 @@ class SeasonLeagueLeadersTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $client->SeasonLeagueLeaders(['Season' => '2013REG', 'Position' => 'WR', 'Column' => 'FantasyPoints']);
+        $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
     }
 }
