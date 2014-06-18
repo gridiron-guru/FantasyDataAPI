@@ -80,7 +80,7 @@ class ResponseFactory
                 break;
 
             case 'Players':
-                $response = new Players\MockResponse( $request );
+                $response = new Test\Players\Response\Mock( $request );
                 break;
 
             case 'PlayerSeasonStatsByPlayerID':
