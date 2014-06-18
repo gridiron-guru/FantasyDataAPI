@@ -11,14 +11,14 @@ namespace FantasyDataAPI\Test\Teams;
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
-use FantasyDataAPI\Test\Mock\Client;
+use FantasyDataAPI\Test\MockClient;
 
 use FantasyDataAPI\Enum\Teams;
 use FantasyDataAPI\Enum\Stadium;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
-    /** @var Client */
+    /** @var MockClient */
     protected static $sClient;
 
     /** @var \GuzzleHttp\Message\Response */
@@ -35,7 +35,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         static::$sClient->Teams(['Season' => '2014']);
