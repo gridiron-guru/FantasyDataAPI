@@ -108,7 +108,7 @@ class ResponseFactory
                 break;
 
             case 'Standings':
-                $response = new Standings\MockResponse( $request );
+                $response = new Test\Standings\Response\Mock( $request );
                 break;
 
             case 'TeamGameStats':
