@@ -588,6 +588,28 @@ $resources['operations']['NewsByPlayerID'] = [
     ]
 ];
 
+/**
+ * Action: Get News for Team
+ * Resource: NewsByTeam
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/NewsByTeam/{team}?key=<Your_developer_key>
+ */
+$resources['operations']['NewsByTeam'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'NewsByTeam{/Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Team' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 //Get News For Team
 //Get Box Score
 //Get Live Box Scores
