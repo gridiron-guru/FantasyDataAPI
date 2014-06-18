@@ -116,7 +116,7 @@ class ResponseFactory
                 break;
 
             case 'Teams':
-                $response = new Teams\MockResponse( $request );
+                $response = new Test\Teams\Response\Mock( $request );
                 break;
 
             case 'TeamSeasonStats':
