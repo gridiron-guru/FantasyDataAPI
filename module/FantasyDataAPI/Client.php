@@ -38,6 +38,7 @@ use GuzzleHttp\Command;
  * @method Command\Model FantasyDefenseBySeason() FantasyDefenseBySeason( array $pOptions )
  * @method Command\Model Injuries() Injuries( array $pOptions )
  * @method Command\Model News() News( array $pOptions )
+ * @method Command\Model NewsByPlayerID() NewsByPlayerID( array $pOptions )
  *
  * @method Command\Model Standings() Standings( array $pOptions )
  * @method Command\Model Timeframes() Timeframes( array $pOptions )
