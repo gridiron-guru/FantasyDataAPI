@@ -6,13 +6,13 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\FantasyDefenseBySeason;
+namespace FantasyDataAPI\Test\FantasyDefenseBySeason\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Stream;
 
-class MockResponse extends Response
+class Mock extends Response
 {
 
     public function __construct (RequestInterface $pRequest)
@@ -20,10 +20,10 @@ class MockResponse extends Response
         /** url parsing "formula" the resource */
         list(, $subscription, $format, , $season) = explode( '/', $pRequest->getPath() );
 
-        $file_partial = __DIR__ . '/Response/' . implode('.', [$subscription, $format, $season]);
+        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season]);
 
         $headers = include($file_partial . '.header.php');
-        $response_code = explode(' ', $headers[0])[1];;
+        $response_code = explode(' ', $headers[0])[1];
 
         $mocked_response = file_get_contents($file_partial . '.body.' . $format);
         $stream = Stream\Stream::factory($mocked_response);

@@ -112,7 +112,7 @@ class ResponseFactory
                 break;
 
             case 'FantasyDefenseBySeason':
-                $response = new FantasyDefenseBySeason\MockResponse( $request );
+                $response = new Test\FantasyDefenseBySeason\Response\Mock( $request );
                 break;
 
             case 'Injuries':

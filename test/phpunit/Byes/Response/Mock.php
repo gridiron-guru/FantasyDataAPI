@@ -23,7 +23,7 @@ class Mock extends Response
         $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season]);
 
         $headers = include($file_partial . '.header.php');
-        $response_code = explode(' ', $headers[0])[1];;
+        $response_code = explode(' ', $headers[0])[1];
 
         $mocked_response = file_get_contents($file_partial . '.body.' . $format);
         $stream = Stream\Stream::factory($mocked_response);

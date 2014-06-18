@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\FantasyDefenseBySeason;
+namespace FantasyDataAPI\Test\FantasyDefenseBySeason;
 
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
@@ -15,12 +15,15 @@ use FantasyDataAPI\Test\Mock\Client;
 
 use FantasyDataAPI\Enum\FantasyDefenseGame;
 
-class MockTest extends PHPUnit_Framework_TestCase
+class UnitTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Given: A developer API key
      * When: API is queried for FantasyDefenseBySeason, Season 2013REG
      * Then: Expect that the api key is placed in the URL as expected by the service
+     *
+     * @group Unit
+     * @small
      *
      * Expect a service URL something like this:
      *   http://api.nfldata.apiphany.com/developer/json/FantasyDefenseBySeason/2013REG?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
@@ -54,6 +57,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for FantasyDefenseBySeason, Season 2013REG
      * Then: Expect that the proper subscription type is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSubscriptionInURI()
     {
@@ -76,6 +82,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for FantasyDefenseBySeason, Season 2013REG
      * Then: Expect that the json format is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testFormatInURI()
     {
@@ -98,6 +107,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for FantasyDefenseBySeason, Season 2013REG
      * Then: Expect that the TeamSeasonStats resource is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testResourceInURI()
     {
@@ -120,6 +132,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for FantasyDefenseBySeason, Season 2013REG
      * Then: Expect that the Season is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSeasonInURI()
     {
@@ -144,6 +159,9 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for FantasyDefenseBySeason, Season 2013REG
      * Then: Expect a 200 response with an array of player game stats
+     *
+     * @group Unit
+     * @small
      */
     public function testSuccessfulResponse()
     {
