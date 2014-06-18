@@ -116,7 +116,7 @@ class ResponseFactory
                 break;
 
             case 'Injuries':
-                $response = new Injuries\MockResponse( $request );
+                $response = new Test\Injuries\Response\Mock( $request );
                 break;
 
             case 'News':
