@@ -92,7 +92,7 @@ class ResponseFactory
                 break;
 
             case 'Schedules':
-                $response = new Schedules\MockResponse( $request );
+                $response = new Test\Schedules\Response\Mock( $request );
                 break;
 
             case 'Scores':
