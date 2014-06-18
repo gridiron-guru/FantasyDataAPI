@@ -108,7 +108,7 @@ class ResponseFactory
                 break;
 
             case 'FantasyDefenseByGame':
-                $response = new FantasyDefenseByGame\MockResponse( $request );
+                $response = new Test\FantasyDefenseByGame\Response\Mock( $request );
                 break;
 
             case 'FantasyDefenseBySeason':
