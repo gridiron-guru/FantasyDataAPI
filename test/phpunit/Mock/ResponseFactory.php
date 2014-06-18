@@ -104,7 +104,7 @@ class ResponseFactory
                 break;
 
             case 'GameLeagueLeaders':
-                $response = new GameLeagueLeaders\MockResponse( $request );
+                $response = new Test\GameLeagueLeaders\Response\Mock( $request );
                 break;
 
             case 'FantasyDefenseByGame':

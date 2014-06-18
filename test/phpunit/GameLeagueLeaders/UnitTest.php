@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\GameLeagueLeaders;
+namespace FantasyDataAPI\Test\GameLeagueLeaders\Repsonse;
 
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
@@ -15,26 +15,44 @@ use FantasyDataAPI\Test\Mock\Client;
 
 use FantasyDataAPI\Enum\PlayerGame;
 
-class MockTest extends PHPUnit_Framework_TestCase
+class UnitTest extends PHPUnit_Framework_TestCase
 {
+    protected static $sClient;
+    protected static $sResponse;
+
+    /**
+     * Set up our test fixture.
+     *
+     * Expect a service URL something like this:
+     *   http://api.nfldata.apiphany.com/developer/json/GameLeagueLeaders/2013REG/13/TE/FantasyPoints?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     */
+    public static function setUpBeforeClass()
+    {
+        static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        static::$sClient->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
+
+        static::$sResponse = static::$sClient->mHistory->getLastResponse();
+    }
+
+    public static function tearDownAfterClass()
+    {
+        static::$sClient = null;
+        static::$sResponse = null;
+    }
+
     /**
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
-     * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/GameLeagueLeaders/2013REG/13/TE/FantasyPoints?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     * @group Unit
+     * @small
      */
     public function testAPIKeyParameter()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-//         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $matches = [];
 
@@ -54,16 +72,13 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the proper subscription type is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSubscriptionInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
@@ -76,16 +91,13 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the json format is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testFormatInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
@@ -97,17 +109,14 @@ class MockTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
-     * Then: Expect that the TeamSeasonStats resource is placed in the URI
+     * Then: Expect that the GameLeagueLeaders resource is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testResourceInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
@@ -120,16 +129,13 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the Season is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSeasonInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
@@ -142,16 +148,13 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the Week is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testWeekInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
@@ -164,20 +167,17 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the Position is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testPositionInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
-        /** key 8 should be the Week based on URL structure */
+        /** key 8 should be the Position based on URL structure */
         $this->assertArrayHasKey(8, $pieces);
         $this->assertEquals( $pieces[8], 'TE');
     }
@@ -186,20 +186,17 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect that the Column is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
-    public function testPlayerIDInURI()
+    public function testColumnInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
+        $effective_url = static::$sResponse->getEffectiveUrl();
 
         $pieces = explode('/', $effective_url);
 
-        /** key 9 should be the PlayerID based on URL structure */
+        /** key 9 should be the Column based on URL structure */
         $this->assertArrayHasKey(9, $pieces);
 
         list($column) = explode('?', $pieces[9]);
@@ -210,17 +207,13 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameLeagueLeaders, Season 2013REG, Week 13, Position TE, Column FantasyPoints
      * Then: Expect a 200 response with an array of player game stats
+     *
+     * @group Unit
+     * @small
      */
     public function testSuccessfulResponse()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
-
-        $response = $client->mHistory->getLastResponse();
-
-        $this->assertEquals('200', $response->getStatusCode());
+        $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
 
 }
