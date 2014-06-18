@@ -548,9 +548,24 @@ $resources['operations']['Injuries'] = [
     ]
 ];
 
-//
-//Get Injuries for Season for Week for Team
-//Get News</a>
+
+/**
+ * Action: Get News
+ * Resource: News
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/News?key=<Your_developer_key>
+ */
+$resources['operations']['Injuries'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'News',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
 //Get News For Player</a>
 //Get News For Team
 //Get Box Score
