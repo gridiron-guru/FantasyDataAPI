@@ -17,8 +17,14 @@ use FantasyDataAPI\Enum\PlayerGame;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
+    /** @var Client */
     protected static $sClient;
+
+    /** @var \GuzzleHttp\Message\Response */
     protected static $sResponse;
+
+    protected static $sEffectiveUrl;
+    protected static $sUrlFragments;
 
     /**
      * Set up our test fixture.
@@ -34,12 +40,16 @@ class UnitTest extends PHPUnit_Framework_TestCase
         static::$sClient->GameLeagueLeaders(['Season' => '2013REG', 'Week' => 13, 'Position' => 'TE', 'Column' => 'FantasyPoints']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
+        static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
+        static::$sUrlFragments = explode('/', static::$sEffectiveUrl);
     }
 
     public static function tearDownAfterClass()
     {
         static::$sClient = null;
         static::$sResponse = null;
+        static::$sEffectiveUrl = null;
+        static::$sUrlFragments = null;
     }
 
     /**
@@ -52,8 +62,6 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testAPIKeyParameter()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
         $matches = [];
 
         /**
@@ -63,7 +71,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
          * from Guzzle, let me know.
          */
         $pattern = '/key=' . $_SERVER['FANTASY_DATA_API_KEY'] . '/';
-        preg_match($pattern, $effective_url, $matches);
+        preg_match($pattern, static::$sEffectiveUrl, $matches);
 
         $this->assertNotEmpty($matches);
     }
@@ -78,13 +86,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSubscriptionInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 3 should be the "subscription type" based on URL structure */
-        $this->assertArrayHasKey(3, $pieces);
-        $this->assertEquals( $pieces[3], Subscription::KEY_DEVELOPER);
+        $this->assertArrayHasKey(3, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[3], Subscription::KEY_DEVELOPER);
     }
 
     /**
@@ -97,13 +101,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 4 should be the "format" based on URL structure */
-        $this->assertArrayHasKey(4, $pieces);
-        $this->assertEquals( $pieces[4], 'json');
+        $this->assertArrayHasKey(4, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[4], 'json');
     }
 
     /**
@@ -116,13 +116,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 5 should be the "resource" based on URL structure */
-        $this->assertArrayHasKey(5, $pieces);
-        $this->assertEquals( $pieces[5], 'GameLeagueLeaders');
+        $this->assertArrayHasKey(5, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[5], 'GameLeagueLeaders');
     }
 
     /**
@@ -135,13 +131,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSeasonInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 6 should be the Season based on URL structure */
-        $this->assertArrayHasKey(6, $pieces);
-        $this->assertEquals( $pieces[6], '2013REG');
+        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[6], '2013REG');
     }
 
     /**
@@ -154,13 +146,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testWeekInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 7 should be the Week based on URL structure */
-        $this->assertArrayHasKey(7, $pieces);
-        $this->assertEquals( $pieces[7], '13');
+        $this->assertArrayHasKey(7, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[7], '13');
     }
 
     /**
@@ -173,13 +161,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testPositionInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 8 should be the Position based on URL structure */
-        $this->assertArrayHasKey(8, $pieces);
-        $this->assertEquals( $pieces[8], 'TE');
+        $this->assertArrayHasKey(8, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[8], 'TE');
     }
 
     /**
@@ -192,14 +176,10 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testColumnInURI()
     {
-        $effective_url = static::$sResponse->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 9 should be the Column based on URL structure */
-        $this->assertArrayHasKey(9, $pieces);
+        $this->assertArrayHasKey(9, static::$sUrlFragments);
 
-        list($column) = explode('?', $pieces[9]);
+        list($column) = explode('?', static::$sUrlFragments[9]);
         $this->assertEquals( $column, 'FantasyPoints');
     }
 

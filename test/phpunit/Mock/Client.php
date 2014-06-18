@@ -10,7 +10,6 @@ namespace FantasyDataAPI\Test\Mock;
 use FantasyDataAPI\Test\DebugClient;
 use GuzzleHttp\Adapter\MockAdapter;
 use GuzzleHttp\Adapter\TransactionInterface;
-use GuzzleHttp\Message\RequestInterface;
 
 /**
  * @package FantasyDataAPI\Mock

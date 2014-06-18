@@ -16,6 +16,41 @@ use FantasyDataAPI\Test\Mock\Client;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
+    /** @var Client */
+    protected static $sClient;
+
+    /** @var \GuzzleHttp\Message\Response */
+    protected static $sResponse;
+
+    protected static $sEffectiveUrl;
+    protected static $sUrlFragments;
+
+    /**
+     * Set up our test fixture.
+     *
+     * Expect a service URL something like this:
+     *   http://api.nfldata.apiphany.com/developer/xml/AreAnyGamesInProgress/?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     */
+    public static function setUpBeforeClass()
+    {
+        static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        static::$sClient->AreAnyGamesInProgress([]);
+
+        static::$sResponse = static::$sClient->mHistory->getLastResponse();
+        static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
+        static::$sUrlFragments = explode('/', static::$sEffectiveUrl);
+    }
+
+    public static function tearDownAfterClass()
+    {
+        static::$sClient = null;
+        static::$sResponse = null;
+        static::$sEffectiveUrl = null;
+        static::$sUrlFragments = null;
+    }
+
     /**
      * Given: A developer API key
      * When: API is queried for AreAnyGamesInProgress
@@ -23,21 +58,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      *
      * @group Unit
      * @small
-     *
-     * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/xml/AreAnyGamesInProgress/?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public function testAPIKeyParameter()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-//         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
-
-        /** \GuzzleHttp\Command\Model */
-        $client->AreAnyGamesInProgress([]);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
         $matches = [];
 
         /**
@@ -47,7 +70,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
          * from Guzzle, let me know.
          */
         $pattern = '/key=' . $_SERVER['FANTASY_DATA_API_KEY'] . '/';
-        preg_match($pattern, $effective_url, $matches);
+        preg_match($pattern, static::$sEffectiveUrl, $matches);
 
         $this->assertNotEmpty($matches);
     }
@@ -62,19 +85,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSubscriptionInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->AreAnyGamesInProgress([]);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 3 should be the "subscription type" based on URL structure */
-        $this->assertArrayHasKey(3, $pieces);
-        $this->assertEquals( $pieces[3], Subscription::KEY_DEVELOPER);
+        $this->assertArrayHasKey(3, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[3], Subscription::KEY_DEVELOPER);
     }
 
     /**
@@ -87,19 +100,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->AreAnyGamesInProgress([]);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 4 should be the "format" based on URL structure */
-        $this->assertArrayHasKey(4, $pieces);
-        $this->assertEquals( $pieces[4], 'xml');
+        $this->assertArrayHasKey(4, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[4], 'xml');
     }
 
     /**
@@ -112,21 +115,11 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->AreAnyGamesInProgress([]);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 5 should be the "resource" based on URL structure */
-        $this->assertArrayHasKey(5, $pieces);
+        $this->assertArrayHasKey(5, static::$sUrlFragments);
 
         /** the last piece in the array should be AreAnyGamesInProgress?key=<key> so we need to snip that part off */
-        list( $resource ) = explode( '?', $pieces[5] );
+        list( $resource ) = explode( '?', static::$sUrlFragments[5] );
 
         $this->assertEquals($resource, 'AreAnyGamesInProgress');
     }
@@ -141,22 +134,6 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testAreAnyGamesInProgressSuccessfulResponse()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->AreAnyGamesInProgress([]);
-
-        $response = $client->mHistory->getLastResponse();
-
-        $this->assertEquals('200', $response->getStatusCode());
-
-        /** we only expect a single element in the response array */
-        $this->assertCount( 1, $result );
-
-        /** test the contents of the response to make sure it has what we expect */
-        $answer = $result->toArray()[0];
-
-        /** we expect either a "true" or "false" string returned */
-        $this->assertContains($answer, ["true", "false"]);
+        $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
 }
