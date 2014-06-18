@@ -48,7 +48,7 @@ class ResponseFactory
                 break;
 
             case 'Byes':
-                $response = new Byes\MockResponse( $request );
+                $response = new Test\Byes\Response\Mock( $request );
                 break;
 
             case 'Scores':
