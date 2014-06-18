@@ -16,7 +16,7 @@ use FantasyDataAPI\Test\Mock\Client;
 use FantasyDataAPI\Enum\Schedule;
 use FantasyDataAPI\Enum\Stadium;
 
-class MockTest extends PHPUnit_Framework_TestCase
+class UnitTest extends PHPUnit_Framework_TestCase
 {
     /** @var Client */
     protected static $sClient;

@@ -96,7 +96,7 @@ class ResponseFactory
                 break;
 
             case 'Scores':
-                $response = new Scores\MockResponse( $request );
+                $response = new Test\Scores\Response\Mock( $request );
                 break;
 
             case 'ScoresByWeek':
