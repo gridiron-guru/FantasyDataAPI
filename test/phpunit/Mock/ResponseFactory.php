@@ -76,7 +76,7 @@ class ResponseFactory
                 break;
 
             case 'PlayerGameStatsByTeam':
-                $response = new PlayerGameStatsByTeam\MockResponse( $request );
+                $response = new Test\PlayerGameStatsByTeam\Response\Mock( $request );
                 break;
 
             case 'Players':

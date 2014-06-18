@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\PlayerGameStatsByPlayerID;
+namespace FantasyDataAPI\Test\PlayerGameStatsByTeam;
 
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
@@ -30,14 +30,14 @@ class UnitTest extends PHPUnit_Framework_TestCase
      * Set up our test fixture.
      *
      * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/PlayerGameStatsByPlayerID/2013REG/13/10974?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     *   http://api.nfldata.apiphany.com/developer/json/PlayerGameStatsByTeam/2013REG/17/NE?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
      */
     public static function setUpBeforeClass()
     {
         static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
+        static::$sClient->PlayerGameStatsByTeam(['Season' => '2013REG', 'Week' => 17, 'Team' => 'NE']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -54,7 +54,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
      * @group Unit
@@ -78,7 +78,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
      * Then: Expect that the proper subscription type is placed in the URI
      *
      * @group Unit
@@ -93,7 +93,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
      * Then: Expect that the json format is placed in the URI
      *
      * @group Unit
@@ -108,8 +108,8 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
-     * Then: Expect that the PlayerGameStatsByPlayerID resource is placed in the URI
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
+     * Then: Expect that the PlayerGameStatsByTeam resource is placed in the URI
      *
      * @group Unit
      * @small
@@ -118,12 +118,12 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         /** key 5 should be the "resource" based on URL structure */
         $this->assertArrayHasKey(5, static::$sUrlFragments);
-        $this->assertEquals( static::$sUrlFragments[5], 'PlayerGameStatsByPlayerID');
+        $this->assertEquals( static::$sUrlFragments[5], 'PlayerGameStatsByTeam');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
      * Then: Expect that the Season is placed in the URI
      *
      * @group Unit
@@ -138,7 +138,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
      * Then: Expect that the Week is placed in the URI
      *
      * @group Unit
@@ -148,35 +148,35 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         /** key 7 should be the Week based on URL structure */
         $this->assertArrayHasKey(7, static::$sUrlFragments);
-        $this->assertEquals( static::$sUrlFragments[7], '13');
+        $this->assertEquals( static::$sUrlFragments[7], '17');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
-     * Then: Expect that the PlayerID is placed in the URI
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
+     * Then: Expect that the Team is placed in the URI
      *
      * @group Unit
      * @small
      */
-    public function testPlayerIDInURI()
+    public function testTeamInURI()
     {
-        /** key 8 should be the PlayerID based on URL structure */
+        /** key 8 should be the Week based on URL structure */
         $this->assertArrayHasKey(8, static::$sUrlFragments);
 
         list($team) = explode('?', static::$sUrlFragments[8]);
-        $this->assertEquals( $team, '10974');
+        $this->assertEquals( $team, 'NE');
     }
 
     /**
      * Given: A developer API key
-     * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
+     * When: API is queried for 2013REG, Week 17, NE, PlayerGameStatsByTeam
      * Then: Expect a 200 response with an array of player game stats
      *
      * @group Unit
      * @small
      */
-    public function testSuccessfulResponse()
+    public function test2013REGWeek17PlayerGameStatsByTeamSuccessfulResponse()
     {
         $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
