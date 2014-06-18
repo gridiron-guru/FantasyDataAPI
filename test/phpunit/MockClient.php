@@ -5,9 +5,8 @@
  * @license   http://opensource.org/licenses/Apache-2.0
  * @package   FantasyDataAPI
  */
-namespace FantasyDataAPI\Test\Mock;
+namespace FantasyDataAPI\Test;
 
-use FantasyDataAPI\Test\DebugClient;
 use GuzzleHttp\Adapter\MockAdapter;
 use GuzzleHttp\Adapter\TransactionInterface;
 
@@ -18,7 +17,7 @@ use GuzzleHttp\Adapter\TransactionInterface;
  * a call is made to retrieve Timeframes.php it will respond from the Mock instead
  * of the live service.
  */
-class Client extends DebugClient
+class MockClient extends DebugClient
 {
 
     /**

@@ -11,11 +11,11 @@ namespace FantasyDataAPI\Test\PlayerSeasonStatsByPlayerID;
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
-use FantasyDataAPI\Test\Mock\Client;
+use FantasyDataAPI\Test\MockClient;
 
 class UnitTest extends PHPUnit_Framework_TestCase
 {
-    /** @var Client */
+    /** @var MockClient */
     protected static $sClient;
 
     /** @var \GuzzleHttp\Message\Response */
@@ -32,7 +32,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         static::$sClient->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
@@ -84,19 +84,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSubscriptionInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 3 should be the "subscription type" based on URL structure */
-        $this->assertArrayHasKey(3, $pieces);
-        $this->assertEquals( $pieces[3], Subscription::KEY_DEVELOPER);
+        $this->assertArrayHasKey(3, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[3], Subscription::KEY_DEVELOPER);
     }
 
     /**
@@ -109,19 +99,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 4 should be the "format" based on URL structure */
-        $this->assertArrayHasKey(4, $pieces);
-        $this->assertEquals( $pieces[4], 'json');
+        $this->assertArrayHasKey(4, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[4], 'json');
     }
 
     /**
@@ -134,19 +114,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 5 should be the "resource" based on URL structure */
-        $this->assertArrayHasKey(5, $pieces);
-        $this->assertEquals( $pieces[5], 'PlayerSeasonStatsByPlayerID');
+        $this->assertArrayHasKey(5, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[5], 'PlayerSeasonStatsByPlayerID');
     }
 
     /**
@@ -159,19 +129,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSeasonInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 6 should be the Season based on URL structure */
-        $this->assertArrayHasKey(6, $pieces);
-        $this->assertEquals( $pieces[6], '2013REG');
+        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[6], '2013REG');
     }
 
     /**
@@ -184,20 +144,10 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testPlayerIDInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerSeasonStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 7 should be the PlayerID based on URL structure */
-        $this->assertArrayHasKey(7, $pieces);
+        $this->assertArrayHasKey(7, static::$sUrlFragments);
 
-        list($team) = explode('?', $pieces[7]);
+        list($team) = explode('?', static::$sUrlFragments[7]);
         $this->assertEquals( $team, '10974');
     }
 

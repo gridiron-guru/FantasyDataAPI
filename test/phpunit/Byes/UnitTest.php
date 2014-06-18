@@ -11,7 +11,7 @@ namespace FantasyDataAPI\Test\Byes;
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
-use FantasyDataAPI\Test\Mock\Client;
+use FantasyDataAPI\Test\MockClient;
 
 use FantasyDataAPI\Enum\Byes;
 
@@ -34,7 +34,7 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** \GuzzleHttp\Command\Model */
         static::$sClient->Byes(['Season' => '2014REG']);
