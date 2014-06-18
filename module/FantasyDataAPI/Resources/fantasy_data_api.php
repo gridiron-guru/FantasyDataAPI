@@ -610,8 +610,38 @@ $resources['operations']['NewsByTeam'] = [
     ]
 ];
 
-//Get News For Team
-//Get Box Score
+/**
+ * Action: Get Box Score
+ * Resource: BoxScore
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/BoxScore/{season}/{week}/{team}?key=<Your_developer_key>
+ */
+$resources['operations']['NewsByTeam'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'NewsByTeam{/Team}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Team' => [
+            'required' => false,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 //Get Live Box Scores
 //Get Players Game Stats for Season for Week
 //Get Game Stats for Season
