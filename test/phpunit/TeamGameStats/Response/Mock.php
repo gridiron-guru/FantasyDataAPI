@@ -6,21 +6,21 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\TeamGameStats;
+namespace FantasyDataAPI\Test\TeamGameStats\Response;
 
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Stream;
 
-class MockResponse extends Response
+class Mock extends Response
 {
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" for TeamGameStats */
+        /** url parsing "formula" */
         list(, $subscription, $format, , $season, $week) = explode( '/', $pRequest->getPath() );
 
-        $file_partial = __DIR__ . '/Response/' . implode('.', [$subscription, $format, $season, $week]);
+        $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season, $week]);
 
         $headers = include($file_partial . '.header.php');
         $response_code = explode(' ', $headers[0])[1];;
