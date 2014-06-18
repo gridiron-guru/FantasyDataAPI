@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\Mock\PlayerGameStatsByPlayerID;
+namespace FantasyDataAPI\Test\PlayerGameStatsByPlayerID;
 
 use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
@@ -15,27 +15,53 @@ use FantasyDataAPI\Test\Mock\Client;
 
 use FantasyDataAPI\Enum\PlayerGame;
 
-class MockTest extends PHPUnit_Framework_TestCase
+class Mock extends PHPUnit_Framework_TestCase
 {
+    /** @var Client */
+    protected static $sClient;
+
+    /** @var \GuzzleHttp\Message\Response */
+    protected static $sResponse;
+
+    protected static $sEffectiveUrl;
+    protected static $sUrlFragments;
+
+    /**
+     * Set up our test fixture.
+     *
+     * Expect a service URL something like this:
+     *   http://api.nfldata.apiphany.com/developer/json/PlayerGameStatsByPlayerID/2013REG/13/10974?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     */
+    public static function setUpBeforeClass()
+    {
+        static::$sClient = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        static::$sClient->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
+
+        static::$sResponse = static::$sClient->mHistory->getLastResponse();
+        static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
+        static::$sUrlFragments = explode('/', static::$sEffectiveUrl);
+    }
+
+    public static function tearDownAfterClass()
+    {
+        static::$sClient = null;
+        static::$sResponse = null;
+        static::$sEffectiveUrl = null;
+        static::$sUrlFragments = null;
+    }
+
     /**
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect that the api key is placed in the URL as expected by the service
      *
-     * Expect a service URL something like this:
-     *   http://api.nfldata.apiphany.com/developer/json/PlayerGameStatsByPlayerID/2013REG/13/10974?key=000aaaa0-a00a-0000-0a0a-aa0a00000000
+     * @group Unit
+     * @small
      */
     public function testAPIKeyParameter()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-//         $client = new \FantasyDataAPI\Test\DebugClient($_SERVER['FANTASY_DATA_API_KEY'], 'developer');
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
         $matches = [];
 
         /**
@@ -45,7 +71,7 @@ class MockTest extends PHPUnit_Framework_TestCase
          * from Guzzle, let me know.
          */
         $pattern = '/key=' . $_SERVER['FANTASY_DATA_API_KEY'] . '/';
-        preg_match($pattern, $effective_url, $matches);
+        preg_match($pattern, static::$sEffectiveUrl, $matches);
 
         $this->assertNotEmpty($matches);
     }
@@ -54,133 +80,91 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect that the proper subscription type is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSubscriptionInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 3 should be the "subscription type" based on URL structure */
-        $this->assertArrayHasKey(3, $pieces);
-        $this->assertEquals( $pieces[3], Subscription::KEY_DEVELOPER);
+        $this->assertArrayHasKey(3, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[3], Subscription::KEY_DEVELOPER);
     }
 
     /**
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect that the json format is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testFormatInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 4 should be the "format" based on URL structure */
-        $this->assertArrayHasKey(4, $pieces);
-        $this->assertEquals( $pieces[4], 'json');
+        $this->assertArrayHasKey(4, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[4], 'json');
     }
 
     /**
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
-     * Then: Expect that the TeamSeasonStats resource is placed in the URI
+     * Then: Expect that the PlayerGameStatsByPlayerID resource is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testResourceInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 5 should be the "resource" based on URL structure */
-        $this->assertArrayHasKey(5, $pieces);
-        $this->assertEquals( $pieces[5], 'PlayerGameStatsByPlayerID');
+        $this->assertArrayHasKey(5, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[5], 'PlayerGameStatsByPlayerID');
     }
 
     /**
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect that the Season is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testSeasonInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 6 should be the Season based on URL structure */
-        $this->assertArrayHasKey(6, $pieces);
-        $this->assertEquals( $pieces[6], '2013REG');
+        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[6], '2013REG');
     }
 
     /**
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect that the Week is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testWeekInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 7 should be the Week based on URL structure */
-        $this->assertArrayHasKey(7, $pieces);
-        $this->assertEquals( $pieces[7], '13');
+        $this->assertArrayHasKey(7, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[7], '13');
     }
 
     /**
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect that the PlayerID is placed in the URI
+     *
+     * @group Unit
+     * @small
      */
     public function testPlayerIDInURI()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** \GuzzleHttp\Command\Model */
-        $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-        $effective_url = $response->getEffectiveUrl();
-
-        $pieces = explode('/', $effective_url);
-
         /** key 8 should be the PlayerID based on URL structure */
-        $this->assertArrayHasKey(8, $pieces);
+        $this->assertArrayHasKey(8, static::$sUrlFragments);
 
-        list($team) = explode('?', $pieces[8]);
+        list($team) = explode('?', static::$sUrlFragments[8]);
         $this->assertEquals( $team, '10974');
     }
 
@@ -188,17 +172,13 @@ class MockTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for PlayerGameStatsByPlayerID, Season 2013REG, Week 13, PlayerID 10974
      * Then: Expect a 200 response with an array of player game stats
+     *
+     * @group Unit
+     * @small
      */
     public function testSuccessfulResponse()
     {
-        $client = new Client($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
-
-        /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => 13, 'PlayerID' => '10974']);
-
-        $response = $client->mHistory->getLastResponse();
-
-        $this->assertEquals('200', $response->getStatusCode());
+        $this->assertEquals('200', static::$sResponse->getStatusCode());
     }
 
 }
