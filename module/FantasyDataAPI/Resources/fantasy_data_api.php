@@ -570,11 +570,11 @@ $resources['operations']['News'] = [
  * Action: Get News for Player
  * Resource: NewsByPlayerID
  *
- * http://api.nfldata.apiphany.com/{subscription}/{format}/NewsByPlayerID/{PlayerID}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/NewsByPlayerID/{playerid}?key=<Your_developer_key>
  */
 $resources['operations']['NewsByPlayerID'] = [
     'httpMethod' => 'GET',
-    'uri' => 'NewsByPlayerID',
+    'uri' => 'NewsByPlayerID{/PlayerID}',
     'responseModel' => 'JSON_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],

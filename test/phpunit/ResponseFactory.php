@@ -66,6 +66,10 @@ class ResponseFactory
                 $response = new News\Response\Mock( $request );
                 break;
 
+            case 'NewsByPlayerID':
+                $response = new NewsByPlayerID\Response\Mock( $request );
+                break;
+
             case 'Player':
                 $response = new Player\Response\Mock( $request );
                 break;
