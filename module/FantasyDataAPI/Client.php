@@ -50,6 +50,7 @@ use GuzzleHttp\Command;
  * @method Command\Model FinalBoxScores() FinalBoxScores( array $pOptions )
  * @method Command\Model ActiveBoxScores() ActiveBoxScores( array $pOptions )
  * @method Command\Model BoxScores() BoxScores( array $pOptions )
+ * @method Command\Model Stadiums() Stadiums( array $pOptions )
  *
  */
 class Client extends GuzzleClient

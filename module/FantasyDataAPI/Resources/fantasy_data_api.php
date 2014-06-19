@@ -818,11 +818,27 @@ $resources['operations']['BoxScores'] = [
     ]
 ];
 
-// @todo - Get Stadiums
-// @todo - Get Error Sample
-// @todo - Match Player
-// @todo - Get Projected Players Game Stats by Season, Week and Team
+/**
+ * Action: Get Stadiums
+ * Resource: Stadiums
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Stadiums?key=<Your_developer_key>
+ */
+$resources['operations']['Stadiums'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'Stadiums',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 
+// @todo - Get Projected Players Game Stats by Season, Week and Team
+// @todo - Get Active Teams
+// @todo - Gets Fantasy Players with ADP
+// @todo - Get Projected Fantasy Defense Stats By Season and Week
 
 /**
  * These models are used by Guzzle to determine how to return the result
