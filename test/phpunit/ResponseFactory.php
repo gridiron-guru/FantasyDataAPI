@@ -146,6 +146,10 @@ class ResponseFactory
                 $response = new SeasonLeagueLeaders\Response\Mock( $request );
                 break;
 
+            case 'Stadiums':
+                $response = new Stadiums\Response\Mock( $request );
+                break;
+
             case 'Standings':
                 $response = new Standings\Response\Mock( $request );
                 break;
