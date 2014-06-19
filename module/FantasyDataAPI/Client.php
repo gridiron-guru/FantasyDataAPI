@@ -25,6 +25,7 @@ use GuzzleHttp\Command;
  * @method Command\Model ScoresByWeek() ScoresByWeek( array $pOptions )
  * @method Command\Model TeamGameStats() TeamGameStats( array $pOptions )
  * @method Command\Model TeamSeasonStats() TeamSeasonStats( array $pOptions )
+ * @method Command\Model Standings() Standings( array $pOptions )
  * @method Command\Model Players() Players( array $pOptions )
  * @method Command\Model Player() Player( array $pOptions )
  * @method Command\Model FreeAgents() FreeAgents( array $pOptions )
@@ -42,8 +43,8 @@ use GuzzleHttp\Command;
  * @method Command\Model NewsByTeam() NewsByTeam( array $pOptions )
  * @method Command\Model BoxScore() BoxScore( array $pOptions )
  * @method Command\Model LiveBoxScores() LiveBoxScores( array $pOptions )
+ * @method Command\Model PlayerGameStatsByWeek() PlayerGameStatsByWeek( array $pOptions )
  *
- * @method Command\Model Standings() Standings( array $pOptions )
  * @method Command\Model FinalBoxScores() FinalBoxScores( array $pOptions )
  * @method Command\Model ActiveBoxScores() ActiveBoxScores( array $pOptions )
  * @method Command\Model BoxScores() BoxScores( array $pOptions )
