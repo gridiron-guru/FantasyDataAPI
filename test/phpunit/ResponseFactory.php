@@ -42,6 +42,10 @@ class ResponseFactory
                 $response = new BoxScore\Response\Mock( $request );
                 break;
 
+            case 'BoxScores':
+                $response = new BoxScores\Response\Mock( $request );
+                break;
+
             case 'Byes':
                 $response = new Byes\Response\Mock( $request );
                 break;
