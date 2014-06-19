@@ -659,7 +659,6 @@ $resources['operations']['LiveBoxScores'] = [
     ]
 ];
 
-//Get Live Box Scores
 //Get Players Game Stats for Season for Week
 //Get Game Stats for Season
 //Get Game Stats for Season for Week
