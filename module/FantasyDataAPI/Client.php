@@ -45,12 +45,12 @@ use GuzzleHttp\Command;
  * @method Command\Model LiveBoxScores() LiveBoxScores( array $pOptions )
  * @method Command\Model PlayerGameStatsByWeek() PlayerGameStatsByWeek( array $pOptions )
  * @method Command\Model GameStats() GameStats( array $pOptions )
- *
+ * @method Command\Model GameStatsByWeek() GameStatsByWeek( array $pOptions )
+ * @method Command\Model Timeframes() Timeframes( array $pOptions )
  * @method Command\Model FinalBoxScores() FinalBoxScores( array $pOptions )
  * @method Command\Model ActiveBoxScores() ActiveBoxScores( array $pOptions )
  * @method Command\Model BoxScores() BoxScores( array $pOptions )
  *
- * @method Command\Model Timeframes() Timeframes( array $pOptions )
  */
 class Client extends GuzzleClient
 {
