@@ -74,6 +74,10 @@ class ResponseFactory
                 $response = new GameLeagueLeaders\Response\Mock( $request );
                 break;
 
+            case 'GameStats':
+                $response = new GameStats\Response\Mock( $request );
+                break;
+
             case 'Injuries':
                 $response = new Injuries\Response\Mock( $request );
                 break;
