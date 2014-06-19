@@ -70,6 +70,10 @@ class ResponseFactory
                 $response = new Injuries\Response\Mock( $request );
                 break;
 
+            case 'LiveBoxScores':
+                $response = new LiveBoxScores\Response\Mock( $request );
+                break;
+
             case 'News':
                 $response = new News\Response\Mock( $request );
                 break;

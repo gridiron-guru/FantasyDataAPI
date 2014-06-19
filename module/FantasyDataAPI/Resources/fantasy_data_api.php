@@ -642,7 +642,23 @@ $resources['operations']['BoxScore'] = [
     ]
 ];
 
-//Get Live Box Scores
+/**
+ * Action: Get Live Box Scores
+ * Resource: LiveBoxScores
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/LiveBoxScores?key=<Your_developer_key>
+ */
+$resources['operations']['LiveBoxScores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'LiveBoxScores',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
 //Get Players Game Stats for Season for Week
 //Get Game Stats for Season
 //Get Game Stats for Season for Week
