@@ -635,7 +635,7 @@ $resources['operations']['BoxScore'] = [
             'location' => 'uri'
         ],
         'Team' => [
-            'required' => false,
+            'required' => true,
             'type' => 'string',
             'location' => 'uri'
         ]
@@ -671,7 +671,34 @@ $resources['operations']['Timeframes'] = [
 
 //Get Final Box Scores
 //Get Active Box Scores
-//Get Box Scores for Season for Week
+
+/**
+ * Action: Get Box Scores for Season for Week
+ * Resource: BoxScores
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/BoxScores/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['BoxScores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'BoxScores{/Season}{/Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 //Get Stadiums
 //Get Error Sample
 //Match Player

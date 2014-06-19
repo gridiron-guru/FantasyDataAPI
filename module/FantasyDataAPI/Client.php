@@ -42,6 +42,8 @@ use GuzzleHttp\Command;
  * @method Command\Model NewsByTeam() NewsByTeam( array $pOptions )
  * @method Command\Model BoxScore() BoxScore( array $pOptions )
  *
+ * @method Command\Model BoxScores() BoxScores( array $pOptions )
+ *
  * @method Command\Model Standings() Standings( array $pOptions )
  * @method Command\Model Timeframes() Timeframes( array $pOptions )
  */
