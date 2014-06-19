@@ -685,8 +685,39 @@ $resources['operations']['Timeframes'] = [
     ]
 ];
 
-//Get Final Box Scores
-//Get Active Box Scores
+/**
+ * Action: Get Final Box Scores
+ * Resource: FinalBoxScores
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/FinalBoxScores?key=<Your_developer_key>
+ */
+$resources['operations']['FinalBoxScores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FinalBoxScores',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
+/**
+ * Action: Get Active Box Scores
+ * Resource: ActiveBoxScores
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/ActiveBoxScores?key=<Your_developer_key>
+ */
+$resources['operations']['ActiveBoxScores'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'ActiveBoxScores',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 
 /**
  * Action: Get Box Scores for Season for Week

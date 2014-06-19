@@ -34,6 +34,10 @@ class ResponseFactory
 
         switch ( $resource )
         {
+            case 'ActiveBoxScores':
+                $response = new ActiveBoxScores\Response\Mock( $request );
+                break;
+
             case 'AreAnyGamesInProgress':
                 $response = new AreAnyGamesInProgress\Response\Mock( $request );
                 break;
@@ -56,6 +60,10 @@ class ResponseFactory
 
             case 'FantasyDefenseBySeason':
                 $response = new FantasyDefenseBySeason\Response\Mock( $request );
+                break;
+
+            case 'FinalBoxScores':
+                $response = new FinalBoxScores\Response\Mock( $request );
                 break;
 
             case 'FreeAgents':
