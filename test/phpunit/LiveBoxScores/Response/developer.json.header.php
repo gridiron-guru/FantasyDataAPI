@@ -9,7 +9,7 @@
 $headers = [];
 $headers[] = 'HTTP/1.1 200 OK';
 $headers[] = 'Cache-Control: must-revalidate, max-age=0, private';
-$headers[] = 'Content-Length: 559621';
+$headers[] = 'Content-Length: 2';
 $headers[] = 'Content-Type: application/json; charset=utf-8';
 $headers[] = 'Expires: Fri, 30 May 2014 02:12:19 GMT';
 $headers[] = 'Last-Modified: Fri, 30 May 2014 02:08:29 GMT';
