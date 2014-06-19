@@ -44,6 +44,7 @@ use GuzzleHttp\Command;
  * @method Command\Model BoxScore() BoxScore( array $pOptions )
  * @method Command\Model LiveBoxScores() LiveBoxScores( array $pOptions )
  * @method Command\Model PlayerGameStatsByWeek() PlayerGameStatsByWeek( array $pOptions )
+ * @method Command\Model GameStatsBySeason() GameStatsBySeason( array $pOptions )
  *
  * @method Command\Model FinalBoxScores() FinalBoxScores( array $pOptions )
  * @method Command\Model ActiveBoxScores() ActiveBoxScores( array $pOptions )

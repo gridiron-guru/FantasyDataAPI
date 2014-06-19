@@ -686,7 +686,28 @@ $resources['operations']['PlayerGameStatsByWeek'] = [
     ]
 ];
 
-// @todo - Get Game Stats for Season
+/**
+ * Action: Get Game Stats for Season
+ * Resource: PlayerGameStatsBySeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/PlayerGameStatsBySeason/{season}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerGameStatsBySeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsBySeason{/Season}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
 // @todo - Get Game Stats for Season for Week
 
 /**
