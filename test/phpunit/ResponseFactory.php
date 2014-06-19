@@ -106,6 +106,10 @@ class ResponseFactory
                 $response = new PlayerGameStatsByTeam\Response\Mock( $request );
                 break;
 
+            case 'PlayerGameStatsByWeek':
+                $response = new PlayerGameStatsByWeek\Response\Mock( $request );
+                break;
+
             case 'Players':
                 $response = new Players\Response\Mock( $request );
                 break;

@@ -659,15 +659,41 @@ $resources['operations']['LiveBoxScores'] = [
     ]
 ];
 
-//Get Players Game Stats for Season for Week
-//Get Game Stats for Season
-//Get Game Stats for Season for Week
+/**
+ * Action: Get Players Game Stats for Season for Week
+ * Resource: PlayerGameStatsByWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/PlayerGameStatsByWeek/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['PlayerGameStatsByWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'PlayerGameStatsByWeek{/Season}{/Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
+
+// @todo - Get Game Stats for Season
+// @todo - Get Game Stats for Season for Week
 
 /**
  * Action: Get Timeframes
  * Resource: Timeframes
  *
- * http://api.nfldata.apiphany.com/{subscription}/{format}/Timeframes.php/{type}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/Timeframes/{type}?key=<Your_developer_key>
  */
 $resources['operations']['Timeframes'] = [
     'httpMethod' => 'GET',
@@ -746,10 +772,10 @@ $resources['operations']['BoxScores'] = [
     ]
 ];
 
-//Get Stadiums
-//Get Error Sample
-//Match Player
-//Get Projected Players Game Stats by Season, Week and Team
+// @todo - Get Stadiums
+// @todo - Get Error Sample
+// @todo - Match Player
+// @todo - Get Projected Players Game Stats by Season, Week and Team
 
 
 /**
