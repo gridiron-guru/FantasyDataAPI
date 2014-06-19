@@ -41,6 +41,7 @@ use GuzzleHttp\Command;
  * @method Command\Model NewsByPlayerID() NewsByPlayerID( array $pOptions )
  * @method Command\Model NewsByTeam() NewsByTeam( array $pOptions )
  * @method Command\Model BoxScore() BoxScore( array $pOptions )
+ * @method Command\Model LiveBoxScores() LiveBoxScores( array $pOptions )
  *
  * @method Command\Model BoxScores() BoxScores( array $pOptions )
  *
