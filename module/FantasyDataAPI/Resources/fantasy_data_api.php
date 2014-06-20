@@ -867,9 +867,23 @@ $resources['operations']['PlayerGameProjectionStatsByTeam'] = [
     ]
 ];
 
-// @todo -
-// @todo - Get Active Teams
-// @todo - Gets Fantasy Players with ADP
+/**
+ * Action: Gets Fantasy Players with ADP
+ * Resource: FantasyPlayers
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/FantasyPlayers?key=<Your_developer_key>
+ */
+$resources['operations']['FantasyPlayers'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FantasyPlayers',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
 // @todo - Get Projected Fantasy Defense Stats By Season and Week
 
 /**
