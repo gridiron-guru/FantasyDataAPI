@@ -884,7 +884,32 @@ $resources['operations']['FantasyPlayers'] = [
     ]
 ];
 
-// @todo - Get Projected Fantasy Defense Stats By Season and Week
+/**
+ * Action: Get Projected Fantasy Defense Stats By Season and Week
+ * Resource: FantasyDefenseProjectionsByGame
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/FantasyDefenseProjectionsByGame/{season}/{week}?key=<Your_developer_key>
+ */
+$resources['operations']['FantasyDefenseProjectionsByGame'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'FantasyDefenseProjectionsByGame{/Season}{/Week}',
+    'responseModel' => 'JSON_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ],
+        'Season' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ],
+        'Week' => [
+            'required' => true,
+            'type' => 'string',
+            'location' => 'uri'
+        ]
+    ]
+];
 
 /**
  * These models are used by Guzzle to determine how to return the result
