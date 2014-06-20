@@ -22,6 +22,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for PlayerSeasonStatsByTeam, Season 2013REG, Team NE
      * Then: Expect a 200 response with an array entries that each contain PlayerSeason and ScoringDetails
+     *
+     * @group Integration
+     * @medium
      */
     public function testSuccessfulResponse()
     {
@@ -211,6 +214,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * Given: An invalid developer API key
      * When: API is queried for PlayerSeasonStatsByTeam, Season 2013REG, Team NE
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
+     *
+     * @group Integration
+     * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */

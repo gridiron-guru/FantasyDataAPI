@@ -22,6 +22,9 @@ class GameStatsTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for GameStats, Season 2013REG
      * Then: Expect a 200 response with an array entries that each contain Players, PlayerNews and PlayerSeason info
+     *
+     * @group Integration
+     * @medium
      */
     public function testSuccessfulResponse()
     {
@@ -298,6 +301,9 @@ class GameStatsTest extends PHPUnit_Framework_TestCase
      * Given: An invalid developer API key
      * When: API is queried for GameStats, Season 2013REG
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
+     *
+     * @group Integration
+     * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
