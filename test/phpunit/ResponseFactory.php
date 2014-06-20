@@ -62,6 +62,10 @@ class ResponseFactory
                 $response = new FantasyDefenseBySeason\Response\Mock( $request );
                 break;
 
+            case 'FantasyDefenseProjectionsByGame':
+                $response = new FantasyDefenseProjectionsByGame\Response\Mock( $request );
+                break;
+
             case 'FantasyPlayers':
                 $response = new FantasyPlayers\Response\Mock( $request );
                 break;
