@@ -41,7 +41,7 @@ $resources['operations']['Teams'] = [
         'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
         'key' => [ 'type' => 'string', 'location' => 'query' ],
         'Season' => [
-            'required' => true,
+            'required' => false,
             'type' => 'string',
             'location' => 'uri'
         ]
