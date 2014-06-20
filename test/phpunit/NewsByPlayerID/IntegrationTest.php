@@ -23,6 +23,7 @@ class NewsByPlayerIDTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 200 response with an array of PlayerNews resources
      *
      * @group Integration
+     * @medium
      */
     public function testSuccessfulResponse()
     {
@@ -74,6 +75,8 @@ class NewsByPlayerIDTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
+     * @small
+     *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
     public function testInvalidAPIKey()

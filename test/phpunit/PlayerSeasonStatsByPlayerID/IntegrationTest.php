@@ -215,7 +215,8 @@ class PlayerSeasonStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
-     * @medium
+     * @small
+     *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */
     public function testInvalidAPIKey()

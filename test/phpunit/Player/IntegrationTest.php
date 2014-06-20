@@ -23,6 +23,9 @@ class PlayerTest extends PHPUnit_Framework_TestCase
      * Given: A developer API key
      * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect a 200 response with an array that each contain Player info, PlayerNews and PlayerSeason info
+     *
+     * @group Integration
+     * @medium
      */
     public function testNEPlayersSuccessfulResponse()
     {
@@ -268,6 +271,9 @@ class PlayerTest extends PHPUnit_Framework_TestCase
      * Given: An invalid developer API key
      * When: API is queried for Rob Gronkowski (PlayerID: 10974)
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
+     *
+     * @group Integration
+     * @small
      *
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      */

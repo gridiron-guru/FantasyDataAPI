@@ -119,7 +119,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * @expectedException \GuzzleHttp\Command\Exception\CommandClientException
      *
      * @group Integration
-     * @medium
+     * @small
      */
     public function testInvalidAPIKey()
     {
