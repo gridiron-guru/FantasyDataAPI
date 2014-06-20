@@ -53,7 +53,7 @@ use GuzzleHttp\Command;
  * @method Command\Model Stadiums() Stadiums( array $pOptions )
  * @method Command\Model PlayerGameProjectionStatsByTeam() PlayerGameProjectionStatsByTeam( array $pOptions )
  * @method Command\Model FantasyPlayers() FantasyPlayers( array $pOptions )
- *
+ * @method Command\Model FantasyDefenseProjectionsByGame() FantasyDefenseProjectionsByGame( array $pOptions )
  */
 class Client extends GuzzleClient
 {
