@@ -141,6 +141,28 @@ class UnitTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
+     * When: API is queried for Teams without Season
+     * Then: Expect that active teams are returned
+     *
+     * @group Unit
+     * @small
+     */
+    public function testMakeSureSeasonIsntRequired()
+    {
+        $client = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+
+        /** \GuzzleHttp\Command\Model */
+        $client->Teams(['Season' => '2014']);
+
+        $response = $client->mHistory->getLastResponse();
+        $this->assertEquals('200', $response->getStatusCode());
+
+        $client = NULL;
+        $response = NULL;
+    }
+
+    /**
+     * Given: A developer API key
      * When: API is queried for 2014 Teams
      * Then: Expect a 200 response
      *
