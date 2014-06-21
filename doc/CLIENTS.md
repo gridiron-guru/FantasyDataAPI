@@ -195,7 +195,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Team Roster and Depth Charts
-**Description:** DESCRIPTION
+**Description:** Retrieves Players resources for the requested team.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1128).
 
@@ -209,7 +209,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Player Stats and News
-**Description:** DESCRIPTION
+**Description:** Retrieves the Player resource for the requested player id.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1129).
 
@@ -223,7 +223,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Free Agents
-**Description:** DESCRIPTION
+**Description:** Retrieves a list of Player objects for the current Free Agents.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1130).
 
@@ -237,7 +237,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Players Game Stats by Team for Season for Week
-**Description:** DESCRIPTION
+**Description:** Retrieves PlayerGame resources for the reuqested season, team and week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1131).
 
@@ -250,8 +250,8 @@ For more information, see the [Developer Documentation](https://developer.fantas
    $result = $client->PlayerGameStatsByTeam(['Season' => '2013REG', 'Week' => '17', 'Team' => 'NE']);
 ```
 
-### Get Players Season Stats by Team for Season
-**Description:** DESCRIPTION
+### Get Players Season Stats by Team
+**Description:** Retrieves PlayerSeason resources for the requested season and team.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1132).
 
@@ -264,8 +264,8 @@ For more information, see the [Developer Documentation](https://developer.fantas
    $result = $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
 ```
 
-### Get Players Game Stats by Player for Season for Week
-**Description:** DESCRIPTION
+### Get Players Game Stats for Season for Week
+**Description:** Retrieves PlayerGame resource for the requested season, team and player id
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1133).
 
@@ -278,8 +278,8 @@ For more information, see the [Developer Documentation](https://developer.fantas
    $result = $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Team' => 'NE', 'PlayerID' => '10974']);
 ```
 
-### Get Players Season Stats by Player for Season
-**Description:** DESCRIPTION
+### Get Players Season Stats
+**Description:** Retrieves the PlayerSeason resource for the requested player.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1134).
 
@@ -293,7 +293,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Season League Leaders
-**Description:** DESCRIPTION
+**Description:** Retrieves PlayerSeason objects for the league leaders based on position and sort type.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1135).
 
@@ -307,7 +307,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Game League Leaders
-**Description:** DESCRIPTION
+**Description:** Retrieves PlayerGame objects for the league leaders based on position and sort type.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1136).
 
@@ -321,7 +321,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Fantasy Defense By Game
-**Description:** DESCRIPTION
+**Description:** Retrieves FantasyDefenseGame resources based on season and week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1137).
 
@@ -335,7 +335,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Fantasy Defense By Season
-**Description:** DESCRIPTION
+**Description:** Retrieves FantasyDefenseSeason resoruces based on season.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1138).
 
@@ -349,7 +349,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Injuries for Season for Week
-**Description:** DESCRIPTION
+**Description:** Retrieves Injuries resources for season, and week, or season, week, and team.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1139).
 
@@ -368,7 +368,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get News
-**Description:** DESCRIPTION
+**Description:** Retrieves the current/active News resources.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1141).
 
@@ -382,7 +382,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get News for Player
-**Description:** DESCRIPTION
+**Description:** Retrieves the current/active News resoruces for the requested player.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1142).
 
@@ -396,7 +396,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get News for Team
-**Description:** DESCRIPTION
+**Description:** Retrieves the current/active News resoruces for the requested team.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1143).
 
@@ -410,7 +410,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Box Score
-**Description:** DESCRIPTION
+**Description:** Retrieves the BoxScore resource for the requested Season, Week, and Team
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1144).
 
@@ -438,7 +438,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Players Game Stats for Season for Week
-**Description:** DESCRIPTION
+**Description:** Retrieve PlayerGame resources for Season and Week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1146).
 
@@ -452,7 +452,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Game Stats for Season
-**Description:** DESCRIPTION
+**Description:** Retrieve Game resources for requested season.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1978).
 
@@ -466,7 +466,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Game Stats for Season for Week
-**Description:** DESCRIPTION
+**Description:** Retrieve Game resources for requested season and week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1979).
 
@@ -524,7 +524,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Box Scores for Season for Week
-**Description:** DESCRIPTION
+**Description:** Retrieves BoxScore resources for season and week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2224).
 
@@ -538,7 +538,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Stadiums
-**Description:** DESCRIPTION
+**Description:** Retrieves Stadium resources for the NFL.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2225).
 
@@ -551,8 +551,8 @@ For more information, see the [Developer Documentation](https://developer.fantas
    $result = $client->Stadiums([]);
 ```
 
-### Get Projected Players Game Stats by Season, Week and Team
-**Description:** DESCRIPTION
+### Get Projected Players Game Stats by Season, Week, and Team
+**Description:** Retrieves projected PlayerGame resources for season, week, and team.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#3300).
 
@@ -566,7 +566,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Gets Fantasy Players with ADP
-**Description:** DESCRIPTION
+**Description:** Retrieves active/current FantasyPlayers resources.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#3303).
 
@@ -580,7 +580,7 @@ For more information, see the [Developer Documentation](https://developer.fantas
 ```
 
 ### Get Projected Fantasy Defense Stats By Season and Week
-**Description:** DESCRIPTION
+**Description:** Retrieves projected FantasyDefenseGame resources for season and week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#3304).
 
