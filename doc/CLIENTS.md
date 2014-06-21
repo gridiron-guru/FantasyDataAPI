@@ -74,9 +74,6 @@ the time of the request or false if there are none.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1112).
 
-#### Action
-> Check if Games In Progress
-
 #### Resource Name
 > AreAnyGamesInProgress
 
@@ -90,9 +87,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 **Description:** List of teams playing in a specified season.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1119).
-
-#### Action
-> Get Teams for Season
 
 #### Resource Name
 > Teams
@@ -108,11 +102,8 @@ For more information, see the [Developer Documentation](https://developer.fantas
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1120).
 
-#### Action
-> Get Schedules for Season
-
 #### Resource Name
-> Teams
+> Schedules
 
 ###### Example usage
 ```php
@@ -124,9 +115,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 **Description:** Get bye weeks for the teams during a specified NFL season.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1121).
-
-#### Action
-> Get Bye Week for Season
 
 #### Resource Name
 > Byes
@@ -140,9 +128,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 **Description:** Get game scores for a specified season.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1123).
-
-#### Action
-> Get Game Scores for Season
 
 #### Resource Name
 > Scores
@@ -158,9 +143,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1124).
 
-#### Action
-> Get Scores for Season and Week
-
 #### Resource Name
 > ScoresByWeek
 
@@ -174,9 +156,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 **Description:** Retrieves Game stats for each team for a given Season and Week.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1125).
-
-#### Action
-> Get Team Stats per Game for Season for Week
 
 #### Resource Name
 > TeamGameStats
@@ -192,9 +171,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1126).
 
-#### Action
-> Get Team Stats for Season
-
 #### Resource Name
 > TeamSeasonStats
 
@@ -209,9 +185,6 @@ For more information, see the [Developer Documentation](https://developer.fantas
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1127).
 
-#### Action
-> Get Team Standings for Season
-
 #### Resource Name
 > Standings
 
@@ -221,15 +194,297 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->Standings(['Season' => '2013REG']);
 ```
 
-### <a name="timeframes"></a>Get Timeframes
+### Get Team Roster and Depth Charts
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1128).
+
+#### Resource Name
+> Players
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Players(['Team' => 'NE']);
+```
+
+### Get Player Stats and News
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1129).
+
+#### Resource Name
+> Player
+
+###### Example usage
+```php
+  $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+  $result = $client->Player(['PlayerID' => '10974']);
+```
+
+### Get Free Agents
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1130).
+
+#### Resource Name
+> FreeAgents
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->FreeAgents([]);
+```
+
+### Get Players Game Stats by Team for Season for Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1131).
+
+#### Resource Name
+> PlayerGameStatsByTeam
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->PlayerGameStatsByTeam(['Season' => '2013REG', 'Week' => '17', 'Team' => 'NE']);
+```
+
+### Get Players Season Stats by Team for Season
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1132).
+
+#### Resource Name
+> PlayerSeasonStatsByTeam
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
+```
+
+### Get Players Game Stats by Player for Season for Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1133).
+
+#### Resource Name
+> PlayerGameStatsByPlayerID
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Team' => 'NE', 'PlayerID' => '10974']);
+```
+
+### Get Players Season Stats by Player for Season
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1134).
+
+#### Resource Name
+> PlayerGameStatsByPlayerID
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'PlayerID' => '10974']);
+```
+
+### Get Season League Leaders
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1135).
+
+#### Resource Name
+> SeasonLeagueLeaders
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->SeasonLeagueLeaders(['Season' => '2013REG', 'Position' => 'WR', 'Column' => 'FantasyPoints']);
+```
+
+### Get Game League Leaders
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1136).
+
+#### Resource Name
+> GameLeagueLeaders
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->GameLeagueLeaders(['Season' => '2013REG', 'Week' => '17', 'Position' => 'WR', 'Column' => 'FantasyPoints']);
+```
+
+### Get Fantasy Defense By Game
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1137).
+
+#### Resource Name
+> FantasyDefenseByGame
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->FantasyDefenseByGame(['Season' => '2013REG', 'Week' => '17']);
+```
+
+### Get Fantasy Defense By Season
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1138).
+
+#### Resource Name
+> FantasyDefenseBySeason
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->FantasyDefenseBySeason(['Season' => '2013REG']);
+```
+
+### Get Injuries for Season for Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1139).
+
+#### Resource Name
+> Injuries
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->Injuries(['Season' => '2013REG', 'Week' => '17']);
+```
+
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->Injuries(['Season' => '2013REG', 'Week' => '17', 'Team' => 'NE']);
+```
+
+### Get News
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1141).
+
+#### Resource Name
+> News
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->News([]);
+```
+
+### Get News for Player
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1142).
+
+#### Resource Name
+> NewsByPlayerID
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->NewsByPlayerID(['PlayerID' => '10974']);
+```
+
+### Get News for Team
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1143).
+
+#### Resource Name
+> NewsByTeam
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->NewsByTeam(['Team' => 'NE']);
+```
+
+### Get Box Score
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1144).
+
+#### Resource Name
+> BoxScore
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->BoxScore(['Season' => '2013REG', 'Week' => '17', 'Team' => 'NE']);
+```
+
+### Get Live Box Scores
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1145).
+
+#### Resource Name
+> LiveBoxScores
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->LiveBoxScores([]);
+```
+
+### Get Players Game Stats for Season for Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1146).
+
+#### Resource Name
+> PlayerGameStatsByWeek
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->PlayerGameStatsByWeek(['Season' => '2013REG', 'Week' => '17']);
+```
+
+### Get Game Stats for Season
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1978).
+
+#### Resource Name
+> GameStats
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->GameStats(['Season' => '2013REG']);
+```
+
+### Get Game Stats for Season for Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#1979).
+
+#### Resource Name
+> GameStatsByWeek
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->GameStatsByWeek(['Season' => '2013REG', 'Week' => '17']);
+```
+
+### Get Timeframes
 **Description:** Retrieve detailed information about past, present, and future
 timeframes. A timeframe is a representation of the state of the NFL for the
 timeframe requested.
 
 For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2117).
-
-#### Action
-> Get Timeframes
 
 #### Resource Name
 > Timeframes
@@ -240,3 +495,100 @@ For more information, see the [Developer Documentation](https://developer.fantas
   $result = $client->Timeframes(['Type' => Timeframes\Type::KEY_CURRENT]);
 ```
 
+### Get Final Box Scores
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2180).
+
+#### Resource Name
+> FinalBoxScores
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->FinalBoxScores([]);
+```
+
+### Get Active Box Scores
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2223).
+
+#### Resource Name
+> ActiveBoxScores
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->ActiveBoxScores([]);
+```
+
+### Get Box Scores for Season for Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2224).
+
+#### Resource Name
+> BoxScores
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->BoxScores(['Season' => '2013REG', 'Week' => '17']);
+```
+
+### Get Stadiums
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#2225).
+
+#### Resource Name
+> Stadiums
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->Stadiums([]);
+```
+
+### Get Projected Players Game Stats by Season, Week and Team
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#3300).
+
+#### Resource Name
+> PlayerGameProjectionStatsByTeam
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->PlayerGameProjectionStatsByTeam(['Season' => '2013REG', 'Week' => '17', 'Team' => 'NE']);
+```
+
+### Gets Fantasy Players with ADP
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#3303).
+
+#### Resource Name
+> FantasyPlayers
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->FantasyPlayers([]);
+```
+
+### Get Projected Fantasy Defense Stats By Season and Week
+**Description:** DESCRIPTION
+
+For more information, see the [Developer Documentation](https://developer.fantasydata.com/docs/services/299#3304).
+
+#### Resource Name
+> FantasyDefenseProjectionsByGame
+
+###### Example usage
+```php
+   $client = new FantasyDataAPI\Client( "Your FantasyData API key" );
+   $result = $client->FantasyDefenseProjectionsByGame(['Season' => '2013REG', 'Week' => '17']);
+```
