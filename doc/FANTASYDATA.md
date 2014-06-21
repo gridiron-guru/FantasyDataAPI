@@ -39,17 +39,43 @@ from the service in the [Client Documentation](CLIENTS.md#resources).
 If you wish to look through all of the documentation for the service, visit the
 [API Documentation](http://developer.fantasydata.com/api-documentation).
 
+* [ActiveBoxScores](CLIENTS.md#get-active-box-scores)
 * [AreAnyGamesInProgress](CLIENTS.md#check-if-games-in-progress)
-* [Teams](CLIENTS.md#get-teams-for-season)
-* [Schedules](CLIENTS.md#get-schedules-for-season)
+* [BoxScore](CLIENTS.md#get-box-score)
+* [BoxScores](CLIENTS.md#get-box-scores-for-season-for-week)
 * [Byes](CLIENTS.md#get-bye-week-for-season)
-* [Scores](CLIENTS.md#get-bye-week-for-season)
-* [ScoresByWeek](CLIENTS.md#get-game-scores-for-season)
-* [TeamGameStats](CLIENTS.md#get-team-stats-per-game-for-season-for-week)
-* [TeamSeasonStats](CLIENTS.md#get-scores-for-season-and-week)
+* [FantasyDefenseByGame](CLIENTS.md#get-fantasy-defense-by-game)
+* [FantasyDefenseBySeason](CLIENTS.md#get-fantasy-defense-by-season)
+* [FantasyDefenseProjectionsByGame](CLIENTS.md#get-projected-fantasy-defense-stats-by-season-and-week)
+* [FantasyPlayers](CLIENTS.md#gets-fantasy-players-with-adp)
+* [FinalBoxScores](CLIENTS.md#get-final-box-scores)
+* [FreeAgents](CLIENTS.md#get-free-agents)
+* [GameLeagueLeaders](CLIENTS.md#get-game-league-leaders)
+* [GameStats](CLIENTS.md#get-game-stats-for-season)
+* [GameStatsByWeek](CLIENTS.md#get-game-stats-for-season-for-week)
+* [Injuries](CLIENTS.md#get-injuries-for-season-for-week)
+* [LiveBoxScores](CLIENTS.md#get-live-box-scores)
+* [News](CLIENTS.md#get-news)
+* [NewsByPlayerID](CLIENTS.md#get-news-for-player)
+* [NewsByTeam](CLIENTS.md#get-news-for-team)
+* [Player](CLIENTS.md#get-player-stats-and-news)
+* [PlayerGameProjectionStatsByTeam](CLIENTS.md#get-projected-players-game-stats-by-season-week-and-team)
+* [PlayerGameStatsByPlayerID](CLIENTS.md#get-players-game-stats-for-season-for-week)
+* [PlayerGameStatsByTeam](CLIENTS.md#get-players-game-stats-by-team-for-season-for-week)
+* [PlayerGameStatsByWeek](CLIENTS.md#get-players-game-stats-for-season-for-week)
+* [Players](CLIENTS.md#get-team-roster-and-depth-charts)
+* [PlayerSeasonStatsByPlayerID](CLIENTS.md#get-players-season-stats)
+* [PlayerSeasonStatsByTeam](CLIENTS.md#get-players-season-stats-by-team-for-season)
+* [Schedules](CLIENTS.md#get-schedules-for-season)
+* [Scores](CLIENTS.md#get-game-scores-for-season)
+* [ScoresByWeek](CLIENTS.md#get-game-scores-for-season-and-week)
+* [SeasonLeagueLeaders](CLIENTS.md#get-season-league-leaders)
+* [Stadiums](CLIENTS.md#get-stadiums)
 * [Standings](CLIENTS.md#get-team-standings-for-season)
-* [Timeframes](CLIENTS.md#timeframes)
-* ... more to come as implemented!
+* [TeamGameStats](CLIENTS.md#get-team-stats-per-game-for-season-for-week)
+* [Teams](CLIENTS.md#get-teams-for-season)
+* [TeamSeasonStats](CLIENTS.md#team-stats-for-season)
+* [Timeframes](CLIENTS.md#get-timeframes)
 
 ## <a name="enums"></a>Enums
 This library contains a collection of ENUM classes that definte PHP Class constants for
@@ -57,21 +83,42 @@ accessing the results returned from the various service resources.
 
 Below is a list of the Service Enums that have been added to the library.
 
+* BoxScore Resource
+    * [BoxScore Property List](/module/FantasyDataAPI/Enum/BoxScore/Property.php)
 * Byes Resource
     * [Byes Property List](/module/FantasyDataAPI/Enum/Byes/Property.php)
+* FantasyDefenseGame
+    * [FantasyDefenseGame Property List](/module/FantasyDataAPI/Enum/FantasyDefenseGame/Property.php)
+* FantasyDefenseSeason
+    * [FantasyDefenseSeason Property List](/module/FantasyDataAPI/Enum/FantasyDefenseSeason/Property.php)
+* FantasyPlayers
+    * [FantasyPlayers Property List](/module/FantasyDataAPI/Enum/FantasyPlayers/Property.php)
+* Game
+    * [Game Property List](/module/FantasyDataAPI/Enum/Game/Property.php)
+* PlayerGame
+    * [PlayerGame Property List](/module/FantasyDataAPI/Enum/PlayerGame/Property.php)
+* PlayerInjury
+    * [PlayerInjury Property List](/module/FantasyDataAPI/Enum/PlayerInjury/Property.php)
+* PlayerNews
+    * [PlayerNews Property List](/module/FantasyDataAPI/Enum/PlayerNews/Property.php)
+* Players
+    * [Players Property List](/module/FantasyDataAPI/Enum/Players/Property.php)
+* PlayerSeason
+    * [PlayerSeason Property List](/module/FantasyDataAPI/Enum/PlayerSeason/Property.php)
 * Schedule Resource
     * [Schedule Property List](/module/FantasyDataAPI/Enum/Schedule/Property.php)
 * Score Resource
     * [Score Property List](/module/FantasyDataAPI/Enum/Score/Property.php)
+* ScoringDetails Resource
+    * [ScoringDetails Property List](/module/FantasyDataAPI/Enum/ScoringDetails/Property.php)
 * Stadium Resource
     * [Stadium Property List](/module/FantasyDataAPI/Enum/Stadium/Property.php)
 * Standings Resource
     * [Standings Property List](/module/FantasyDataAPI/Enum/Standings/Property.php)
-* Team Resource
-    * [Stadium Property List](/module/FantasyDataAPI/Enum/Stadium/Property.php)
-    * [Teams Property List](/module/FantasyDataAPI/Enum/Teams/Property.php)
 * TeamGameStats Resource
     * [Property List](/module/FantasyDataAPI/Enum/TeamGameStats/Property.php)
+* Teams Resource
+    * [Teams Property List](/module/FantasyDataAPI/Enum/Teams/Property.php)
 * TeamSeasonStats Resource
     * [Property List](/module/FantasyDataAPI/Enum/TeamSeasonStats/Property.php)
 * Timeframes Resource
