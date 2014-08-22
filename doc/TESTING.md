@@ -84,7 +84,7 @@ Whenever you want to run the existing integration tests, you can execute the
 following command in your bash shell.
 
 ```bash
-  phpunit --bootstrap test/phpunit/bootstrap.php test/phpunit/Integration
+  phpunit --bootstrap test/phpunit/bootstrap.php --group Integration test/phpunit/
 ```
 
 ## Unit Tests
@@ -108,5 +108,5 @@ Whenever you want to run the existing unit tests, you can execute the
 following command in your bash shell.
 
 ```bash
-  phpunit --bootstrap test/phpunit/bootstrap.php test/phpunit/Mock
+  phpunit --bootstrap test/phpunit/bootstrap.php --group Mock test/phpunit/
 ```
