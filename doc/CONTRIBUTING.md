@@ -68,13 +68,13 @@ If you've got an idea for a new feature and you feel it fits the vision, file
 an issue and we can discuss it.
 
 Make sure any feature request you make fits the
-[INVEST](http://en.wikipedia.org/wiki/INVEST_(mnemonic) mnemonic.
+[INVEST](http://en.wikipedia.org/wiki/INVEST_(mnemonic)) mnemonic.
 
 ## <a name="pull-requests"></a>Pull Requests
 A well written pull request is a huge piece of the success of any open source project.
 Please make sure to take the time to think out the request and document/comment well.
 A good pull request should be the smallest successful feature, akin to the
-[INVEST](http://en.wikipedia.org/wiki/INVEST_(mnemonic) mnemonic used in scrum.
+[INVEST](http://en.wikipedia.org/wiki/INVEST_(mnemonic)) mnemonic used in scrum.
 
 Make sure if you're not a project member and just getting started that you have a
 related issue for your Pull Request and that a project owner approves the work
