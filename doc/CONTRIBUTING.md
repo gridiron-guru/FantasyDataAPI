@@ -41,6 +41,15 @@ some of the various branching models, the two big Elephpants in the room are
 the [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) and the
 [Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) branching model.
 
+## Vagrant
+If you would like to use Vagrant while developing, an associated cookbook,
+Vagrantfile, and Gemfile have been included. You will likely want to set up
+ChefDK. You will also need to make sure you have the vagrant-triggers plugin
+installed which can be installed by using the following command:
+````
+vagrant plugin install vagrant-triggers
+````
+
 ## Running Tests
 The most important part of changes are their tests. Every new feature or issue
 being fixed should have a matching test. This project uses PHPUnit and Guzzle.

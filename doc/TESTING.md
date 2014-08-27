@@ -14,7 +14,7 @@ For example, if you were to run all of the unit and integration tests at once,
 your command would look like this:
 
 ```bash
-  phpunit --bootstrap test/phpunit/bootstrap.php test/phpunit/
+  ./vendor/bin/phpunit --bootstrap test/phpunit/bootstrap.php test/phpunit/
 ```
 
 ## Debug Client
@@ -84,7 +84,7 @@ Whenever you want to run the existing integration tests, you can execute the
 following command in your bash shell.
 
 ```bash
-  phpunit --bootstrap test/phpunit/bootstrap.php --group Integration test/phpunit/
+  ./vendor/bin/phpunit --bootstrap test/phpunit/bootstrap.php --group Integration test/phpunit/
 ```
 
 ## Unit Tests
@@ -108,5 +108,5 @@ Whenever you want to run the existing unit tests, you can execute the
 following command in your bash shell.
 
 ```bash
-  phpunit --bootstrap test/phpunit/bootstrap.php --group Mock test/phpunit/
+  ./vendor/bin/phpunit --bootstrap test/phpunit/bootstrap.php --group Mock test/phpunit/
 ```
