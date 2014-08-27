@@ -19,6 +19,8 @@ class Property
     const KEY_FANTASY_POINTS_ALLOWED = 'FantasyPointsAllowed';
     const KEY_FIELD_GOAL_RETURN_TOUCHDOWNS = 'FieldGoalReturnTouchdowns';
     const KEY_FIELD_GOAL_RETURN_YARDS = 'FieldGoalReturnYards';
+    const KEY_FOURTH_DOWN_ATTEMPTS = 'FourthDownAttempts';
+    const KEY_FOURTH_DOWN_CONVERSIONS = 'FourthDownConversions';
     const KEY_FUMBLE_RETURN_TOUCHDOWNS = 'FumbleReturnTouchdowns';
     const KEY_FUMBLE_RETURN_YARDS = 'FumbleReturnYards';
     const KEY_FUMBLES_FORCED = 'FumblesForced';
@@ -35,6 +37,7 @@ class Property
     const KEY_KICKER_FANTASY_POINTS_ALLOWED = 'KickerFantasyPointsAllowed';
     const KEY_PASSES_DEFENDED = 'PassesDefended';
     const KEY_POINTS_ALLOWED = 'PointsAllowed';
+    const KEY_POINTS_ALLOWED_BY_DEFENSE_SPECIAL_TEAMS = 'PointsAllowedByDefenseSpecialTeams';
     const KEY_PUNT_RETURN_LONG = 'PuntReturnLong';
     const KEY_PUNT_RETURN_TOUCHDOWNS = 'PuntReturnTouchdowns';
     const KEY_PUNT_RETURN_YARDS = 'PuntReturnYards';
@@ -53,6 +56,8 @@ class Property
     const KEY_TACKLES_FOR_LOSS = 'TacklesForLoss';
     const KEY_TEAM = 'Team';
     const KEY_TEMPERATURE = 'Temperature';
+    const KEY_THIRD_DOWN_ATTEMPTS = 'ThirdDownAttempts';
+    const KEY_THIRD_DOWN_CONVERSIONS = 'ThirdDownConversions';
     const KEY_TIGHT_END_FANTASY_POINTS_ALLOWED = 'TightEndFantasyPointsAllowed';
     const KEY_TOUCHDOWNS_SCORED = 'TouchdownsScored';
     const KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED = 'WideReceiverFantasyPointsAllowed';

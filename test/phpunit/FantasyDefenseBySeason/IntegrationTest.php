@@ -39,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_season = function ( $pFantasySeason )
         {
-            /** we expect 47 stats */
-            $this->assertCount( 47, $pFantasySeason );
+            /** we expect 52 stats */
+            $this->assertCount( 52, $pFantasySeason );
 
             $cloned_array = $pFantasySeason;
 
@@ -59,6 +59,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseSeason\Property::KEY_DEFENSIVE_TOUCHDOWNS );
             $process_key( FantasyDefenseSeason\Property::KEY_FANTASY_POINTS );
             $process_key( FantasyDefenseSeason\Property::KEY_FANTASY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseSeason\Property::KEY_FOURTH_DOWN_ATTEMPTS );
+            $process_key( FantasyDefenseSeason\Property::KEY_FOURTH_DOWN_CONVERSIONS );
             $process_key( FantasyDefenseSeason\Property::KEY_FIELD_GOAL_RETURN_TOUCHDOWNS );
             $process_key( FantasyDefenseSeason\Property::KEY_FIELD_GOAL_RETURN_YARDS );
             $process_key( FantasyDefenseSeason\Property::KEY_FUMBLE_RETURN_TOUCHDOWNS );
@@ -77,6 +79,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseSeason\Property::KEY_KICKER_FANTASY_POINTS_ALLOWED );
             $process_key( FantasyDefenseSeason\Property::KEY_PASSES_DEFENDED );
             $process_key( FantasyDefenseSeason\Property::KEY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseSeason\Property::KEY_POINTS_ALLOWED_BY_DEFENSE_SPECIAL_TEAMS );
             $process_key( FantasyDefenseSeason\Property::KEY_PUNT_RETURN_LONG );
             $process_key( FantasyDefenseSeason\Property::KEY_PUNT_RETURN_TOUCHDOWNS );
             $process_key( FantasyDefenseSeason\Property::KEY_PUNT_RETURN_YARDS );
@@ -95,6 +98,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseSeason\Property::KEY_TACKLES_FOR_LOSS );
             $process_key( FantasyDefenseSeason\Property::KEY_TEAM );
             $process_key( FantasyDefenseSeason\Property::KEY_TEMPERATURE );
+            $process_key( FantasyDefenseSeason\Property::KEY_THIRD_DOWN_ATTEMPTS );
+            $process_key( FantasyDefenseSeason\Property::KEY_THIRD_DOWN_CONVERSIONS );
             $process_key( FantasyDefenseSeason\Property::KEY_TIGHT_END_FANTASY_POINTS_ALLOWED );
             $process_key( FantasyDefenseSeason\Property::KEY_TOUCHDOWNS_SCORED );
             $process_key( FantasyDefenseSeason\Property::KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED );
