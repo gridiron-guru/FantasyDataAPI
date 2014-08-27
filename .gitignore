@@ -1,11 +1,13 @@
 .buildpath
 .project
+.DS_Store
 /.settings
 /.idea
+/.vagrant
 /vendor
+/cookbooks
 /data/cache
 /data/vhost
 /config/autoload/*.php
 /config/autoload/*.json
 test/phpunit/config.php
-
