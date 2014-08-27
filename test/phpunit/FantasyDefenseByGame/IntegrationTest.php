@@ -39,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pFantasyDefense )
         {
-            /** we expect 52 stats */
-            $this->assertCount( 52, $pFantasyDefense );
+            /** we expect 57 stats */
+            $this->assertCount( 57, $pFantasyDefense );
 
             $cloned_array = $pFantasyDefense;
 
@@ -62,6 +62,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS_ALLOWED );
             $process_key( FantasyDefenseGame\Property::KEY_FIELD_GOAL_RETURN_TOUCHDOWNS );
             $process_key( FantasyDefenseGame\Property::KEY_FIELD_GOAL_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_FOURTH_DOWN_ATTEMPTS );
+            $process_key( FantasyDefenseGame\Property::KEY_FOURTH_DOWN_CONVERSIONS );
             $process_key( FantasyDefenseGame\Property::KEY_FUMBLE_RETURN_TOUCHDOWNS );
             $process_key( FantasyDefenseGame\Property::KEY_FUMBLE_RETURN_YARDS );
             $process_key( FantasyDefenseGame\Property::KEY_FUMBLES_FORCED );
@@ -80,6 +82,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseGame\Property::KEY_OPPONENT );
             $process_key( FantasyDefenseGame\Property::KEY_PASSES_DEFENDED );
             $process_key( FantasyDefenseGame\Property::KEY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_POINTS_ALLOWED_BY_DEFENSE_SPECIAL_TEAMS );
             $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_LONG );
             $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_TOUCHDOWNS );
             $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_YARDS );
@@ -99,6 +102,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseGame\Property::KEY_TACKLES_FOR_LOSS );
             $process_key( FantasyDefenseGame\Property::KEY_TEAM );
             $process_key( FantasyDefenseGame\Property::KEY_TEMPERATURE );
+            $process_key( FantasyDefenseGame\Property::KEY_THIRD_DOWN_ATTEMPTS );
+            $process_key( FantasyDefenseGame\Property::KEY_THIRD_DOWN_CONVERSIONS );
             $process_key( FantasyDefenseGame\Property::KEY_TIGHT_END_FANTASY_POINTS_ALLOWED );
             $process_key( FantasyDefenseGame\Property::KEY_TOUCHDOWNS_SCORED );
             $process_key( FantasyDefenseGame\Property::KEY_WEEK );
