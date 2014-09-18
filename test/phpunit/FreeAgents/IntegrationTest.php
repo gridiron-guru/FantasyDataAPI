@@ -43,8 +43,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_players = function ( $pPlayers )
         {
-            /** we expect 40 stats */
-            $this->assertCount( 40, $pPlayers );
+            /** we expect 43 stats */
+            $this->assertCount( 43, $pPlayers );
 
             $cloned_array = $pPlayers;
 
@@ -67,6 +67,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( Players\Property::KEY_COLLEGE_DRAFT_ROUND );
             $process_key( Players\Property::KEY_COLLEGE_DRAFT_TEAM );
             $process_key( Players\Property::KEY_COLLEGE_DRAFT_YEAR );
+            $process_key( Players\Property::KEY_CURRENT_STATUS );
             $process_key( Players\Property::KEY_CURRENT_TEAM );
             $process_key( Players\Property::KEY_DEPTH_DISPLAY_ORDER );
             $process_key( Players\Property::KEY_DEPTH_ORDER );
@@ -95,6 +96,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( Players\Property::KEY_TEAM );
             $process_key( Players\Property::KEY_UPCOMING_GAME_OPPONENT );
             $process_key( Players\Property::KEY_UPCOMING_GAME_WEEK );
+            $process_key( Players\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
+            $process_key( Players\Property::KEY_UPCOMING_OPPONENT_RANK );
             $process_key( Players\Property::KEY_WEIGHT );
 
             if ( false == empty( $pPlayers[Players\Property::KEY_LATEST_NEWS]) )

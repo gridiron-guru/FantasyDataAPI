@@ -22,6 +22,7 @@ class Property
     const KEY_COLLEGE_DRAFT_ROUND = 'CollegeDraftRound';
     const KEY_COLLEGE_DRAFT_TEAM = 'CollegeDraftTeam';
     const KEY_COLLEGE_DRAFT_YEAR = 'CollegeDraftYear';
+    const KEY_CURRENT_STATUS = 'CurrentStatus';
     const KEY_CURRENT_TEAM = 'CurrentTeam';
     const KEY_DEPTH_DISPLAY_ORDER = 'DepthDisplayOrder';
     const KEY_DEPTH_ORDER = 'DepthOrder';
@@ -50,5 +51,7 @@ class Property
     const KEY_TEAM = 'Team';
     const KEY_UPCOMING_GAME_OPPONENT = 'UpcomingGameOpponent';
     const KEY_UPCOMING_GAME_WEEK = 'UpcomingGameWeek';
+    const KEY_UPCOMING_OPPONENT_POSITION_RANK = 'UpcomingOpponentPositionRank';
+    const KEY_UPCOMING_OPPONENT_RANK = 'UpcomingOpponentRank';
     const KEY_WEIGHT = 'Weight';
 }
