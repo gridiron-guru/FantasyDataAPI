@@ -25,6 +25,22 @@ $resources['operations']['AreAnyGamesInProgress'] = [
         'key' => [ 'type' => 'string', 'location' => 'query' ]
     ]
 ];
+/**
+ * Action: Get Current Season
+ * Resource: CurrentSeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/CurrentSeason?key=<Your_developer_key>
+ */
+$resources['operations']['CurrentSeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'CurrentSeason',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 
 /**
  * Action: Get Teams for Season
