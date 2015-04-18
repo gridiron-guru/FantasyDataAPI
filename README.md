@@ -34,7 +34,7 @@ To do so, add lines similar to the following to your project's composer.json fil
 ```json
 "require": {
     "php": ">=5.4",
-    "gridiron-guru/FantasyDataAPI" : "1.*",
+    "gridiron-guru/fantasy-data-api" : "1.*",
 },
 
 "repositories": [ {
