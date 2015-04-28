@@ -43,6 +43,40 @@ $resources['operations']['CurrentSeason'] = [
 ];
 
 /**
+ * Action: Get Upcoming Season
+ * Resource: UpcomingSeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/UpcomingdSeason?key=<Your_developer_key>
+ */
+$resources['operations']['UpcomingSeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'UpcomingSeason',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
+/**
+ * Action: Get Last Completed Season
+ * Resource: LastCompletedSeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/LastCompletedSeason?key=<Your_developer_key>
+ */
+$resources['operations']['LastCompletedSeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'LastCurrentSeason',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
+/**
  * Action: Get Teams for Season
  * Resource: Teams
  *
@@ -108,9 +142,6 @@ $resources['operations']['Byes'] = [
     ]
 ];
 
-// deprecated -- Get Last Completed Season
-// deprecated -- Get Current Season
-// deprecated -- Get Upcoming Season
 // deprecated -- Get Last Completed Week
 // deprecated -- Get Current Week
 // deprecated -- Get Upcoming Week
