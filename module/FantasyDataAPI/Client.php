@@ -19,7 +19,7 @@ use GuzzleHttp\Command;
  *
  * @method Command\Model AreAnyGamesInProgress() AreAnyGamesInProgress( array $pOptions )
  * @method Command\Model CurrentSeason() CurrentSeason( array $pOptions )
- * @method Command\Model LastSeason() LastSeason( array $pOptions )
+ * @method Command\Model LastCompletedSeason() LastCompletedSeason( array $pOptions )
  * @method Command\Model UpcomingSeason() UpcomingSeason ( array $pOptions )
  * @method Command\Model Teams() Teams( array $pOptions )
  * @method Command\Model Schedules() Schedules( array $pOptions )
