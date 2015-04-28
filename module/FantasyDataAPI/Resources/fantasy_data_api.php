@@ -46,7 +46,7 @@ $resources['operations']['CurrentSeason'] = [
  * Action: Get Upcoming Season
  * Resource: UpcomingSeason
  *
- * http://api.nfldata.apiphany.com/{subscription}/{format}/UpcomingdSeason?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/UpcomingSeason?key=<Your_developer_key>
  */
 $resources['operations']['UpcomingSeason'] = [
     'httpMethod' => 'GET',
@@ -67,7 +67,7 @@ $resources['operations']['UpcomingSeason'] = [
  */
 $resources['operations']['LastCompletedSeason'] = [
     'httpMethod' => 'GET',
-    'uri' => 'LastCurrentSeason',
+    'uri' => 'LastCompletedSeason',
     'responseModel' => 'XML_Resource',
     'parameters' => [
         'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
