@@ -143,8 +143,57 @@ $resources['operations']['Byes'] = [
 ];
 
 // deprecated -- Get Last Completed Week
+/**
+ * Action: Get Last Completed Week
+ * Resource: LastCompletedWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/LastCompletedWeek?key=<Your_developer_key>
+ */
+$resources['operations']['LastCompletedWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'LastCompletedWeek',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
 // deprecated -- Get Current Week
+/**
+ * Action: Get Current Week
+ * Resource: CurrentWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/CurrentWeek?key=<Your_developer_key>
+ */
+$resources['operations']['CurrentWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'CurrentWeek',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 // deprecated -- Get Upcoming Week
+/**
+ * Action: Get Upcoming Week
+ * Resource: UpcomingWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/UpcomingWeek?key=<Your_developer_key>
+ */
+$resources['operations']['UpcomingWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'UpcomingWeek',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 
 /**
  * Action: Get Game Scores for Season
