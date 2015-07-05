@@ -25,6 +25,56 @@ $resources['operations']['AreAnyGamesInProgress'] = [
         'key' => [ 'type' => 'string', 'location' => 'query' ]
     ]
 ];
+/**
+ * Action: Get Current Season
+ * Resource: CurrentSeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/CurrentSeason?key=<Your_developer_key>
+ */
+$resources['operations']['CurrentSeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'CurrentSeason',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
+/**
+ * Action: Get Upcoming Season
+ * Resource: UpcomingSeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/UpcomingSeason?key=<Your_developer_key>
+ */
+$resources['operations']['UpcomingSeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'UpcomingSeason',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
+/**
+ * Action: Get Last Completed Season
+ * Resource: LastCompletedSeason
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/LastCompletedSeason?key=<Your_developer_key>
+ */
+$resources['operations']['LastCompletedSeason'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'LastCompletedSeason',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 
 /**
  * Action: Get Teams for Season
@@ -92,12 +142,58 @@ $resources['operations']['Byes'] = [
     ]
 ];
 
-// deprecated -- Get Last Completed Season
-// deprecated -- Get Current Season
-// deprecated -- Get Upcoming Season
 // deprecated -- Get Last Completed Week
+/**
+ * Action: Get Last Completed Week
+ * Resource: LastCompletedWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/LastCompletedWeek?key=<Your_developer_key>
+ */
+$resources['operations']['LastCompletedWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'LastCompletedWeek',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
+
 // deprecated -- Get Current Week
+/**
+ * Action: Get Current Week
+ * Resource: CurrentWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/CurrentWeek?key=<Your_developer_key>
+ */
+$resources['operations']['CurrentWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'CurrentWeek',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 // deprecated -- Get Upcoming Week
+/**
+ * Action: Get Upcoming Week
+ * Resource: UpcomingWeek
+ *
+ * http://api.nfldata.apiphany.com/{subscription}/{format}/UpcomingWeek?key=<Your_developer_key>
+ */
+$resources['operations']['UpcomingWeek'] = [
+    'httpMethod' => 'GET',
+    'uri' => 'UpcomingWeek',
+    'responseModel' => 'XML_Resource',
+    'parameters' => [
+        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
+        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
+        'key' => [ 'type' => 'string', 'location' => 'query' ]
+    ]
+];
 
 /**
  * Action: Get Game Scores for Season

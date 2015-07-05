@@ -34,12 +34,12 @@ To do so, add lines similar to the following to your project's composer.json fil
 ```json
 "require": {
     "php": ">=5.4",
-    "gridiron-guru/fantasy-data-api" : "1.*",
+    "DizzyBHigh/fantasy-data-api" : "1.*",
 },
 
 "repositories": [ {
     "type": "vcs",
-    "url": "https://github.com/gridiron-guru/FantasyDataAPI"
+    "url": "https://github.com/DizzyBHigh/FantasyDataAPI"
 }],
 
 ```

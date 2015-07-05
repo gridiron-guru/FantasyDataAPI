@@ -1,10 +1,10 @@
 {
-    "name": "gridiron-guru/fantasy-data-api",
-    "description": "A PHP Client library for Fantasy Data API.",
+    "name": "DizzyBHigh/fantasy-data-api",
+    "description": "A PHP Client library for Fantasy Data API. Originally Written By Robert Johnson, rob@gridiron-guru.com, Modifications by DizzyBHigh dizzy@dizzyhigh.com",
     "authors": [
         {
-            "name": "Robert Johnson",
-            "email": "robj@gridiron-guru.com"
+            "name": "Robert Johnson, DizzyBHigh",
+            "email": "dizzy@dizzyhigh.com"
         }
     ],
     "require": {

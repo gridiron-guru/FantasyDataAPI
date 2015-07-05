@@ -18,9 +18,15 @@ use GuzzleHttp\Command;
  * Web service client for FantasyDataAPI
  *
  * @method Command\Model AreAnyGamesInProgress() AreAnyGamesInProgress( array $pOptions )
+ * @method Command\Model CurrentSeason() CurrentSeason( array $pOptions )
+ * @method Command\Model LastCompletedSeason() LastCompletedSeason( array $pOptions )
+ * @method Command\Model UpcomingSeason() UpcomingSeason ( array $pOptions )
  * @method Command\Model Teams() Teams( array $pOptions )
  * @method Command\Model Schedules() Schedules( array $pOptions )
  * @method Command\Model Byes() Byes( array $pOptions )
+ * @method Command\Model LastCompletedWeek() LastCompletedWeek( array $pOptions )
+ * @method Command\Model CurrentWeek() CurrentWeek( array $pOptions )
+ * @method Command\Model UpcomingWeek() UpcomingWeek( array $pOptions )
  * @method Command\Model Scores() Scores( array $pOptions )
  * @method Command\Model ScoresByWeek() ScoresByWeek( array $pOptions )
  * @method Command\Model TeamGameStats() TeamGameStats( array $pOptions )
