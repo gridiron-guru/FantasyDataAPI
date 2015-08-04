@@ -908,16 +908,14 @@ $resources['operations']['FantasyPlayers'] = [
  * Action: Get Projected Fantasy Defense Stats By Season and Week
  * Resource: FantasyDefenseProjectionsByGame
  *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/FantasyDefenseProjectionsByGame/{season}/{week}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/FantasyDefenseProjectionsByGame/{season}/{week}
  */
 $resources['operations']['FantasyDefenseProjectionsByGame'] = [
     'httpMethod' => 'GET',
     'uri' => 'FantasyDefenseProjectionsByGame{/Season}{/Week}',
     'responseModel' => 'JSON_Resource',
     'parameters' => [
-        'Subscription' => [ 'type' => 'string', 'location' => 'uri' ],
         'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'json' ],
-        'key' => [ 'type' => 'string', 'location' => 'query' ],
         'Season' => [
             'required' => true,
             'type' => 'string',

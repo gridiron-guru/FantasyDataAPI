@@ -39,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pFantasyDefense )
         {
-            /** we expect 57 stats */
-            $this->assertCount( 57, $pFantasyDefense );
+            /** we expect 61 stats */
+            $this->assertCount( 61, $pFantasyDefense );
 
             $cloned_array = $pFantasyDefense;
 
@@ -52,63 +52,70 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             };
 
             /** test all the keys */
-            $process_key( FantasyDefenseGame\Property::KEY_ASSISTED_TACKLES );
-            $process_key( FantasyDefenseGame\Property::KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_BLOCKED_KICK_RETURN_YARDS );
-            $process_key( FantasyDefenseGame\Property::KEY_BLOCKED_KICKS );
+            $process_key( FantasyDefenseGame\Property::KEY_SCORING_DETAILS );
+            $process_key( FantasyDefenseGame\Property::KEY_GAME_KEY );
+            $process_key( FantasyDefenseGame\Property::KEY_SEASON_TYPE );
+            $process_key( FantasyDefenseGame\Property::KEY_SEASON );
+            $process_key( FantasyDefenseGame\Property::KEY_WEEK );
             $process_key( FantasyDefenseGame\Property::KEY_DATE );
-            $process_key( FantasyDefenseGame\Property::KEY_DEFENSIVE_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS );
+            $process_key( FantasyDefenseGame\Property::KEY_TEAM );
+            $process_key( FantasyDefenseGame\Property::KEY_OPPONENT );
+            $process_key( FantasyDefenseGame\Property::KEY_POINTS_ALLOWED );
             $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_FIELD_GOAL_RETURN_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_FIELD_GOAL_RETURN_YARDS );
-            $process_key( FantasyDefenseGame\Property::KEY_FOURTH_DOWN_ATTEMPTS );
-            $process_key( FantasyDefenseGame\Property::KEY_FOURTH_DOWN_CONVERSIONS );
-            $process_key( FantasyDefenseGame\Property::KEY_FUMBLE_RETURN_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_FUMBLE_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_TOUCHDOWNS_SCORED );
+            $process_key( FantasyDefenseGame\Property::KEY_SOLO_TACKLES );
+            $process_key( FantasyDefenseGame\Property::KEY_ASSISTED_TACKLES );
+            $process_key( FantasyDefenseGame\Property::KEY_SACKS );
+            $process_key( FantasyDefenseGame\Property::KEY_SACK_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_PASSES_DEFENDED );
             $process_key( FantasyDefenseGame\Property::KEY_FUMBLES_FORCED );
             $process_key( FantasyDefenseGame\Property::KEY_FUMBLES_RECOVERED );
-            $process_key( FantasyDefenseGame\Property::KEY_GAME_KEY );
-            $process_key( FantasyDefenseGame\Property::KEY_HUMIDITY );
-            $process_key( FantasyDefenseGame\Property::KEY_INTERCEPTION_RETURN_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_INTERCEPTION_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_FUMBLE_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_FUMBLE_RETURN_TOUCHDOWNS );
             $process_key( FantasyDefenseGame\Property::KEY_INTERCEPTIONS );
-            $process_key( FantasyDefenseGame\Property::KEY_IS_GAME_OVER );
-            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURN_LONG );
-            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURN_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURN_YARDS );
-            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURNS );
-            $process_key( FantasyDefenseGame\Property::KEY_KICKER_FANTASY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_OPPONENT );
-            $process_key( FantasyDefenseGame\Property::KEY_PASSES_DEFENDED );
-            $process_key( FantasyDefenseGame\Property::KEY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_POINTS_ALLOWED_BY_DEFENSE_SPECIAL_TEAMS );
-            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_LONG );
-            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_YARDS );
-            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURNS );
-            $process_key( FantasyDefenseGame\Property::KEY_QUARTERBACK_FANTASY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_QUARTERBACK_HITS );
-            $process_key( FantasyDefenseGame\Property::KEY_RUNNINGBACK_FANTASY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_SACK_YARDS );
-            $process_key( FantasyDefenseGame\Property::KEY_SACKS );
+            $process_key( FantasyDefenseGame\Property::KEY_INTERCEPTION_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_INTERCEPTION_RETURN_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_BLOCKED_KICKS );
             $process_key( FantasyDefenseGame\Property::KEY_SAFETIES );
-            $process_key( FantasyDefenseGame\Property::KEY_SCORING_DETAILS );
-            $process_key( FantasyDefenseGame\Property::KEY_SEASON );
-            $process_key( FantasyDefenseGame\Property::KEY_SEASON_TYPE );
-            $process_key( FantasyDefenseGame\Property::KEY_SOLO_TACKLES );
-            $process_key( FantasyDefenseGame\Property::KEY_SPECIAL_TEAMS_TOUCHDOWNS );
-            $process_key( FantasyDefenseGame\Property::KEY_STADIUM );
+            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURNS );
+            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_PUNT_RETURN_LONG );
+            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURNS );
+            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURN_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_KICK_RETURN_LONG );
+            $process_key( FantasyDefenseGame\Property::KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_FIELD_GOAL_RETURN_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS_ALLOWED );//added in v2
+            $process_key( FantasyDefenseGame\Property::KEY_QUARTERBACK_FANTASY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_RUNNINGBACK_FANTASY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_TIGHT_END_FANTASY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_KICKER_FANTASY_POINTS_ALLOWED );
+            $process_key( FantasyDefenseGame\Property::KEY_BLOCKED_KICK_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_FIELD_GOAL_RETURN_YARDS );
+            $process_key( FantasyDefenseGame\Property::KEY_QUARTERBACK_HITS );
             $process_key( FantasyDefenseGame\Property::KEY_TACKLES_FOR_LOSS );
-            $process_key( FantasyDefenseGame\Property::KEY_TEAM );
+            $process_key( FantasyDefenseGame\Property::KEY_DEFENSIVE_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_SPECIAL_TEAMS_TOUCHDOWNS );
+            $process_key( FantasyDefenseGame\Property::KEY_IS_GAME_OVER );
+            $process_key( FantasyDefenseGame\Property::KEY_FANTASY_POINTS );
+            $process_key( FantasyDefenseGame\Property::KEY_STADIUM );
             $process_key( FantasyDefenseGame\Property::KEY_TEMPERATURE );
+            $process_key( FantasyDefenseGame\Property::KEY_HUMIDITY );
+            $process_key( FantasyDefenseGame\Property::KEY_WINDSPEED );
             $process_key( FantasyDefenseGame\Property::KEY_THIRD_DOWN_ATTEMPTS );
             $process_key( FantasyDefenseGame\Property::KEY_THIRD_DOWN_CONVERSIONS );
-            $process_key( FantasyDefenseGame\Property::KEY_TIGHT_END_FANTASY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_TOUCHDOWNS_SCORED );
-            $process_key( FantasyDefenseGame\Property::KEY_WEEK );
-            $process_key( FantasyDefenseGame\Property::KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED );
-            $process_key( FantasyDefenseGame\Property::KEY_WINDSPEED );
+            $process_key( FantasyDefenseGame\Property::KEY_FOURTH_DOWN_ATTEMPTS );
+            $process_key( FantasyDefenseGame\Property::KEY_FOURTH_DOWN_CONVERSIONS );
+            $process_key( FantasyDefenseGame\Property::KEY_POINTS_ALLOWED_BY_DEFENSE_SPECIAL_TEAMS );
+            //New Additions in V2 API
+            $process_key( FantasyDefenseGame\Property::KEY_FAN_DUEL_SALARY );
+            $process_key( FantasyDefenseGame\Property::KEY_DRAFT_KINGS_SALARY );
+            $process_key( FantasyDefenseGame\Property::KEY_FANTASY_DATA_SALARY );
+            $process_key( FantasyDefenseGame\Property::KEY_VICTIV_SALARY );
+
 
             if ( false == empty( $pFantasyDefense[FantasyDefenseGame\Property::KEY_SCORING_DETAILS]) )
             {
