@@ -161,7 +161,7 @@ class ClientTest extends PHPUnit_Framework_TestCase
         $host = $base->getHost();
 
         $this->assertInstanceOf( 'GuzzleHttp\Url', $base );
-        $this->assertEquals( 'api.nfldata.apiphany.com', $host );
-        $this->assertEquals( 'http://api.nfldata.apiphany.com/{Subscription}/{Format}/', $uri );
+        $this->assertEquals( 'api.nfldata.apiphany.com/nfl/v2/', $host );
+        $this->assertEquals( 'http://api.nfldata.apiphany.com/nfl/v2/{Subscription}/{Format}/', $uri );
     }
 }
