@@ -76,11 +76,6 @@ class Client extends GuzzleClient
             throw new InvalidArgumentException("API key must not be empty.");
         }
 
-        if (false === Enum\Subscription::IsValid($pSubscription))
-        {
-            throw new InvalidArgumentException("Subscription provided '$pSubscription' is invalid.");
-        }
-
         $service_config = require 'Resources/fantasy_data_api.php';
         $description = new Description($service_config);
 
@@ -88,8 +83,7 @@ class Client extends GuzzleClient
 
         parent::__construct($client, $description);
 
-        $this->setConfig('defaults/Subscription', $pSubscription);
-        $this->setConfig('defaults/key', $pApiKey);
+        $client->setDefaultOption('headers', array('Ocp-Apim-Subscription-Key' => $pApiKey));
     }
 
     /**
