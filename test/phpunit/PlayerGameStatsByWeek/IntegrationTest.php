@@ -23,7 +23,7 @@ class PlayerGameStatsByWeekTest extends PHPUnit_Framework_TestCase
      * When: API is queried for PlayerGameStatsByWeekTest, Season 2013REG, Week 17
      * Then: Expect a 200 response with an array entries that each contain Players, PlayerNews and PlayerSeason info
      *
-     * @group Fail
+     * @group Integration
      * @medium
      */
     public function testSuccessfulResponse()
