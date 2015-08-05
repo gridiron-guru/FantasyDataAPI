@@ -10,7 +10,6 @@ namespace FantasyDataAPI\Test\TeamGameStats;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
-use FantasyDataAPI\Enum\Subscription;
 
 use FantasyDataAPI\Enum\TeamGameStats;
 
@@ -27,7 +26,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->TeamGameStats(['Season' => '2013REG', 'Week' => '17']);
@@ -41,8 +40,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_game_stats_keys = function ( $pTeamGameStats )
         {
-            /** we expect 232 stats (woah!) */
-            $this->assertCount( 232, $pTeamGameStats );
+            /** we expect 234 stats (woah!) */
+            $this->assertCount( 234, $pTeamGameStats );
 
             $cloned_array = $pTeamGameStats;
 
@@ -286,7 +285,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( TeamGameStats\Property::KEY_TIME_OF_POSSESSION_MINUTES );
             $process_key( TeamGameStats\Property::KEY_TIME_OF_POSSESSION_SECONDS );
             $process_key( TeamGameStats\Property::KEY_WEEK );
-
+            $process_key( TeamGameStats\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
+            $process_key( TeamGameStats\Property::KEY_OPPONENT_TWO_POINT_CONVERSION_RETURNS );
             $this->assertEmpty( $cloned_array );
         };
 
@@ -307,7 +307,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->TeamGameStats(['Season' => '2013REG', 'Week' => '17']);

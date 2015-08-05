@@ -10,6 +10,13 @@ namespace FantasyDataAPI\Enum\TeamGameStats;
 
 class Property
 {
+    const KEY_GAME_KEY = 'GameKey';
+    const KEY_DATE = 'Date';
+    const KEY_SEASON_TYPE = 'SeasonType';
+    const KEY_SEASON = 'Season';
+
+
+
     const KEY_ASSISTED_TACKLES = 'AssistedTackles';
     const KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS = 'BlockedKickReturnTouchdowns';
     const KEY_BLOCKED_KICK_RETURN_YARDS = 'BlockedKickReturnYards';
@@ -40,7 +47,6 @@ class Property
     const KEY_FUMBLES_FORCED = 'FumblesForced';
     const KEY_FUMBLES_LOST = 'FumblesLost';
     const KEY_FUMBLES_RECOVERED = 'FumblesRecovered';
-    const KEY_GAME_KEY = 'GameKey';
     const KEY_GIVEAWAYS = 'Giveaways';
     const KEY_GOAL_TO_GO_ATTEMPTS = 'GoalToGoAttempts';
     const KEY_GOAL_TO_GO_CONVERSIONS = 'GoalToGoConversions';
@@ -208,8 +214,6 @@ class Property
     const KEY_SCORE_QUARTER_2 = 'ScoreQuarter2';
     const KEY_SCORE_QUARTER_3 = 'ScoreQuarter3';
     const KEY_SCORE_QUARTER_4 = 'ScoreQuarter4';
-    const KEY_SEASON = 'Season';
-    const KEY_SEASON_TYPE = 'SeasonType';
     const KEY_SOLO_TACKLES = 'SoloTackles';
     const KEY_TACKLES_FOR_LOSS = 'TacklesForLoss';
     const KEY_TACKELS_FOR_LOSS_DIFFERENTIAL = 'TacklesForLossDifferential';
@@ -230,7 +234,6 @@ class Property
     const KEY_TOUCHDOWNS = 'Touchdowns';
     const KEY_TURNOVER_DIFFERENTIAL = 'TurnoverDifferential';
     const KEY_WIND_SPEED = 'WindSpeed';
-    const KEY_DATE = 'Date';
     const KEY_DAY_OF_WEEK = 'DayOfWeek';
     const KEY_HOME_OR_AWAY = 'HomeOrAway';
     const KEY_IS_GAME_OVER = 'IsGameOver';
@@ -242,4 +245,6 @@ class Property
     const KEY_TIME_OF_POSSESSION_MINUTES = 'TimeOfPossessionMinutes';
     const KEY_TIME_OF_POSSESSION_SECONDS = 'TimeOfPossessionSeconds';
     const KEY_WEEK = 'Week';
+    const KEY_TWO_POINT_CONVERSION_RETURNS = 'TwoPointConversionReturns';
+    const KEY_OPPONENT_TWO_POINT_CONVERSION_RETURNS = 'OpponentTwoPointConversionReturns';
 }
