@@ -28,7 +28,7 @@ class PlayerGameStatsByWeekTest extends PHPUnit_Framework_TestCase
      */
     public function testSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->PlayerGameStatsByWeek(['Season' => '2013REG', 'Week' => '17']);

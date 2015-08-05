@@ -34,4 +34,9 @@ class Property
     /** no idea what this is for, I have an email into Scott about this */
     const KEY_PLAYER_ID = 'PlayerID';
     const KEY_TEAM_ID = 'TeamID';
+
+    /** added in v2 */
+    const KEY_UPCOMING_SALARY = 'UpcomingSalary';
+    const KEY_UPCOMING_OPPONENT_RANK = 'UpcomingOpponentRank';
+    const KEY_UPCOMING_OPPONENT_POSITION_RANK = 'UpcomingOpponentPositionRank';
 }
