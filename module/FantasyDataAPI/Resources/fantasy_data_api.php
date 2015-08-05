@@ -566,9 +566,9 @@ $resources['operations']['FantasyDefenseBySeason'] = [
 
 /**
  * Action: Get Injuries for Season for Week
- * Resource: Injuries
+ * Resource: InjuriesByWeek
  *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/Injuries/{season}/{week}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/Injuries/{season}/{week}
  */
 $resources['operations']['Injuries'] = [
     'httpMethod' => 'GET',
