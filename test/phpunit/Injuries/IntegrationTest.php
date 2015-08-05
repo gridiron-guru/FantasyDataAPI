@@ -38,8 +38,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_injuries = function ( $pInjuries )
         {
-            /** we expect 15 stats */
-            $this->assertCount( 15, $pInjuries );
+            /** we expect 16 stats */
+            $this->assertCount( 16, $pInjuries );
 
             $cloned_array = $pInjuries;
 
