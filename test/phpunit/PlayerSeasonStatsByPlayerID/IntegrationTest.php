@@ -172,7 +172,7 @@ class PlayerSeasonStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RUNS );
             $process_key( PlayerSeason\Property::KEY_WINDSPEED );
             /** ADDED IN V2 */
-            $process_key( PlayerSeason\Property::KEY_OFFENSIVE_SNAPS_MADE );
+            $process_key( PlayerSeason\Property::KEY_OFFENSIVE_SNAPS_PLAYED );
             $process_key( PlayerSeason\Property::KEY_DEFENSIVE_SNAPS_PLAYED );
             $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_SNAPS_PLAYED );
             $process_key( PlayerSeason\Property::KEY_OFFENSIVE_TEAM_SNAPS );

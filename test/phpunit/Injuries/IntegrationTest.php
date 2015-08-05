@@ -22,7 +22,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      * When: API is queried for 2013REG, Week 17 Injuries
      * Then: Expect a 200 response with an array entries that each contain Scores and Stadium info
      *
-     * @group Fail
+     * @group Integration
      * @medium
      */
     public function testSuccessfulResponse()

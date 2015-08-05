@@ -127,7 +127,7 @@ class Property
     const KEY_TEMPERATURE = 'Temperature';
     const KEY_HUMIDITY = 'Humidity';
     const KEY_WINDSPEED = 'WindSpeed';
-    const KEY_OFFENSIVE_SNAPS_MADE = 'OffensiveSnapsPlayed';
+    const KEY_OFFENSIVE_SNAPS_PLAYED = 'OffensiveSnapsPlayed';
     const KEY_DEFENSIVE_SNAPS_PLAYED = 'DefensiveSnapsPlayed';
     const KEY_SPECIAL_TEAMS_SNAPS_PLAYED = 'SpecialTeamsSnapsPlayed';
     const KEY_OFFENSIVE_TEAM_SNAPS = 'OffensiveTeamSnaps';
