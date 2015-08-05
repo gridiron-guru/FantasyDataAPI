@@ -39,8 +39,8 @@ class PlayerGameStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
 
         $check_player_game = function ( $pPlayerGame )
         {
-            /** we expect 124 stats */
-            $this->assertCount( 124, $pPlayerGame );
+            /** we expect 134 stats */
+            $this->assertCount( 134, $pPlayerGame );
 
             $cloned_array = $pPlayerGame;
 
@@ -123,7 +123,7 @@ class PlayerGameStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerGame\Property::KEY_POSITION_CATEGORY );
             $process_key( PlayerGame\Property::KEY_PUNT_AVERAGE );
             $process_key( PlayerGame\Property::KEY_PUNT_INSIDE_20 );
-            $process_key( PlayerGame\Property::KEY_PUNT_LOING );
+            $process_key( PlayerGame\Property::KEY_PUNT_LONG );
             $process_key( PlayerGame\Property::KEY_PUNT_NET_AVERAGE );
             $process_key( PlayerGame\Property::KEY_PUNT_NET_YARDS );
             $process_key( PlayerGame\Property::KEY_PUNT_RETURN_FAIR_CATCHES );
@@ -176,6 +176,17 @@ class PlayerGameStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerGame\Property::KEY_TWO_POINT_CONVERSION_RUNS );
             $process_key( PlayerGame\Property::KEY_WEEK );
             $process_key( PlayerGame\Property::KEY_WINDSPEED );
+            $process_key( PlayerGame\Property::KEY_SPECIAL_TEAMS_FUMBLES_RECOVERED );
+            $process_key( PlayerGame\Property::KEY_FAN_DUEL_SALARY );
+            $process_key( PlayerGame\Property::KEY_DRAFT_KINGS_SALARY );
+            $process_key( PlayerGame\Property::KEY_FANTASY_DATA_SALARY );
+            $process_key( PlayerGame\Property::KEY_OFFENSIVE_SNAPS_PLAYED );
+            $process_key( PlayerGame\Property::KEY_DEFENSIVE_SNAPS_PLAYED );
+            $process_key( PlayerGame\Property::KEY_SPECIAL_TEAMS_SNAPS_PLAYED );
+            $process_key( PlayerGame\Property::KEY_OFFENSIVE_TEAM_SNAPS );
+            $process_key( PlayerGame\Property::KEY_DEFENSIVE_TEAM_SNAPS );
+            $process_key( PlayerGame\Property::KEY_SPECIAL_TEAMS_TEAM_SNAPS );
+            $process_key( PlayerGame\Property::KEY_VICTIV_SALARY );
 
             if ( false == empty( $pPlayerGame[PlayerGame\Property::KEY_SCORING_DETAILS]) )
             {
@@ -226,7 +237,7 @@ class PlayerGameStatsByPlayerIDTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->PlayerGameStatsByPlayerID(['Season' => '2013REG', 'Week' => '13', 'PlayerID' => '10974']);
