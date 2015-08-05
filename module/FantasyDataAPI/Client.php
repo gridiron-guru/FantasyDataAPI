@@ -40,7 +40,7 @@ use GuzzleHttp\Command;
  * @method Command\Model PlayerGameStatsByPlayerID() PlayerGameStatsByPlayerID( array $pOptions )
  * @method Command\Model PlayerSeasonStatsByPlayerID() PlayerSeasonStatsByPlayerID( array $pOptions )
  * @method Command\Model SeasonLeagueLeaders() SeasonLeagueLeaders( array $pOptions )
- * @method Command\Model GameLeagueLeaders() GameLeagueLeaders( array $pOptions )
+ * @method Command\Model GameLeagueLeadersByWeek() GameLeagueLeadersByWeek( array $pOptions )
  * @method Command\Model FantasyDefenseByGame() FantasyDefenseByGame( array $pOptions )
  * @method Command\Model FantasyDefenseBySeason() FantasyDefenseBySeason( array $pOptions )
  * @method Command\Model Injuries() Injuries( array $pOptions )

@@ -26,6 +26,7 @@ class Mock extends Response
         $response_code = explode(' ', $headers[0])[1];
 
         $mocked_response = file_get_contents($file_partial . '.body.' . $format);
+
         $stream = Stream\Stream::factory($mocked_response);
 
         parent::__construct($response_code, $headers, $stream);

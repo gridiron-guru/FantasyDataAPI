@@ -485,12 +485,12 @@ $resources['operations']['SeasonLeagueLeaders'] = [
 ];
 
 /**
- * Action: Get Game League Leaders
- * Resource: GameLeagueLeaders
+ * Action: Get Game League Leaders By Week
+ * Resource: GameLeagueLeadersByWeek
  *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/GameLeagueLeaders/{season}/{week}/{playerid}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/GameLeagueLeadersByWeek/{season}{/week}/{position}/{column}
  */
-$resources['operations']['GameLeagueLeaders'] = [
+$resources['operations']['GameLeagueLeadersByWeek'] = [
     'httpMethod' => 'GET',
     'uri' => 'GameLeagueLeaders{/Season}{/Week}{/Position}{/Column}',
     'responseModel' => 'JSON_Resource',
