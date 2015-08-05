@@ -42,8 +42,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_season = function ( $pPlayerSeason )
         {
-            /** we expect 116 stats */
-            $this->assertCount( 116, $pPlayerSeason );
+            /** we expect 124 stats */
+            $this->assertCount( 124, $pPlayerSeason );
 
             $cloned_array = $pPlayerSeason;
 
@@ -120,7 +120,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerSeason\Property::KEY_POSITION_CATEGORY );
             $process_key( PlayerSeason\Property::KEY_PUNT_AVERAGE );
             $process_key( PlayerSeason\Property::KEY_PUNT_INSIDE_20 );
-            $process_key( PlayerSeason\Property::KEY_PUNT_LOING );
+            $process_key( PlayerSeason\Property::KEY_PUNT_LONG );
             $process_key( PlayerSeason\Property::KEY_PUNT_NET_AVERAGE );
             $process_key( PlayerSeason\Property::KEY_PUNT_NET_YARDS );
             $process_key( PlayerSeason\Property::KEY_PUNT_RETURN_FAIR_CATCHES );
@@ -171,6 +171,15 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RECEPTIONS );
             $process_key( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RUNS );
             $process_key( PlayerSeason\Property::KEY_WINDSPEED );
+            /** ADDED IN V2 */
+            $process_key( PlayerSeason\Property::KEY_OFFENSIVE_SNAPS_MADE );
+            $process_key( PlayerSeason\Property::KEY_DEFENSIVE_SNAPS_PLAYED );
+            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_SNAPS_PLAYED );
+            $process_key( PlayerSeason\Property::KEY_OFFENSIVE_TEAM_SNAPS );
+            $process_key( PlayerSeason\Property::KEY_DEFENSIVE_TEAM_SNAPS );
+            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_TEAM_SNAPS );
+            $process_key( PlayerSeason\Property::KEY_AUCTION_VALUE );
+            $process_key( PlayerSeason\Property::KEY_AUCTION_VALUE_PPR );
 
             if ( false == empty( $pPlayerSeason[PlayerSeason\Property::KEY_SCORING_DETAILS]) )
             {
@@ -222,7 +231,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->PlayerSeasonStatsByTeam(['Season' => '2013REG', 'Team' => 'NE']);
