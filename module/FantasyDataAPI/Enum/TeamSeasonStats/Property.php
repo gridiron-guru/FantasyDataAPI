@@ -230,4 +230,7 @@ class Property
     const KEY_TOUCHDOWNS = 'Touchdowns';
     const KEY_TURNOVER_DIFFERENTIAL = 'TurnoverDifferential';
     const KEY_WIND_SPEED = 'WindSpeed';
+    const KEY_TWO_POINT_CONVERSION_RETURNS = 'TwoPointConversionReturns';
+    const KEY_OPPONENT_TWO_POINT_CONVERSION_RETURNS = 'OpponentTwoPointConversionReturns';
+
 }

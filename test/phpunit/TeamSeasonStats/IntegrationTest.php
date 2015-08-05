@@ -26,7 +26,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->TeamSeasonStats(['Season' => '2013']);
@@ -40,8 +40,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_season_stats_keys = function ( $pTeamSeasonStats )
         {
-            /** we expect 220 stats (woah!) */
-            $this->assertCount( 220, $pTeamSeasonStats );
+            /** we expect 222 stats (woah!) */
+            $this->assertCount( 222, $pTeamSeasonStats );
 
             $cloned_array = $pTeamSeasonStats;
 
@@ -273,6 +273,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( TeamSeasonStats\Property::KEY_TOUCHDOWNS );
             $process_key( TeamSeasonStats\Property::KEY_TURNOVER_DIFFERENTIAL );
             $process_key( TeamSeasonStats\Property::KEY_WIND_SPEED );
+            $process_key( TeamSeasonStats\Property::KEY_TWO_POINT_CONVERSION_RETURNS );
+            $process_key( TeamSeasonStats\Property::KEY_OPPONENT_TWO_POINT_CONVERSION_RETURNS );
 
             $this->assertEmpty( $cloned_array );
         };
@@ -294,7 +296,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->TeamSeasonStats(['Season' => '2013']);
