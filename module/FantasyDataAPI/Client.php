@@ -65,11 +65,10 @@ class Client extends GuzzleClient
 {
     /**
      * @param string $pApiKey
-     * @param \GuzzleHttp\Command\Guzzle\Description|string $pSubscription
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($pApiKey, $pSubscription = Enum\Subscription::KEY_DEVELOPER)
+    public function __construct($pApiKey)
     {
         if ( empty( $pApiKey ) )
         {
