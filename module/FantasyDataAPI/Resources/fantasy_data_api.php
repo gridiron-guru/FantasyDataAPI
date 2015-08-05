@@ -458,7 +458,7 @@ $resources['operations']['PlayerSeasonStatsByPlayerID'] = [
  * Action: Get Season League Leaders
  * Resource: SeasonLeagueLeaders
  *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/SeasonLeagueLeaders/{season}/{position}/{column}?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/SeasonLeagueLeaders/{season}/{position}/{column}
  */
 $resources['operations']['SeasonLeagueLeaders'] = [
     'httpMethod' => 'GET',
