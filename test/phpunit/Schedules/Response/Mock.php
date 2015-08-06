@@ -18,7 +18,9 @@ class Mock extends Response
     public function __construct (RequestInterface $pRequest)
     {
         /** url parsing "formula" for Schedules */
-        list(, $subscription, $format, , $season) = explode( '/', $pRequest->getPath() );
+        list(, , , $format, , $season) = explode( '/', $pRequest->getPath() );
+        /** hardcode subscription so we can keep using the same filenames!*/
+        $subscription = 'developer';
 
         $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season]);
 
