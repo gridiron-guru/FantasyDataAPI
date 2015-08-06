@@ -55,6 +55,10 @@ class ResponseFactory
                 $response = new Byes\Response\Mock( $request );
                 break;
 
+            case 'CurrentSeason':
+                $response = new CurrentSeason\Response\Mock( $request );
+                break;
+
             case 'FantasyDefenseByGame':
                 $response = new FantasyDefenseByGame\Response\Mock( $request );
                 break;
@@ -181,6 +185,10 @@ class ResponseFactory
 
             case 'Timeframes':
                 $response = new Timeframes\Response\Mock( $request );
+                break;
+
+            case 'UpcomingSeason':
+                $response = new UpcomingSeason\Response\Mock( $request );
                 break;
 
             default:

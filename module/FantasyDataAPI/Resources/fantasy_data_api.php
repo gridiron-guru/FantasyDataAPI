@@ -31,7 +31,7 @@ $resources['operations']['AreAnyGamesInProgress'] = [
  * Action: Get Current Season
  * Resource: CurrentSeason
  *
- * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/CurrentSeason?key=<Your_developer_key>
+ * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/CurrentSeason
  */
 $resources['operations']['CurrentSeason'] = [
     'httpMethod' => 'GET',
@@ -160,8 +160,10 @@ $resources['operations']['CurrentWeek'] = [
     'uri' => 'CurrentWeek',
     'responseModel' => 'XML_Resource',
     'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
-    ]
+        'Format' => [
+            'type' => 'string', 'location' => 'uri', 'default' => 'xml'
+        ],
+    ],
 ];
 // deprecated -- Get Upcoming Week
 /**
@@ -175,8 +177,10 @@ $resources['operations']['UpcomingWeek'] = [
     'uri' => 'UpcomingWeek',
     'responseModel' => 'XML_Resource',
     'parameters' => [
-        'Format' => [ 'type' => 'string', 'location' => 'uri', 'default' => 'xml' ],
-    ]
+        'Format' => [
+            'type' => 'string', 'location' => 'uri', 'default' => 'xml'
+        ],
+    ],
 ];
 
 /**

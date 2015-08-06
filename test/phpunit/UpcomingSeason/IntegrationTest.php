@@ -6,7 +6,7 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\AreAnyGamesInProgress;
+namespace FantasyDataAPI\Test\UpcomingSeason;
 
 use PHPUnit_Framework_TestCase;
 
@@ -18,8 +18,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
     /**
      * Given: A developer API key
-     * When: API is queried for AreAnyGamesInProgress
-     * Then: Expect a 200 response with an array of 1 entry, that entry containing 16 keys
+     * When: API is queried for CurrentSeason
+     * Then: Expect a 200 response with an array of 1 entry
      *
      * @group Integration
      * @medium
@@ -29,7 +29,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->AreAnyGamesInProgress([]);
+        $result = $client->UpcomingSeason([]);
 
         $response = $client->mHistory->getLastResponse();
 
@@ -41,12 +41,12 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         /** test the contents of the response to make sure it has what we expect */
         $answer = $result->toArray()[0];
 
-        $this->assertContains($answer, ["true", "false"]);
+        $this->assertContains($answer, ["2014", "2015", "2016"]);
     }
 
     /**
      * Given: An invalid developer API key
-     * When: API is queried for AreAnyGamesInProgress
+     * When: API is queried for CurrentSeason
      * Then: Expect a 401 response in the form of a Guzzle CommandClientException
      *
      * @group Integration
@@ -59,6 +59,6 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $client->AreAnyGamesInProgress(['Type' => 'current']);
+        $client->UpcomingSeason([]);
     }
 }

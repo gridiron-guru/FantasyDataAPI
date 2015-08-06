@@ -314,6 +314,6 @@ class GameStatsBySeasonTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $client->GameStatsBySeason(['Season' => '2013REG']);
+        $client->GameStats(['Season' => '2013REG']);
     }
 }
