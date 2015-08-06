@@ -17,11 +17,13 @@ class Mock extends Response
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" for resource */
-        list(, $subscription, $format) = explode( '/', $pRequest->getPath() );
-
+        /** url parsing "formula" for resource
+         * http://api.nfldata.apiphany.com/nfl/v2/JSON/ActiveBoxScores
+         */
+        list(, , , $format) = explode( '/', $pRequest->getPath() );
+        /**  hard code the description so we can use the same file-names for the mocks*/
+        $subscription = 'developer';
         $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);
-
         $headers = include($file_partial . '.header.php');
         $response_code = explode(' ', $headers[0])[1];
 
