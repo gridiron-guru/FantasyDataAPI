@@ -31,7 +31,7 @@ class GameStatsBySeasonTest extends PHPUnit_Framework_TestCase
         $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
 
         /** @var \GuzzleHttp\Command\Model $result */
-        $result = $client->GameStatsBySeason(['Season' => '2013REG']);
+        $result = $client->GameStats(['Season' => '2013REG']);
 
         $response = $client->mHistory->getLastResponse();
 

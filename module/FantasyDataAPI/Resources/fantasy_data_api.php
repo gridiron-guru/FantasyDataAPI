@@ -722,11 +722,11 @@ $resources['operations']['PlayerGameStatsByWeek'] = [
 
 /**
  * Action: Get Game Stats for Season
- * Resource: GameStatsBySeason
+ * Resource: GameStats
  *
  * http://api.nfldata.apiphany.com/nfl/v2/{subscription}/{format}/GameStats/{season}
  */
-$resources['operations']['GameStatsBySeason'] = [
+$resources['operations']['GameStats'] = [
     'httpMethod' => 'GET',
     'uri' => 'GameStats{/Season}',
     'responseModel' => 'JSON_Resource',
