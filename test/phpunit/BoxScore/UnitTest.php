@@ -56,30 +56,6 @@ class UnitTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for 2013REG, Week 17, Team NE BoxScore
-     * Then: Expect that the api key is placed in the URL as expected by the service
-     *
-     * @group Unit
-     * @small
-     */
-    public function testAPIKeyParameter()
-    {
-        $matches = [];
-
-        /**
-         * not the most elegant way to test for the query parameter, but it's not real easy
-         * to get at them with the method i'm using. Not sure if there's a better method or
-         * not. If you happen to look at this and know a better way to get query params etc.
-         * from Guzzle, let me know.
-         */
-        $pattern = '/key=' . $_SERVER['FANTASY_DATA_API_KEY'] . '/';
-        preg_match($pattern, static::$sEffectiveUrl, $matches);
-
-        $this->assertNotEmpty($matches);
-    }
-
-    /**
-     * Given: A developer API key
-     * When: API is queried for 2013REG, Week 17, Team NE BoxScore
      * Then: Expect that the proper subscription type is placed in the URI
      *
      * @group Unit
@@ -87,7 +63,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testSubscriptionInURI()
     {
-        /** key 3 should be the "subscription type" based on URL structure */
+        /** key 3 should be the "subscription type" based on URL structure
+            http://api.nfldata.apiphany.com/nfl/v2/JSON/BoxScore/2013REG/17/NE
+         */
         $this->assertArrayHasKey(3, static::$sUrlFragments);
         $this->assertEquals( static::$sUrlFragments[3], Subscription::KEY_DEVELOPER);
     }
