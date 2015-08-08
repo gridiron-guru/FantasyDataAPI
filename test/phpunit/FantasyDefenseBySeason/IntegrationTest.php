@@ -39,8 +39,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_season = function ( $pFantasySeason )
         {
-            /** we expect 52 stats */
-            $this->assertCount( 52, $pFantasySeason );
+            /** we expect 54 stats */
+            $this->assertCount( 54, $pFantasySeason );
 
             $cloned_array = $pFantasySeason;
 
@@ -104,7 +104,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( FantasyDefenseSeason\Property::KEY_TOUCHDOWNS_SCORED );
             $process_key( FantasyDefenseSeason\Property::KEY_WIDE_RECEIVER_FANTASY_POINTS_ALLOWED );
             $process_key( FantasyDefenseSeason\Property::KEY_WINDSPEED );
-
+            $process_key( FantasyDefenseSeason\Property::KEY_AUCTION_VALUE );
+            $process_key( FantasyDefenseSeason\Property::KEY_AUCTION_VALUE_PPR );
 
             if ( false == empty( $pFantasySeason[FantasyDefenseSeason\Property::KEY_SCORING_DETAILS]) )
             {

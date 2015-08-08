@@ -12,7 +12,7 @@ use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
 use FantasyDataAPI\Enum\Subscription;
 
-use FantasyDataAPI\Enum\PlayerSeason;
+use FantasyDataAPI\Enum\SeasonLeagueLeaders;
 use FantasyDataAPI\Enum\ScoringDetails;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
@@ -42,8 +42,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_player_season = function ( $pPlayerSeason )
         {
-            /** we expect 116 stats */
-            $this->assertCount( 116, $pPlayerSeason );
+            /** we expect 124 stats */
+            $this->assertCount( 124, $pPlayerSeason );
 
             $cloned_array = $pPlayerSeason;
 
@@ -55,126 +55,134 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             };
 
             /** test all the keys */
-            $process_key( PlayerSeason\Property::KEY_ACTIVATED );
-            $process_key( PlayerSeason\Property::KEY_ASSISTED_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_BLOCKED_KICK_RETURN_YARDS );
-            $process_key( PlayerSeason\Property::KEY_BLOCKED_KICKS );
-            $process_key( PlayerSeason\Property::KEY_D365_FANTASY_POINTS );
-            $process_key( PlayerSeason\Property::KEY_DEFENSIVE_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_EXTRA_POINTS_ATTEMPTED );
-            $process_key( PlayerSeason\Property::KEY_EXTRA_POINTS_HAD_BLOCKED );
-            $process_key( PlayerSeason\Property::KEY_EXTRA_POINTS_MADE );
-            $process_key( PlayerSeason\Property::KEY_FANTASY_POINTS );
-            $process_key( PlayerSeason\Property::KEY_FANTASY_POINTS_PPR );
-            $process_key( PlayerSeason\Property::KEY_FANTASY_POSITION );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOAL_PERCENTAGE );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOAL_RETURN_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOAL_RETURN_YARDS );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_ATTEMPTED );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_HAD_BLOCKED );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_LONGEST_MADE );
-            $process_key( PlayerSeason\Property::KEY_FIELD_GOALS_MADE );
-            $process_key( PlayerSeason\Property::KEY_FUMBLE_RETURN_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_FUMBLE_RETURN_YARDS );
-            $process_key( PlayerSeason\Property::KEY_FUMBLES );
-            $process_key( PlayerSeason\Property::KEY_FUMBLES_FORCED );
-            $process_key( PlayerSeason\Property::KEY_FUMBLES_LOST );
-            $process_key( PlayerSeason\Property::KEY_FUMBLES_OUT_OF_BOUNDS );
-            $process_key( PlayerSeason\Property::KEY_FUMBLES_OWN_RECOVERIES );
-            $process_key( PlayerSeason\Property::KEY_FUMBLES_RECOVERED );
-            $process_key( PlayerSeason\Property::KEY_HUMIDITY );
-            $process_key( PlayerSeason\Property::KEY_INTERCEPTION_RETURN_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_INTERCEPTION_RETURN_YARDS );
-            $process_key( PlayerSeason\Property::KEY_INTERCEPTIONS );
-            $process_key( PlayerSeason\Property::KEY_KICK_RETURN_FAIR_CATCHES );
-            $process_key( PlayerSeason\Property::KEY_KICK_RETURN_LONG );
-            $process_key( PlayerSeason\Property::KEY_KICK_RETURN_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_KICK_RETURN_YARDS );
-            $process_key( PlayerSeason\Property::KEY_KICK_RETURN_YARDS_PER_ATTEMPT );
-            $process_key( PlayerSeason\Property::KEY_KICK_RETURNS );
-            $process_key( PlayerSeason\Property::KEY_MISC_ASSISTED_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_MISC_FUMBLES_FORCED );
-            $process_key( PlayerSeason\Property::KEY_MISC_FUMBLES_RECOVERED );
-            $process_key( PlayerSeason\Property::KEY_MISC_SOLO_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_NAME );
-            $process_key( PlayerSeason\Property::KEY_NUMBER );
-            $process_key( PlayerSeason\Property::KEY_OFFENSIVE_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_PASSES_DEFENDED );
-            $process_key( PlayerSeason\Property::KEY_PASSING_ATTEMPTS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_COMPLETION_PERCENTAGE );
-            $process_key( PlayerSeason\Property::KEY_PASSING_COMPLETIONS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_INTERCEPTIONS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_LONG );
-            $process_key( PlayerSeason\Property::KEY_PASSING_RATING );
-            $process_key( PlayerSeason\Property::KEY_PASSING_SACK_YARDS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_SACKS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_YARDS );
-            $process_key( PlayerSeason\Property::KEY_PASSING_YARDS_PER_ATTEMPT );
-            $process_key( PlayerSeason\Property::KEY_PASSING_YARDS_PER_COMPLETION );
-            $process_key( PlayerSeason\Property::KEY_PLAYED );
-            $process_key( PlayerSeason\Property::KEY_PLAYER_ID );
-            $process_key( PlayerSeason\Property::KEY_PLAYER_SEASON_ID );
-            $process_key( PlayerSeason\Property::KEY_POSITION );
-            $process_key( PlayerSeason\Property::KEY_POSITION_CATEGORY );
-            $process_key( PlayerSeason\Property::KEY_PUNT_AVERAGE );
-            $process_key( PlayerSeason\Property::KEY_PUNT_INSIDE_20 );
-            $process_key( PlayerSeason\Property::KEY_PUNT_LOING );
-            $process_key( PlayerSeason\Property::KEY_PUNT_NET_AVERAGE );
-            $process_key( PlayerSeason\Property::KEY_PUNT_NET_YARDS );
-            $process_key( PlayerSeason\Property::KEY_PUNT_RETURN_FAIR_CATCHES );
-            $process_key( PlayerSeason\Property::KEY_PUNT_RETURN_LONG );
-            $process_key( PlayerSeason\Property::KEY_PUNT_RETURN_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_PUNT_RETURN_YARDS );
-            $process_key( PlayerSeason\Property::KEY_PUNT_RETURN_YARDS_PER_ATTEMPT );
-            $process_key( PlayerSeason\Property::KEY_PUNT_RETURNS );
-            $process_key( PlayerSeason\Property::KEY_PUNT_TOUCHBACKS );
-            $process_key( PlayerSeason\Property::KEY_PUNT_YARDS );
-            $process_key( PlayerSeason\Property::KEY_PUNTS );
-            $process_key( PlayerSeason\Property::KEY_PUNTS_HAD_BLOCKED );
-            $process_key( PlayerSeason\Property::KEY_QUARTERBACK_HITS );
-            $process_key( PlayerSeason\Property::KEY_RECEIVING_LONG );
-            $process_key( PlayerSeason\Property::KEY_RECEIVING_TARGETS );
-            $process_key( PlayerSeason\Property::KEY_RECEIVING_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_RECEIVING_YARDS );
-            $process_key( PlayerSeason\Property::KEY_RECEIVING_YARDS_PER_RECEPTION );
-            $process_key( PlayerSeason\Property::KEY_RECEIVING_YARDS_PER_TARGET );
-            $process_key( PlayerSeason\Property::KEY_RECEPTION_PERCENTAGE );
-            $process_key( PlayerSeason\Property::KEY_RECEPTIONS );
-            $process_key( PlayerSeason\Property::KEY_RUSHING_ATTEMPTS );
-            $process_key( PlayerSeason\Property::KEY_RUSHING_LONG );
-            $process_key( PlayerSeason\Property::KEY_RUSHING_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_RUSHING_YARDS );
-            $process_key( PlayerSeason\Property::KEY_RUSHING_YARDS_PER_ATTEMPT );
-            $process_key( PlayerSeason\Property::KEY_SACK_YARDS );
-            $process_key( PlayerSeason\Property::KEY_SACKS );
-            $process_key( PlayerSeason\Property::KEY_SAFETIES );
-            $process_key( PlayerSeason\Property::KEY_SAFETIES_ALLOWED );
-            $process_key( PlayerSeason\Property::KEY_SCORING_DETAILS );
-            $process_key( PlayerSeason\Property::KEY_SEASON );
-            $process_key( PlayerSeason\Property::KEY_SEASON_TYPE );
-            $process_key( PlayerSeason\Property::KEY_SHORT_NAME );
-            $process_key( PlayerSeason\Property::KEY_SOLO_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_ASSISTED_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_FUMBLES_FORCED );
-            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_FUMBLES_RECOVERED );
-            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_SOLO_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_SPECIAL_TEAMS_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_STARTED );
-            $process_key( PlayerSeason\Property::KEY_TACKLES );
-            $process_key( PlayerSeason\Property::KEY_TACKLES_FOR_LOSS );
-            $process_key( PlayerSeason\Property::KEY_TEAM );
-            $process_key( PlayerSeason\Property::KEY_TEMPERATURE );
-            $process_key( PlayerSeason\Property::KEY_TOUCHDOWNS );
-            $process_key( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_PASSES );
-            $process_key( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RECEPTIONS );
-            $process_key( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RUNS );
-            $process_key( PlayerSeason\Property::KEY_WINDSPEED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_D365_FANTASY_POINTS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SCORING_DETAILS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PLAYER_ID );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SEASON_TYPE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SEASON );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TEAM );
+            $process_key( SeasonLeagueLeaders\Property::KEY_NUMBER );
+            $process_key( SeasonLeagueLeaders\Property::KEY_NAME );
+            $process_key( SeasonLeagueLeaders\Property::KEY_POSITION );
+            $process_key( SeasonLeagueLeaders\Property::KEY_POSITION_CATEGORY );
+            $process_key( SeasonLeagueLeaders\Property::KEY_ACTIVATED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PLAYED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_STARTED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_ATTEMPTS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_COMPLETIONS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_COMPLETION_PERCENTAGE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_YARDS_PER_ATTEMPT );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_YARDS_PER_COMPLETION );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_INTERCEPTIONS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_RATING );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_LONG );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_SACKS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSING_SACK_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RUSHING_ATTEMPTS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RUSHING_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RUSHING_YARDS_PER_ATTEMPT );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RUSHING_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RUSHING_LONG );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEIVING_TARGETS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEPTIONS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEIVING_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEIVING_YARDS_PER_RECEPTION );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEIVING_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEIVING_LONG );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLES_LOST );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_RETURNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_RETURN_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_RETURN_YARDS_PER_ATTEMPT );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_RETURN_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_RETURN_LONG );
+            $process_key( SeasonLeagueLeaders\Property::KEY_KICK_RETURNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_KICK_RETURN_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_KICK_RETURN_YARDS_PER_ATTEMPT );
+            $process_key( SeasonLeagueLeaders\Property::KEY_KICK_RETURN_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_KICK_RETURN_LONG );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SOLO_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_ASSISTED_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TACKLES_FOR_LOSS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SACKS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SACK_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_QUARTERBACK_HITS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PASSES_DEFENDED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLES_FORCED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLES_RECOVERED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLE_RETURN_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLE_RETURN_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_INTERCEPTIONS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_INTERCEPTION_RETURN_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_INTERCEPTION_RETURN_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_BLOCKED_KICKS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_SOLO_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_ASSISTED_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_MISC_SOLO_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_MISC_ASSISTED_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNTS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_AVERAGE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOALS_ATTEMPTED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOALS_MADE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOALS_LONGEST_MADE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_EXTRA_POINTS_MADE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TWO_POINT_CONVERSION_PASSES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TWO_POINT_CONVERSION_RUNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TWO_POINT_CONVERSION_RECEPTIONS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FANTASY_POINTS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FANTASY_POINTS_PPR );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEPTION_PERCENTAGE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_RECEIVING_YARDS_PER_TARGET );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TACKLES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_OFFENSIVE_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_DEFENSIVE_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FANTASY_POSITION );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOAL_PERCENTAGE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PLAYER_SEASON_ID );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLES_OWN_RECOVERIES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FUMBLES_OUT_OF_BOUNDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_KICK_RETURN_FAIR_CATCHES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_RETURN_FAIR_CATCHES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_TOUCHBACKS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_INSIDE_20 );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_NET_AVERAGE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_EXTRA_POINTS_ATTEMPTED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOAL_RETURN_TOUCHDOWNS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SAFETIES );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOALS_HAD_BLOCKED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNTS_HAD_BLOCKED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_EXTRA_POINTS_HAD_BLOCKED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_LONG );
+            $process_key( SeasonLeagueLeaders\Property::KEY_BLOCKED_KICK_RETURN_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_FIELD_GOAL_RETURN_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_PUNT_NET_YARDS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_FUMBLES_FORCED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_FUMBLES_RECOVERED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_MISC_FUMBLES_FORCED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_MISC_FUMBLES_RECOVERED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SHORT_NAME );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SAFETIES_ALLOWED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_TEMPERATURE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_HUMIDITY );
+            $process_key( SeasonLeagueLeaders\Property::KEY_WINDSPEED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_OFFENSIVE_SNAPS_PLAYED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_DEFENSIVE_SNAPS_PLAYED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_SNAPS_PLAYED );
+            $process_key( SeasonLeagueLeaders\Property::KEY_OFFENSIVE_TEAM_SNAPS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_DEFENSIVE_TEAM_SNAPS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_SPECIAL_TEAMS_TEAM_SNAPS );
+            $process_key( SeasonLeagueLeaders\Property::KEY_AUCTION_VALUE );
+            $process_key( SeasonLeagueLeaders\Property::KEY_AUCTION_VALUE_PPR );
 
-            if ( false == empty( $pPlayerSeason[PlayerSeason\Property::KEY_SCORING_DETAILS]) )
+            if ( false == empty( $pPlayerSeason[SeasonLeagueLeaders\Property::KEY_SCORING_DETAILS]) )
             {
-                foreach ( $pPlayerSeason[PlayerSeason\Property::KEY_SCORING_DETAILS] as $scoring )
+                foreach ( $pPlayerSeason[SeasonLeagueLeaders\Property::KEY_SCORING_DETAILS] as $scoring )
                 {
                     $cloned_scoring = $scoring;
 
@@ -222,7 +230,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->SeasonLeagueLeaders(['Season' => '2013REG', 'Position' => 'WR', 'Column' => 'FantasyPoints']);

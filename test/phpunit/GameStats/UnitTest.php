@@ -6,9 +6,8 @@
  * @package   FantasyDataAPI
  */
 
-namespace FantasyDataAPI\Test\GameStats;
+namespace FantasyDataAPI\Test\GameStatsBySeason;
 
-use FantasyDataAPI\Enum\Subscription;
 use PHPUnit_Framework_TestCase;
 
 use FantasyDataAPI\Test\MockClient;
@@ -34,10 +33,10 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
-        static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        static::$sClient = new MockClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** \GuzzleHttp\Command\Model */
-        static::$sClient->GameStats(['Season' => '2013REG', 'Week' => '17']);
+        static::$sClient->GameStats(['Season' => '2013REG']);
 
         static::$sResponse = static::$sClient->mHistory->getLastResponse();
         static::$sEffectiveUrl = static::$sResponse->getEffectiveUrl();
@@ -55,45 +54,6 @@ class UnitTest extends PHPUnit_Framework_TestCase
     /**
      * Given: A developer API key
      * When: API is queried for 2013REG, GameStats
-     * Then: Expect that the api key is placed in the URL as expected by the service
-     *
-     * @group Unit
-     * @small
-     */
-    public function testAPIKeyParameter()
-    {
-        $matches = [];
-
-        /**
-         * not the most elegant way to test for the query parameter, but it's not real easy
-         * to get at them with the method i'm using. Not sure if there's a better method or
-         * not. If you happen to look at this and know a better way to get query params etc.
-         * from Guzzle, let me know.
-         */
-        $pattern = '/key=' . $_SERVER['FANTASY_DATA_API_KEY'] . '/';
-        preg_match($pattern, static::$sEffectiveUrl, $matches);
-
-        $this->assertNotEmpty($matches);
-    }
-
-    /**
-     * Given: A developer API key
-     * When: API is queried for 2013REG, GameStats
-     * Then: Expect that the proper subscription type is placed in the URI
-     *
-     * @group Unit
-     * @small
-     */
-    public function testSubscriptionInURI()
-    {
-        /** key 3 should be the "subscription type" based on URL structure */
-        $this->assertArrayHasKey(3, static::$sUrlFragments);
-        $this->assertEquals( static::$sUrlFragments[3], Subscription::KEY_DEVELOPER);
-    }
-
-    /**
-     * Given: A developer API key
-     * When: API is queried for 2013REG, GameStats
      * Then: Expect that the json format is placed in the URI
      *
      * @group Unit
@@ -101,9 +61,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testFormatInURI()
     {
-        /** key 4 should be the "format" based on URL structure */
-        $this->assertArrayHasKey(4, static::$sUrlFragments);
-        $this->assertEquals( static::$sUrlFragments[4], 'json');
+        /** key 5 should be the "format" based on URL structure */
+        $this->assertArrayHasKey(5, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[5], 'json');
     }
 
     /**
@@ -116,9 +76,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
      */
     public function testResourceInURI()
     {
-        /** key 5 should be the "resource" based on URL structure */
-        $this->assertArrayHasKey(5, static::$sUrlFragments);
-        $this->assertEquals( static::$sUrlFragments[5], 'GameStats');
+        /** key 6 should be the "resource" based on URL structure */
+        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        $this->assertEquals( static::$sUrlFragments[6], 'GameStats');
     }
 
     /**
@@ -132,9 +92,9 @@ class UnitTest extends PHPUnit_Framework_TestCase
     public function testSeasonInURI()
     {
         /** key 6 should be the Week based on URL structure */
-        $this->assertArrayHasKey(6, static::$sUrlFragments);
+        $this->assertArrayHasKey(7, static::$sUrlFragments);
 
-        list($season) = explode('?', static::$sUrlFragments[6]);
+        list($season) = explode('?', static::$sUrlFragments[7]);
         $this->assertEquals( $season, '2013REG');
     }
 

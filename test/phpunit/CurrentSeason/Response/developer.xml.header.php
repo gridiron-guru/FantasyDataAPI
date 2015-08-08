@@ -9,13 +9,13 @@
 $headers = [];
 $headers[] = 'HTTP/1.1 200 OK';
 $headers[] = 'Cache-Control: must-revalidate, max-age=0, private';
-$headers[] = 'Content-Length: 18243';
-$headers[] = 'Content-Type: application/json; charset=utf-8';
-$headers[] = 'Expires: Fri, 30 May 2014 02:12:19 GMT';
-$headers[] = 'Last-Modified: Fri, 30 May 2014 02:08:29 GMT';
+$headers[] = 'Content-Length: 84';
+$headers[] = 'Content-Type: application/xml; charset=utf-8';
+$headers[] = 'Expires: Sun, 01 Jun 2014 18:10:24 GMT';
+$headers[] = 'Last-Modified: Sun, 01 Jun 2014 18:02:47 GMT';
 $headers[] = 'Vary: Accept,Accept-Charset';
 $headers[] = 'X-Powered-By: ASP.NET';
 $headers[] = 'X-Mashape-Billing: Call Limit=1';
-$headers[] = 'Date: Fri, 30 May 2014 02:12:19 GMT';
+$headers[] = 'Date: Sun, 01 Jun 2014 18:10:24 GMT';
 
 return $headers;

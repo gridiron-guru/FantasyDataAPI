@@ -18,9 +18,15 @@ use GuzzleHttp\Command;
  * Web service client for FantasyDataAPI
  *
  * @method Command\Model AreAnyGamesInProgress() AreAnyGamesInProgress( array $pOptions )
+ * @method Command\Model CurrentSeason() CurrentSeason( array $pOptions )
+ * @method Command\Model LastCompletedSeason() LastCompletedSeason( array $pOptions )
+ * @method Command\Model UpcomingSeason() UpcomingSeason ( array $pOptions )
  * @method Command\Model Teams() Teams( array $pOptions )
  * @method Command\Model Schedules() Schedules( array $pOptions )
  * @method Command\Model Byes() Byes( array $pOptions )
+ * @method Command\Model LastCompletedWeek() LastCompletedWeek( array $pOptions )
+ * @method Command\Model CurrentWeek() CurrentWeek( array $pOptions )
+ * @method Command\Model UpcomingWeek() UpcomingWeek( array $pOptions )
  * @method Command\Model Scores() Scores( array $pOptions )
  * @method Command\Model ScoresByWeek() ScoresByWeek( array $pOptions )
  * @method Command\Model TeamGameStats() TeamGameStats( array $pOptions )
@@ -34,7 +40,7 @@ use GuzzleHttp\Command;
  * @method Command\Model PlayerGameStatsByPlayerID() PlayerGameStatsByPlayerID( array $pOptions )
  * @method Command\Model PlayerSeasonStatsByPlayerID() PlayerSeasonStatsByPlayerID( array $pOptions )
  * @method Command\Model SeasonLeagueLeaders() SeasonLeagueLeaders( array $pOptions )
- * @method Command\Model GameLeagueLeaders() GameLeagueLeaders( array $pOptions )
+ * @method Command\Model GameLeagueLeadersByWeek() GameLeagueLeadersByWeek( array $pOptions )
  * @method Command\Model FantasyDefenseByGame() FantasyDefenseByGame( array $pOptions )
  * @method Command\Model FantasyDefenseBySeason() FantasyDefenseBySeason( array $pOptions )
  * @method Command\Model Injuries() Injuries( array $pOptions )
@@ -59,20 +65,14 @@ class Client extends GuzzleClient
 {
     /**
      * @param string $pApiKey
-     * @param \GuzzleHttp\Command\Guzzle\Description|string $pSubscription
      *
      * @throws InvalidArgumentException
      */
-    public function __construct($pApiKey, $pSubscription = Enum\Subscription::KEY_DEVELOPER)
+    public function __construct($pApiKey)
     {
         if ( empty( $pApiKey ) )
         {
             throw new InvalidArgumentException("API key must not be empty.");
-        }
-
-        if (false === Enum\Subscription::IsValid($pSubscription))
-        {
-            throw new InvalidArgumentException("Subscription provided '$pSubscription' is invalid.");
         }
 
         $service_config = require 'Resources/fantasy_data_api.php';
@@ -82,8 +82,7 @@ class Client extends GuzzleClient
 
         parent::__construct($client, $description);
 
-        $this->setConfig('defaults/Subscription', $pSubscription);
-        $this->setConfig('defaults/key', $pApiKey);
+        $client->setDefaultOption('headers', array('Ocp-Apim-Subscription-Key' => $pApiKey));
     }
 
     /**

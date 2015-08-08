@@ -43,8 +43,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_players = function ( $pPlayers )
         {
-            /** we expect 43 stats */
-            $this->assertCount( 43, $pPlayers );
+            /** we expect 44 stats */
+            $this->assertCount( 44, $pPlayers );
 
             $cloned_array = $pPlayers;
 
@@ -56,49 +56,51 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             };
 
             /** test all the keys */
-            $process_key( Players\Property::KEY_ACTIVE );
-            $process_key( Players\Property::KEY_AGE );
-            $process_key( Players\Property::KEY_AVERAGE_DRAFT_POSITION );
-            $process_key( Players\Property::KEY_BIRTH_DATE );
-            $process_key( Players\Property::KEY_BIRTH_DATE_STRING );
-            $process_key( Players\Property::KEY_BYE_WEEK );
-            $process_key( Players\Property::KEY_COLLEGE );
-            $process_key( Players\Property::KEY_COLLEGE_DRAFT_PICK );
-            $process_key( Players\Property::KEY_COLLEGE_DRAFT_ROUND );
-            $process_key( Players\Property::KEY_COLLEGE_DRAFT_TEAM );
-            $process_key( Players\Property::KEY_COLLEGE_DRAFT_YEAR );
-            $process_key( Players\Property::KEY_CURRENT_STATUS );
-            $process_key( Players\Property::KEY_CURRENT_TEAM );
-            $process_key( Players\Property::KEY_DEPTH_DISPLAY_ORDER );
-            $process_key( Players\Property::KEY_DEPTH_ORDER );
-            $process_key( Players\Property::KEY_DEPTH_POSITION );
-            $process_key( Players\Property::KEY_DEPTH_POSITION_CATEGORY );
-            $process_key( Players\Property::KEY_EXPERIENCE );
-            $process_key( Players\Property::KEY_EXPERIENCE_STRING );
-            $process_key( Players\Property::KEY_FANTASY_POSITION );
-            $process_key( Players\Property::KEY_FIRST_NAME );
-            $process_key( Players\Property::KEY_HEIGHT );
-            $process_key( Players\Property::KEY_HEIGHT_FEET );
-            $process_key( Players\Property::KEY_HEIGHT_INCHES );
-            $process_key( Players\Property::KEY_INJURY_STATUS );
-            $process_key( Players\Property::KEY_IS_UNDRAFTED_FREE_AGENT );
-            $process_key( Players\Property::KEY_LAST_NAME );
-            $process_key( Players\Property::KEY_LATEST_NEWS );
-            $process_key( Players\Property::KEY_NAME );
-            $process_key( Players\Property::KEY_NUMBER );
-            $process_key( Players\Property::KEY_PHOTO_URL );
             $process_key( Players\Property::KEY_PLAYER_ID );
-            $process_key( Players\Property::KEY_PLAYER_SEASON );
-            $process_key( Players\Property::KEY_POSITION );
-            $process_key( Players\Property::KEY_POSITION_CATEGORY );
-            $process_key( Players\Property::KEY_SHORT_NAME );
-            $process_key( Players\Property::KEY_STATUS );
             $process_key( Players\Property::KEY_TEAM );
+            $process_key( Players\Property::KEY_NUMBER );
+            $process_key( Players\Property::KEY_FIRST_NAME );
+            $process_key( Players\Property::KEY_LAST_NAME );
+            $process_key( Players\Property::KEY_POSITION );
+            $process_key( Players\Property::KEY_STATUS );
+            $process_key( Players\Property::KEY_HEIGHT );
+            $process_key( Players\Property::KEY_WEIGHT );
+            $process_key( Players\Property::KEY_BIRTH_DATE );
+            $process_key( Players\Property::KEY_COLLEGE );
+            $process_key( Players\Property::KEY_EXPERIENCE );
+            $process_key( Players\Property::KEY_FANTASY_POSITION );
+            $process_key( Players\Property::KEY_ACTIVE );
+            $process_key( Players\Property::KEY_POSITION_CATEGORY );
+            $process_key( Players\Property::KEY_NAME );
+            $process_key( Players\Property::KEY_AGE );
+            $process_key( Players\Property::KEY_EXPERIENCE_STRING );
+            $process_key( Players\Property::KEY_BIRTH_DATE_STRING );
+            $process_key( Players\Property::KEY_PHOTO_URL );
+            $process_key( Players\Property::KEY_BYE_WEEK );
             $process_key( Players\Property::KEY_UPCOMING_GAME_OPPONENT );
             $process_key( Players\Property::KEY_UPCOMING_GAME_WEEK );
-            $process_key( Players\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
+            $process_key( Players\Property::KEY_SHORT_NAME );
+            $process_key( Players\Property::KEY_AVERAGE_DRAFT_POSITION );
+            $process_key( Players\Property::KEY_DEPTH_POSITION_CATEGORY );
+            $process_key( Players\Property::KEY_DEPTH_POSITION );
+            $process_key( Players\Property::KEY_DEPTH_ORDER );
+            $process_key( Players\Property::KEY_DEPTH_DISPLAY_ORDER );
+            $process_key( Players\Property::KEY_CURRENT_TEAM );
+            $process_key( Players\Property::KEY_COLLEGE_DRAFT_TEAM );
+            $process_key( Players\Property::KEY_COLLEGE_DRAFT_YEAR );
+            $process_key( Players\Property::KEY_COLLEGE_DRAFT_ROUND );
+            $process_key( Players\Property::KEY_COLLEGE_DRAFT_PICK );
+            $process_key( Players\Property::KEY_IS_UNDRAFTED_FREE_AGENT );
+            $process_key( Players\Property::KEY_HEIGHT_FEET );
+            $process_key( Players\Property::KEY_HEIGHT_INCHES );
             $process_key( Players\Property::KEY_UPCOMING_OPPONENT_RANK );
-            $process_key( Players\Property::KEY_WEIGHT );
+            $process_key( Players\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
+            $process_key( Players\Property::KEY_CURRENT_STATUS );
+            $process_key( Players\Property::KEY_INJURY_STATUS );
+            $process_key( Players\Property::KEY_LATEST_NEWS );
+            $process_key( Players\Property::KEY_PLAYER_SEASON );
+            /**  new in V2 */
+            $process_key( Players\Property::KEY_UPCOMING_SALARY );
 
             if ( false == empty( $pPlayers[Players\Property::KEY_LATEST_NEWS]) )
             {
@@ -133,8 +135,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             {
                 $cloned_season = $pPlayers[Players\Property::KEY_PLAYER_SEASON];
 
-                /** we expect 116 keys */
-                $this->assertCount( 116, $cloned_season );
+                /** we expect 124 keys */
+                $this->assertCount( 124, $cloned_season );
 
                 $process_player_season = function ( $pSeasonKey ) use ( &$cloned_season )
                 {
@@ -142,6 +144,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                     unset( $cloned_season[$pSeasonKey] );
                 };
 
+                /** test all the keys */
                 $process_player_season( PlayerSeason\Property::KEY_ACTIVATED );
                 $process_player_season( PlayerSeason\Property::KEY_ASSISTED_TACKLES );
                 $process_player_season( PlayerSeason\Property::KEY_BLOCKED_KICK_RETURN_TOUCHDOWNS );
@@ -207,7 +210,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_player_season( PlayerSeason\Property::KEY_POSITION_CATEGORY );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_AVERAGE );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_INSIDE_20 );
-                $process_player_season( PlayerSeason\Property::KEY_PUNT_LOING );
+                $process_player_season( PlayerSeason\Property::KEY_PUNT_LONG );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_NET_AVERAGE );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_NET_YARDS );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_RETURN_FAIR_CATCHES );
@@ -258,6 +261,15 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                 $process_player_season( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RECEPTIONS );
                 $process_player_season( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RUNS );
                 $process_player_season( PlayerSeason\Property::KEY_WINDSPEED );
+                /** ADDED IN V2 */
+                $process_player_season( PlayerSeason\Property::KEY_OFFENSIVE_SNAPS_PLAYED );
+                $process_player_season( PlayerSeason\Property::KEY_DEFENSIVE_SNAPS_PLAYED );
+                $process_player_season( PlayerSeason\Property::KEY_SPECIAL_TEAMS_SNAPS_PLAYED );
+                $process_player_season( PlayerSeason\Property::KEY_OFFENSIVE_TEAM_SNAPS );
+                $process_player_season( PlayerSeason\Property::KEY_DEFENSIVE_TEAM_SNAPS );
+                $process_player_season( PlayerSeason\Property::KEY_SPECIAL_TEAMS_TEAM_SNAPS );
+                $process_player_season( PlayerSeason\Property::KEY_AUCTION_VALUE );
+                $process_player_season( PlayerSeason\Property::KEY_AUCTION_VALUE_PPR );
 
                 $this->assertEmpty( $cloned_season );
             }

@@ -43,8 +43,8 @@ class PlayerTest extends PHPUnit_Framework_TestCase
 
         $check_players = function ( $pPlayers )
         {
-            /** we expect 43 stats */
-            $this->assertCount( 43, $pPlayers );
+            /** we expect 44 stats */
+            $this->assertCount( 44, $pPlayers );
 
             $cloned_array = $pPlayers;
 
@@ -99,6 +99,7 @@ class PlayerTest extends PHPUnit_Framework_TestCase
             $process_key( Players\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
             $process_key( Players\Property::KEY_UPCOMING_OPPONENT_RANK );
             $process_key( Players\Property::KEY_WEIGHT );
+            $process_key( Players\Property::KEY_UPCOMING_SALARY );
 
             if ( false == empty( $pPlayers[Players\Property::KEY_LATEST_NEWS]) )
             {
@@ -133,8 +134,8 @@ class PlayerTest extends PHPUnit_Framework_TestCase
             {
                 $cloned_season = $pPlayers[Players\Property::KEY_PLAYER_SEASON];
 
-                /** we expect 116 keys */
-                $this->assertCount( 116, $cloned_season );
+                /** we expect 124 keys */
+                $this->assertCount( 124, $cloned_season );
 
                 $process_player_season = function ( $pSeasonKey ) use ( &$cloned_season )
                 {
@@ -207,7 +208,7 @@ class PlayerTest extends PHPUnit_Framework_TestCase
                 $process_player_season( PlayerSeason\Property::KEY_POSITION_CATEGORY );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_AVERAGE );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_INSIDE_20 );
-                $process_player_season( PlayerSeason\Property::KEY_PUNT_LOING );
+                $process_player_season( PlayerSeason\Property::KEY_PUNT_LONG );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_NET_AVERAGE );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_NET_YARDS );
                 $process_player_season( PlayerSeason\Property::KEY_PUNT_RETURN_FAIR_CATCHES );
@@ -258,6 +259,14 @@ class PlayerTest extends PHPUnit_Framework_TestCase
                 $process_player_season( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RECEPTIONS );
                 $process_player_season( PlayerSeason\Property::KEY_TWO_POINT_CONVERSION_RUNS );
                 $process_player_season( PlayerSeason\Property::KEY_WINDSPEED );
+                $process_player_season( PlayerSeason\Property::KEY_OFFENSIVE_SNAPS_PLAYED );
+                $process_player_season( PlayerSeason\Property::KEY_DEFENSIVE_SNAPS_PLAYED );
+                $process_player_season( PlayerSeason\Property::KEY_SPECIAL_TEAMS_SNAPS_PLAYED );
+                $process_player_season( PlayerSeason\Property::KEY_OFFENSIVE_TEAM_SNAPS );
+                $process_player_season( PlayerSeason\Property::KEY_DEFENSIVE_TEAM_SNAPS );
+                $process_player_season( PlayerSeason\Property::KEY_SPECIAL_TEAMS_TEAM_SNAPS );
+                $process_player_season( PlayerSeason\Property::KEY_AUCTION_VALUE );
+                $process_player_season( PlayerSeason\Property::KEY_AUCTION_VALUE_PPR );
 
                 $this->assertEmpty( $cloned_season );
             }
@@ -282,7 +291,7 @@ class PlayerTest extends PHPUnit_Framework_TestCase
      */
     public function testPlayerGronkInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->Player(['PlayerID' => '10974']);

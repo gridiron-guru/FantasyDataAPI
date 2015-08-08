@@ -17,8 +17,12 @@ class Mock extends Response
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" the resource */
-        list(, $subscription, $format, , $season) = explode( '/', $pRequest->getPath() );
+        /** url parsing "formula" the resource
+            http://api.nfldata.apiphany.com/nfl/v2/JSON/FantasyDefenseBySeason/2013REG
+         */
+        list(, , , $format, , $season) = explode( '/', $pRequest->getPath() );
+        /** hardcode subscription so we can keep using the old filenames*/
+        $subscription = 'developer';
 
         $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format, $season]);
 

@@ -12,7 +12,6 @@ use PHPUnit_Framework_TestCase;
 
 use FantasyDataAPI\Enum\Timeframes;
 use FantasyDataAPI\Test\DebugClient;
-use FantasyDataAPI\Enum\Subscription;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
 {
@@ -27,7 +26,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testCurrentTimeframeSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Timeframes\Type::KEY_CURRENT]);
@@ -74,13 +73,12 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testCompletedTimeframeSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Timeframes(['Type' => Timeframes\Type::KEY_COMPLETED]);
 
         $response = $client->mHistory->getLastResponse();
-
         $this->assertEquals('200', $response->getStatusCode());
 
         /** we only expect a single response from 'current' */
@@ -123,7 +121,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->Timeframes(['Type' => 'current']);

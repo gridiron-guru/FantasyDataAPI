@@ -17,9 +17,10 @@ class Mock extends Response
 
     public function __construct (RequestInterface $pRequest)
     {
-        /** url parsing "formula" */
-        list(, $subscription, $format) = explode( '/', $pRequest->getPath() );
-
+        /** url parsing "formula" based on path: /nfl/v2/xml/AreAnyGamesInProgress */
+        list(, , , $format) = explode( '/', $pRequest->getPath() );
+        /**  hard code the subscription so we keep the same filenames*/
+        $subscription = 'developer';
         $file_partial = __DIR__ . '/' . implode('.', [$subscription, $format]);
 
         $headers = include($file_partial . '.header.php');

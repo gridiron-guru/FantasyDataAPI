@@ -38,8 +38,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_injuries = function ( $pInjuries )
         {
-            /** we expect 15 stats */
-            $this->assertCount( 15, $pInjuries );
+            /** we expect 16 stats */
+            $this->assertCount( 16, $pInjuries );
 
             $cloned_array = $pInjuries;
 
@@ -66,7 +66,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerInjury\Property::KEY_TEAM );
             $process_key( PlayerInjury\Property::KEY_UPDATED );
             $process_key( PlayerInjury\Property::KEY_WEEK );
-
+            $process_key( PlayerInjury\Property::KEY_DECLARED_INACTIVE );
             $this->assertEmpty( $cloned_array );
         };
             
@@ -96,8 +96,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_injuries = function ( $pInjuries )
         {
-            /** we expect 15 stats */
-            $this->assertCount( 15, $pInjuries );
+            /** we expect 16 stats */
+            $this->assertCount( 16, $pInjuries );
 
             $cloned_array = $pInjuries;
 
@@ -124,6 +124,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
             $process_key( PlayerInjury\Property::KEY_TEAM );
             $process_key( PlayerInjury\Property::KEY_UPDATED );
             $process_key( PlayerInjury\Property::KEY_WEEK );
+            $process_key( PlayerInjury\Property::KEY_DECLARED_INACTIVE );
 
             $this->assertEmpty( $cloned_array );
         };
@@ -145,7 +146,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->Injuries(['Season' => '2013REG', 'Week' => '17']);

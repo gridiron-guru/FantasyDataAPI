@@ -10,7 +10,6 @@ namespace FantasyDataAPI\Test\Teams;
 
 use PHPUnit_Framework_TestCase;
 use FantasyDataAPI\Test\DebugClient;
-use FantasyDataAPI\Enum\Subscription;
 
 use FantasyDataAPI\Enum\Teams;
 use FantasyDataAPI\Enum\Stadium;
@@ -28,7 +27,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function test2014TeamsSuccessfulResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Teams(['Season' => '2014']);
@@ -42,8 +41,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_keys = function ( $pTeam )
         {
-            /** we expect 19 stats (woah!) */
-            $this->assertCount( 19, $pTeam );
+            /** we expect 22 stats */
+            $this->assertCount( 22, $pTeam );
 
             $cloned_array = $pTeam;
 
@@ -76,7 +75,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
                     $process_stadium( Stadium\Property::KEY_PLAYING_SURFACE );
                     $process_stadium( Stadium\Property::KEY_STADIUM_ID );
                     $process_stadium( Stadium\Property::KEY_STATE );
-                }
+                                   }
             };
 
             /** test all the keys */
@@ -103,6 +102,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
             /** ?? */
             $process_key( Teams\Property::KEY_PLAYER_ID );
+            $process_key( Teams\Property::KEY_UPCOMING_SALARY );
+            $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_RANK );
+            $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
 
             $this->assertEmpty( $cloned_array );
         };
@@ -122,7 +124,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function testActiveTeamResponse()
     {
-        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY'], Subscription::KEY_DEVELOPER);
+        $client = new DebugClient($_SERVER['FANTASY_DATA_API_KEY']);
 
         /** @var \GuzzleHttp\Command\Model $result */
         $result = $client->Teams([]);
@@ -136,8 +138,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
         $check_team_keys = function ( $pTeam )
         {
-            /** we expect 19 stats (woah!) */
-            $this->assertCount( 19, $pTeam );
+            /** we expect 22 stats */
+            $this->assertCount( 22, $pTeam );
 
             $cloned_array = $pTeam;
 
@@ -197,6 +199,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 
             /** ?? */
             $process_key( Teams\Property::KEY_PLAYER_ID );
+            $process_key( Teams\Property::KEY_UPCOMING_SALARY );
+            $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_RANK );
+            $process_key( Teams\Property::KEY_UPCOMING_OPPONENT_POSITION_RANK );
 
             $this->assertEmpty( $cloned_array );
         };
@@ -218,7 +223,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
      */
     public function test2014TeamsInvalidAPIKey()
     {
-        $client = new DebugClient('invalid_api_key', Subscription::KEY_DEVELOPER);
+        $client = new DebugClient('invalid_api_key');
 
         /** @var \GuzzleHttp\Command\Model $result */
         $client->Teams(['Season' => '2014']);

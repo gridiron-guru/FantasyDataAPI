@@ -30,11 +30,12 @@ class ResponseFactory
          * Getting the resource here allows me to use that as a path
          * element for creating a "MockResponse" object on the fly
          */
-        list(, , , $resource) = explode( '/', $request->getPath() );
+        list(, , , , $resource) = explode( '/', $request->getPath() );
 
         switch ( $resource )
         {
             case 'ActiveBoxScores':
+
                 $response = new ActiveBoxScores\Response\Mock( $request );
                 break;
 
@@ -52,6 +53,10 @@ class ResponseFactory
 
             case 'Byes':
                 $response = new Byes\Response\Mock( $request );
+                break;
+
+            case 'CurrentSeason':
+                $response = new CurrentSeason\Response\Mock( $request );
                 break;
 
             case 'FantasyDefenseByGame':
@@ -180,6 +185,10 @@ class ResponseFactory
 
             case 'Timeframes':
                 $response = new Timeframes\Response\Mock( $request );
+                break;
+
+            case 'UpcomingSeason':
+                $response = new UpcomingSeason\Response\Mock( $request );
                 break;
 
             default:

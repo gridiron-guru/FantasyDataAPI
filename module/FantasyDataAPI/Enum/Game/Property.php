@@ -14,7 +14,7 @@ class Property
     const KEY_AWAY_ASSISTED_TACKLES = 'AwayAssistedTackles';
     const KEY_AWAY_BLOCKED_KICK_RETURN_TOUCHDOWNS = 'AwayBlockedKickReturnTouchdowns';
     const KEY_AWAY_BLOCKED_KICK_RETURN_YARDS = 'AwayBlockedKickReturnYards';
-    const KEY_AWAY_AWAY_BLOCKED_KICKS = 'AwayBlockedKicks';
+    const KEY_AWAY_BLOCKED_KICKS = 'AwayBlockedKicks';
     const KEY_AWAY_COMPLETION_PERCENTAGE = 'AwayCompletionPercentage';
     const KEY_AWAY_EXTRA_POINT_KICKING_ATTEMPTS = 'AwayExtraPointKickingAttempts';
     const KEY_AWAY_EXTRA_POINT_KICKING_CONVERSIONS = 'AwayExtraPointKickingConversions';
@@ -115,7 +115,7 @@ class Property
     const KEY_HOME_ASSISTED_TACKLES = 'HomeAssistedTackles';
     const KEY_HOME_BLOCKED_KICK_RETURN_TOUCHDOWNS = 'HomeBlockedKickReturnTouchdowns';
     const KEY_HOME_BLOCKED_KICK_RETURN_YARDS = 'HomeBlockedKickReturnYards';
-    const KEY_HOME_HOME_BLOCKED_KICKS = 'HomeBlockedKicks';
+    const KEY_HOME_BLOCKED_KICKS = 'HomeBlockedKicks';
     const KEY_HOME_COMPLETION_PERCENTAGE = 'HomeCompletionPercentage';
     const KEY_HOME_EXTRA_POINT_KICKING_ATTEMPTS = 'HomeExtraPointKickingAttempts';
     const KEY_HOME_EXTRA_POINT_KICKING_CONVERSIONS = 'HomeExtraPointKickingConversions';
