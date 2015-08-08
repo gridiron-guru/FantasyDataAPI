@@ -115,7 +115,7 @@ class Property
     const KEY_HOME_ASSISTED_TACKLES = 'HomeAssistedTackles';
     const KEY_HOME_BLOCKED_KICK_RETURN_TOUCHDOWNS = 'HomeBlockedKickReturnTouchdowns';
     const KEY_HOME_BLOCKED_KICK_RETURN_YARDS = 'HomeBlockedKickReturnYards';
-    const KEY_HOME_HOME_BLOCKED_KICKS = 'HomeBlockedKicks';
+    const KEY_HOME_BLOCKED_KICKS = 'HomeBlockedKicks';
     const KEY_HOME_COMPLETION_PERCENTAGE = 'HomeCompletionPercentage';
     const KEY_HOME_EXTRA_POINT_KICKING_ATTEMPTS = 'HomeExtraPointKickingAttempts';
     const KEY_HOME_EXTRA_POINT_KICKING_CONVERSIONS = 'HomeExtraPointKickingConversions';
