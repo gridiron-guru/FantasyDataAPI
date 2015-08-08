@@ -226,7 +226,7 @@ class GameStatsByWeekTest extends PHPUnit_Framework_TestCase
             $process_key( GameStatsByWeek\Property::KEY_AWAY_FUMBLE_RETURN_YARDS );
             $process_key( GameStatsByWeek\Property::KEY_AWAY_FUMBLE_RETURN_TOUCHDOWNS );
             $process_key( GameStatsByWeek\Property::KEY_AWAY_INTERCEPTION_RETURN_TOUCHDOWNS );
-            $process_key( GameStatsByWeek\Property::KEY_AWAY_AWAY_BLOCKED_KICKS );
+            $process_key( GameStatsByWeek\Property::KEY_AWAY_BLOCKED_KICKS );
             $process_key( GameStatsByWeek\Property::KEY_AWAY_PUNT_RETURN_TOUCHDOWNS );
             $process_key( GameStatsByWeek\Property::KEY_AWAY_PUNT_RETURN_LONG );
             $process_key( GameStatsByWeek\Property::KEY_AWAY_KICK_RETURN_TOUCHDOWNS );

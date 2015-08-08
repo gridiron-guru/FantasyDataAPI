@@ -185,7 +185,7 @@ class Property
     const KEY_AWAY_FUMBLE_RETURN_YARDS = 'AwayFumbleReturnYards';
     const KEY_AWAY_FUMBLE_RETURN_TOUCHDOWNS = 'AwayFumbleReturnTouchdowns';
     const KEY_AWAY_INTERCEPTION_RETURN_TOUCHDOWNS = 'AwayInterceptionReturnTouchdowns';
-    const KEY_AWAY_AWAY_BLOCKED_KICKS = 'AwayBlockedKicks';
+    const KEY_AWAY_BLOCKED_KICKS = 'AwayBlockedKicks';
     const KEY_AWAY_PUNT_RETURN_TOUCHDOWNS = 'AwayPuntReturnTouchdowns';
     const KEY_AWAY_PUNT_RETURN_LONG = 'AwayPuntReturnLong';
     const KEY_AWAY_KICK_RETURN_TOUCHDOWNS = 'AwayKickReturnTouchdowns';

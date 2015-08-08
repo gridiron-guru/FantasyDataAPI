@@ -55,7 +55,7 @@ class GameStatsBySeasonTest extends PHPUnit_Framework_TestCase
             $process_key( GameStatsBySeason\Property::KEY_AWAY_ASSISTED_TACKLES );
             $process_key( GameStatsBySeason\Property::KEY_AWAY_BLOCKED_KICK_RETURN_TOUCHDOWNS );
             $process_key( GameStatsBySeason\Property::KEY_AWAY_BLOCKED_KICK_RETURN_YARDS );
-            $process_key( GameStatsBySeason\Property::KEY_AWAY_AWAY_BLOCKED_KICKS );
+            $process_key( GameStatsBySeason\Property::KEY_AWAY_BLOCKED_KICKS );
             $process_key( GameStatsBySeason\Property::KEY_AWAY_COMPLETION_PERCENTAGE );
             $process_key( GameStatsBySeason\Property::KEY_AWAY_EXTRA_POINT_KICKING_ATTEMPTS );
             $process_key( GameStatsBySeason\Property::KEY_AWAY_EXTRA_POINT_KICKING_CONVERSIONS );
