@@ -1,8 +1,8 @@
-# FantasyDataAPI PHP Client wrapper
-[![Build Status](https://api.travis-ci.org/gridiron-guru/FantasyDataAPI.png)](http://travis-ci.org/gridiron-guru/FantasyDataAPI)
-
 # Deprecated.
 Hey folks, we're sorry to say the project has been deprecated. You're welcome to try and get it working, but we've not updated the proejct in some time so the API has likely moved on beyond the code that is here. That being said, the skeleton should still work if you decide to fork the repo and update it to the latest version of the API.
+
+# FantasyDataAPI PHP Client wrapper
+[![Build Status](https://api.travis-ci.org/gridiron-guru/FantasyDataAPI.png)](http://travis-ci.org/gridiron-guru/FantasyDataAPI)
 
 PHP Client Wrapper for FantasyData, a Real time fantasy football data API providing feeds for your website
 or mobile app. Since our organization needed to build a client wrapper for the service so that we could use
